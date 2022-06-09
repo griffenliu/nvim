@@ -1,23 +1,18 @@
-local themes = {{
-    "folke/tokyonight.nvim",
-    name = "tokyonight"
-}, {
-    "mhartington/oceanic-next",
-    name = "OceanicNext"
-}, {
+local themes = { tokyonight = {
+    "folke/tokyonight.nvim"
+}, OceanicNext = {
+    "mhartington/oceanic-next"
+}, gruvbox = {
     "ellisonleao/gruvbox.nvim",
-    name = "gruvbox",
-    requires = {"rktjmp/lush.nvim"}
-}, {
-    "shaunsingh/nord.nvim",
-    name = "nord"
-}, {
-    "ful1e5/onedark.nvim",
-    name = "onedark"
-}, {
-    "EdenEast/nightfox.nvim",
-    name = "nightfox"
-}}
+    requires = { "rktjmp/lush.nvim" }
+}, nord = {
+    "shaunsingh/nord.nvim"
+}, onedark = {
+    "ful1e5/onedark.nvim"
+}, nightfox = {
+    "EdenEast/nightfox.nvim"
+} }
+
 return themes
 -- _G.PLUGINS.insert({
 --     "folke/tokyonight.nvim",

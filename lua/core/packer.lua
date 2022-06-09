@@ -19,29 +19,15 @@ local function startup(callback)
     packer.init(M.options)
     -- 启动packer
     packer.startup(function(use)
-        -- Packer管理自己  
+        -- Packer管理自己
         use('wbthomason/packer.nvim')
         -- 主题插件
-        for _, p in ipairs(themes) do
-            if p.config and type(p.config) == "function" then
-                vim.notify("!!!!!!!!!!!!!!!!!!!!")
-                local o_config = p.config
-                p.config = function()
-                    o_config()
-                    keymaps.bind(p.name)
-                end
-            end
+        for _, p in pairs(themes) do
             use(p)
         end
+
         -- 其他插件
-        for _, p in ipairs(plugins) do
-            if p.config and type(p.config) == "function" then
-                local o_config = p.config
-                p.config = function()
-                    o_config()
-                    keymaps.bind(p.name)
-                end
-            end
+        for _, p in pairs(plugins) do
             use(p)
         end
 
@@ -49,11 +35,11 @@ local function startup(callback)
 
     -- 每次保存 plugins.lua 自动安装插件
     pcall(vim.cmd, [[
-     augroup packer_user_config
-     autocmd!
-     autocmd BufWritePost plugins.lua source <afile> | PackerSync
-     augroup end
-   ]])
+        augroup packer_user_config
+        autocmd!
+        autocmd BufWritePost plugins.lua source <afile> | PackerSync
+        augroup end
+    ]])
 end
 
 M.options = {
@@ -69,11 +55,11 @@ M.options = {
         -- default_url_format = "https://gitclone.com/github.com/%s",
     },
     display = {
-        working_sym = " ﲊ",
-        error_sym = "✗ ",
-        done_sym = " ",
-        removed_sym = " ",
-        moved_sym = "",
+        -- working_sym = " ﲊ",
+        -- error_sym = "✗ ",
+        -- done_sym = " ",
+        -- removed_sym = " ",
+        -- moved_sym = "",
         open_fn = function()
             return require("packer.util").float {
                 border = "single"
@@ -93,14 +79,14 @@ M.bootstrap = function()
     if fn.empty(fn.glob(install_path)) > 0 then
         print "Cloning packer ..."
 
-        fn.system {"git", "clone", "--depth", "1", "https://github.com/wbthomason/packer.nvim", install_path}
+        fn.system { "git", "clone", "--depth", "1", "https://github.com/wbthomason/packer.nvim", install_path }
         -- vim.fn.execute('!git clone --depth 1 https://github.com/wbthomason/packer.nvim ' .. install_path)
         -- install plugins + compile their configs
         vim.cmd "packadd packer.nvim"
     end
     startup()
     -- execute sync...
-    vim.cmd "PackerSync"
+    -- vim.cmd "PackerSync"
 end
 
 M.is_finished = function()

@@ -5,73 +5,70 @@ if not status then
     vim.notify(plugin_name .. " not found!")
     return
 end
-vim.pretty_print("nvim-tree 1========================================")
 local keymaps = require("core.keymaps")
-keymaps.add_plugin_key(plugin_name, "n", "<A-m>", ":NvimTreeToggle<CR>", "Alt + m 打开或关闭文件树")
-
-keymaps.add_plugin_local_key(plugin_name, {
-    key = {"<CR>", "o", "<2-LeftMouse>"},
+keymaps.set(plugin_name, "n", "<A-m>", ":NvimTreeToggle<CR>", "Alt + m 打开或关闭文件树")
+keymaps.set_local(plugin_name, {
+    key = { "<CR>", "o", "<2-LeftMouse>" },
     action = "edit",
     desc = "打开文件或文件夹"
 })
-keymaps.add_plugin_local_key(plugin_name, {
+keymaps.set_local(plugin_name, {
     key = "v",
     action = "vsplit",
     desc = "垂直分屏并打开文件"
 })
-keymaps.add_plugin_local_key(plugin_name, {
+keymaps.set_local(plugin_name, {
     key = "h",
     action = "split",
     desc = "水平分屏并打开文件"
 })
-keymaps.add_plugin_local_key(plugin_name, {
+keymaps.set_local(plugin_name, {
     key = "i",
     action = "toggle_custom",
     desc = "显示屏蔽的文件和文件夹"
 })
-keymaps.add_plugin_local_key(plugin_name, {
+keymaps.set_local(plugin_name, {
     key = "<F5>",
     action = "refresh",
     desc = "刷新"
 })
-keymaps.add_plugin_local_key(plugin_name, {
+keymaps.set_local(plugin_name, {
     key = ".",
     action = "toggle_dotfiles",
     desc = "隐藏文件"
 })
-keymaps.add_plugin_local_key(plugin_name, {
+keymaps.set_local(plugin_name, {
     key = "d",
     action = "remove",
     desc = "删除文件"
 })
-keymaps.add_plugin_local_key(plugin_name, {
+keymaps.set_local(plugin_name, {
     key = "r",
     action = "rename",
     desc = "重命名文件"
 })
-keymaps.add_plugin_local_key(plugin_name, {
+keymaps.set_local(plugin_name, {
     key = "x",
     action = "cut",
     desc = "剪切文件"
 })
-keymaps.add_plugin_local_key(plugin_name, {
+keymaps.set_local(plugin_name, {
     key = "c",
     action = "copy",
     desc = "复制文件"
 })
-keymaps.add_plugin_local_key(plugin_name, {
+keymaps.set_local(plugin_name, {
     key = "p",
     action = "paste",
     desc = "粘贴文件"
 })
-keymaps.add_plugin_local_key(plugin_name, {
+keymaps.set_local(plugin_name, {
     key = "s",
     action = "system_open",
     desc = "使用系统打开"
 })
-vim.pretty_print("nvim-tree 2========================================")
-local local_mappings = keymaps.get_plugin_local_keys(plugin_name)
-
+keymaps.bind(plugin_name)
+local local_mappings = keymaps.get_local_keys(plugin_name)
 nvim_tree.setup({
     -- 不显示 git 状态图标
     git = {
@@ -86,7 +83,7 @@ nvim_tree.setup({
     -- 隐藏 .文件 和 node_modules 文件夹
     filters = {
         dotfiles = true,
-        custom = {'node_modules'}
+        custom = { 'node_modules' }
     },
     view = {
         -- 宽度
