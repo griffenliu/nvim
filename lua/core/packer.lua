@@ -1,3 +1,5 @@
+local keymaps = require("core.keymaps")
+
 local M = {}
 
 local function startup(callback)
@@ -6,14 +8,12 @@ local function startup(callback)
     if not present then
         return
     end
-    --  -- 加载主题
-    --  local themes = require("themes")
-    --  themes = themes or {}
-    --  -- 加载插件
-    --  local plugins = require("plugins")
-    --  plugins = plugins or {}
-    require("themes")
-    require("plugins")
+    -- 加载主题
+    local themes = require("themes")
+    themes = themes or {}
+    -- 加载插件
+    local plugins = require("plugins")
+    plugins = plugins or {}
 
     -- 初始化packer
     packer.init(M.options)
@@ -22,13 +22,28 @@ local function startup(callback)
         -- Packer管理自己  
         use('wbthomason/packer.nvim')
         -- 主题插件
-        for _, v in pairs(_G.PLUGINS.data) do
-            use(v)
+        for _, p in ipairs(themes) do
+            if p.config and type(p.config) == "function" then
+                vim.notify("!!!!!!!!!!!!!!!!!!!!")
+                local o_config = p.config
+                p.config = function()
+                    o_config()
+                    keymaps.bind(p.name)
+                end
+            end
+            use(p)
         end
-        --   -- 其他插件
-        --   for _, v in pairs(plugins) do
-        --       use(v)
-        --   end
+        -- 其他插件
+        for _, p in ipairs(plugins) do
+            if p.config and type(p.config) == "function" then
+                local o_config = p.config
+                p.config = function()
+                    o_config()
+                    keymaps.bind(p.name)
+                end
+            end
+            use(p)
+        end
 
     end)
 

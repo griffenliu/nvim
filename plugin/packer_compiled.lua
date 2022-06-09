@@ -70,7 +70,6 @@ time([[try_loadstring definition]], false)
 time([[Defining packer_plugins]], true)
 _G.packer_plugins = {
   ["gruvbox.nvim"] = {
-    config = { "\27LJ\2\ni\0\0\3\1\6\0\0146\0\0\0009\0\1\0-\2\0\0B\0\2\0016\0\2\0009\0\3\0-\1\0\0009\1\4\1+\2\0\0<\2\1\0-\0\0\0+\1\2\0=\1\5\0K\0\1\0\0À\vloaded\tname\fPLUGINS\a_G\17pretty_print\bvim\0" },
     loaded = true,
     path = "D:\\softs\\Neovim\\nvim0.7\\config\\nvim-data\\site\\pack\\packer\\start\\gruvbox.nvim",
     url = "https://github.com/ellisonleao/gruvbox.nvim"
@@ -81,19 +80,17 @@ _G.packer_plugins = {
     url = "https://github.com/rktjmp/lush.nvim"
   },
   ["nightfox.nvim"] = {
-    config = { "\27LJ\2\ni\0\0\3\1\6\0\0146\0\0\0009\0\1\0-\2\0\0B\0\2\0016\0\2\0009\0\3\0-\1\0\0009\1\4\1+\2\0\0<\2\1\0-\0\0\0+\1\2\0=\1\5\0K\0\1\0\0À\vloaded\tname\fPLUGINS\a_G\17pretty_print\bvim\0" },
     loaded = true,
     path = "D:\\softs\\Neovim\\nvim0.7\\config\\nvim-data\\site\\pack\\packer\\start\\nightfox.nvim",
     url = "https://github.com/EdenEast/nightfox.nvim"
   },
   ["nord.nvim"] = {
-    config = { "\27LJ\2\ni\0\0\3\1\6\0\0146\0\0\0009\0\1\0-\2\0\0B\0\2\0016\0\2\0009\0\3\0-\1\0\0009\1\4\1+\2\0\0<\2\1\0-\0\0\0+\1\2\0=\1\5\0K\0\1\0\0À\vloaded\tname\fPLUGINS\a_G\17pretty_print\bvim\0" },
     loaded = true,
     path = "D:\\softs\\Neovim\\nvim0.7\\config\\nvim-data\\site\\pack\\packer\\start\\nord.nvim",
     url = "https://github.com/shaunsingh/nord.nvim"
   },
   ["nvim-tree.lua"] = {
-    config = { "\27LJ\2\ni\0\0\3\1\6\0\0146\0\0\0009\0\1\0-\2\0\0B\0\2\0016\0\2\0009\0\3\0-\1\0\0009\1\4\1+\2\0\0<\2\1\0-\0\0\0009\0\5\0B\0\1\1K\0\1\0\0À\vconfig\tname\fPLUGINS\a_G\17pretty_print\bvim\0" },
+    config = { "\27LJ\2\n7\0\0\3\3\2\0\b-\0\0\0B\0\1\1-\0\1\0009\0\0\0-\2\2\0009\2\1\2B\0\2\1K\0\1\0\6À\1\0\5À\tname\tbind\0" },
     loaded = true,
     path = "D:\\softs\\Neovim\\nvim0.7\\config\\nvim-data\\site\\pack\\packer\\start\\nvim-tree.lua",
     url = "https://github.com/kyazdani42/nvim-tree.lua"
@@ -104,13 +101,11 @@ _G.packer_plugins = {
     url = "https://github.com/kyazdani42/nvim-web-devicons"
   },
   ["oceanic-next"] = {
-    config = { "\27LJ\2\ni\0\0\3\1\6\0\0146\0\0\0009\0\1\0-\2\0\0B\0\2\0016\0\2\0009\0\3\0-\1\0\0009\1\4\1+\2\0\0<\2\1\0-\0\0\0+\1\2\0=\1\5\0K\0\1\0\0À\vloaded\tname\fPLUGINS\a_G\17pretty_print\bvim\0" },
     loaded = true,
     path = "D:\\softs\\Neovim\\nvim0.7\\config\\nvim-data\\site\\pack\\packer\\start\\oceanic-next",
     url = "https://github.com/mhartington/oceanic-next"
   },
   ["onedark.nvim"] = {
-    config = { "\27LJ\2\ni\0\0\3\1\6\0\0146\0\0\0009\0\1\0-\2\0\0B\0\2\0016\0\2\0009\0\3\0-\1\0\0009\1\4\1+\2\0\0<\2\1\0-\0\0\0+\1\2\0=\1\5\0K\0\1\0\0À\vloaded\tname\fPLUGINS\a_G\17pretty_print\bvim\0" },
     loaded = true,
     path = "D:\\softs\\Neovim\\nvim0.7\\config\\nvim-data\\site\\pack\\packer\\start\\onedark.nvim",
     url = "https://github.com/ful1e5/onedark.nvim"
@@ -121,7 +116,6 @@ _G.packer_plugins = {
     url = "https://github.com/wbthomason/packer.nvim"
   },
   ["tokyonight.nvim"] = {
-    config = { "\27LJ\2\ni\0\0\3\1\6\0\0146\0\0\0009\0\1\0-\2\0\0B\0\2\0016\0\2\0009\0\3\0-\1\0\0009\1\4\1+\2\0\0<\2\1\0-\0\0\0+\1\2\0=\1\5\0K\0\1\0\0À\vloaded\tname\fPLUGINS\a_G\17pretty_print\bvim\0" },
     loaded = true,
     path = "D:\\softs\\Neovim\\nvim0.7\\config\\nvim-data\\site\\pack\\packer\\start\\tokyonight.nvim",
     url = "https://github.com/folke/tokyonight.nvim"
@@ -129,33 +123,9 @@ _G.packer_plugins = {
 }
 
 time([[Defining packer_plugins]], false)
--- Config for: gruvbox.nvim
-time([[Config for gruvbox.nvim]], true)
-try_loadstring("\27LJ\2\ni\0\0\3\1\6\0\0146\0\0\0009\0\1\0-\2\0\0B\0\2\0016\0\2\0009\0\3\0-\1\0\0009\1\4\1+\2\0\0<\2\1\0-\0\0\0+\1\2\0=\1\5\0K\0\1\0\0À\vloaded\tname\fPLUGINS\a_G\17pretty_print\bvim\0", "config", "gruvbox.nvim")
-time([[Config for gruvbox.nvim]], false)
--- Config for: oceanic-next
-time([[Config for oceanic-next]], true)
-try_loadstring("\27LJ\2\ni\0\0\3\1\6\0\0146\0\0\0009\0\1\0-\2\0\0B\0\2\0016\0\2\0009\0\3\0-\1\0\0009\1\4\1+\2\0\0<\2\1\0-\0\0\0+\1\2\0=\1\5\0K\0\1\0\0À\vloaded\tname\fPLUGINS\a_G\17pretty_print\bvim\0", "config", "oceanic-next")
-time([[Config for oceanic-next]], false)
--- Config for: nightfox.nvim
-time([[Config for nightfox.nvim]], true)
-try_loadstring("\27LJ\2\ni\0\0\3\1\6\0\0146\0\0\0009\0\1\0-\2\0\0B\0\2\0016\0\2\0009\0\3\0-\1\0\0009\1\4\1+\2\0\0<\2\1\0-\0\0\0+\1\2\0=\1\5\0K\0\1\0\0À\vloaded\tname\fPLUGINS\a_G\17pretty_print\bvim\0", "config", "nightfox.nvim")
-time([[Config for nightfox.nvim]], false)
--- Config for: tokyonight.nvim
-time([[Config for tokyonight.nvim]], true)
-try_loadstring("\27LJ\2\ni\0\0\3\1\6\0\0146\0\0\0009\0\1\0-\2\0\0B\0\2\0016\0\2\0009\0\3\0-\1\0\0009\1\4\1+\2\0\0<\2\1\0-\0\0\0+\1\2\0=\1\5\0K\0\1\0\0À\vloaded\tname\fPLUGINS\a_G\17pretty_print\bvim\0", "config", "tokyonight.nvim")
-time([[Config for tokyonight.nvim]], false)
--- Config for: nord.nvim
-time([[Config for nord.nvim]], true)
-try_loadstring("\27LJ\2\ni\0\0\3\1\6\0\0146\0\0\0009\0\1\0-\2\0\0B\0\2\0016\0\2\0009\0\3\0-\1\0\0009\1\4\1+\2\0\0<\2\1\0-\0\0\0+\1\2\0=\1\5\0K\0\1\0\0À\vloaded\tname\fPLUGINS\a_G\17pretty_print\bvim\0", "config", "nord.nvim")
-time([[Config for nord.nvim]], false)
--- Config for: onedark.nvim
-time([[Config for onedark.nvim]], true)
-try_loadstring("\27LJ\2\ni\0\0\3\1\6\0\0146\0\0\0009\0\1\0-\2\0\0B\0\2\0016\0\2\0009\0\3\0-\1\0\0009\1\4\1+\2\0\0<\2\1\0-\0\0\0+\1\2\0=\1\5\0K\0\1\0\0À\vloaded\tname\fPLUGINS\a_G\17pretty_print\bvim\0", "config", "onedark.nvim")
-time([[Config for onedark.nvim]], false)
 -- Config for: nvim-tree.lua
 time([[Config for nvim-tree.lua]], true)
-try_loadstring("\27LJ\2\ni\0\0\3\1\6\0\0146\0\0\0009\0\1\0-\2\0\0B\0\2\0016\0\2\0009\0\3\0-\1\0\0009\1\4\1+\2\0\0<\2\1\0-\0\0\0009\0\5\0B\0\1\1K\0\1\0\0À\vconfig\tname\fPLUGINS\a_G\17pretty_print\bvim\0", "config", "nvim-tree.lua")
+try_loadstring("\27LJ\2\n7\0\0\3\3\2\0\b-\0\0\0B\0\1\1-\0\1\0009\0\0\0-\2\2\0009\2\1\2B\0\2\1K\0\1\0\6À\1\0\5À\tname\tbind\0", "config", "nvim-tree.lua")
 time([[Config for nvim-tree.lua]], false)
 if should_profile then save_profiles() end
 
