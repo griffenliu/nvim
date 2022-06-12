@@ -10,14 +10,14 @@ local keymaps = require("core.keymaps")
 
 -- bufferline
 -- 左右Tab切换
-keymaps.set(plugin_name, "n", "<A-h>", ":BufferLineCyclePrev<CR>", "向左切换Tab")
-keymaps.set(plugin_name, "n", "<C-l>", ":BufferLineCycleNext<CR>", "向右切换Tab")
+keymaps.set(plugin_name, "n", "<A-Tab>", ":BufferLineCyclePrev<CR>", "[页签] 向左切换Bufferline")
+keymaps.set(plugin_name, "n", "<C-Tab>", ":BufferLineCycleNext<CR>", "[页签] 向右切换Bufferline")
 -- 关闭
 --"moll/vim-bbye"
-keymaps.set(plugin_name, "n", "<C-w>", ":Bdelete!<CR>", "关闭Tab")
-keymaps.set(plugin_name, "n", "<leader>bl", ":BufferLineCloseRight<CR>", "关闭右侧Tab")
-keymaps.set(plugin_name, "n", "<leader>bh", ":BufferLineCloseLeft<CR>", "关闭左侧Tab")
-keymaps.set(plugin_name, "n", "<leader>bc", ":BufferLinePickClose<CR>", "关闭当前Tab")
+keymaps.set(plugin_name, "n", "<leader>bd", ":Bdelete!<CR>", "[页签] 关闭Bufferline")
+keymaps.set(plugin_name, "n", "<leader>bl", ":BufferLineCloseRight<CR>", "[页签] 关闭右侧Bufferline")
+keymaps.set(plugin_name, "n", "<leader>bh", ":BufferLineCloseLeft<CR>", "[页签] 关闭左侧Bufferline")
+keymaps.set(plugin_name, "n", "<leader>bc", ":BufferLinePickClose<CR>", "[页签] 关闭当前Bufferline")
 keymaps.bind(plugin_name)
 -- bufferline 配置
 -- https://github.com/akinsho/bufferline.nvim#configuration

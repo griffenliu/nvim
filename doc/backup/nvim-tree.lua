@@ -6,68 +6,19 @@ if not status then
     return
 end
 local keymaps = require("core.keymaps")
-keymaps.set(plugin_name, "n", "<A-m>", ":NvimTreeToggle<CR>", "Alt + m 打开或关闭文件树")
+keymaps.set(plugin_name, "n", "<leader>ft", "<cmd> NvimTreeToggle <CR>", "[文件树] 打开或关闭文件树")
+
+-- 默认的快捷键就很好，可以使用 g? 查看
 keymaps.set_local(plugin_name, {
-    key = { "<CR>", "o", "<2-LeftMouse>" },
-    action = "edit",
-    desc = "打开文件或文件夹"
-})
-keymaps.set_local(plugin_name, {
-    key = "v",
-    action = "vsplit",
-    desc = "垂直分屏并打开文件"
-})
-keymaps.set_local(plugin_name, {
-    key = "h",
-    action = "split",
-    desc = "水平分屏并打开文件"
-})
-keymaps.set_local(plugin_name, {
-    key = "i",
-    action = "toggle_custom",
-    desc = "显示屏蔽的文件和文件夹"
-})
-keymaps.set_local(plugin_name, {
-    key = "<F5>",
-    action = "refresh",
-    desc = "刷新"
-})
-keymaps.set_local(plugin_name, {
-    key = ".",
-    action = "toggle_dotfiles",
-    desc = "隐藏文件"
-})
-keymaps.set_local(plugin_name, {
-    key = "d",
-    action = "remove",
-    desc = "删除文件"
-})
-keymaps.set_local(plugin_name, {
-    key = "r",
-    action = "rename",
-    desc = "重命名文件"
-})
-keymaps.set_local(plugin_name, {
-    key = "x",
-    action = "cut",
-    desc = "剪切文件"
-})
-keymaps.set_local(plugin_name, {
-    key = "c",
-    action = "copy",
-    desc = "复制文件"
-})
-keymaps.set_local(plugin_name, {
-    key = "p",
-    action = "paste",
-    desc = "粘贴文件"
-})
-keymaps.set_local(plugin_name, {
-    key = "s",
-    action = "system_open",
-    desc = "使用系统打开"
+    key = "#",
+    action = "print_path",
+    action_cb = function(node)
+        print(node.absolute_path)
+    end,
+    desc = "使用资源管理器打开"
 })
 keymaps.bind(plugin_name)
+
 local local_mappings = keymaps.get_local_keys(plugin_name)
 nvim_tree.setup({
     -- 不显示 git 状态图标

@@ -70,21 +70,59 @@ time([[try_loadstring definition]], false)
 time([[Defining packer_plugins]], true)
 _G.packer_plugins = {
   ["alpha-nvim"] = {
-    config = { "\27LJ\2\na\0\0\5\0\5\0\n6\0\0\0'\2\1\0B\0\2\0029\0\2\0006\2\0\0'\4\3\0B\2\2\0029\2\4\2B\0\2\1K\0\1\0\vconfig\27alpha.themes.dashboard\nsetup\nalpha\frequire\0" },
+    config = { "\27LJ\2\nL\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\2\18\2\0\0009\0\2\0B\0\2\1K\0\1\0\vconfig\30plugins.configs.dashboard\frequire\0" },
+    load_after = {},
     loaded = true,
-    path = "D:\\software\\nvim-win64\\config\\nvim-data\\site\\pack\\packer\\start\\alpha-nvim",
+    needs_bufread = false,
+    path = "D:\\software\\nvim-win64\\config\\nvim-data\\site\\pack\\packer\\opt\\alpha-nvim",
     url = "https://github.com/goolord/alpha-nvim"
   },
-  ["bufferline.nvim"] = {
-    config = { "\27LJ\2\n:\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\31plugins.configs.bufferline\frequire\0" },
+  ["cmp-buffer"] = {
     loaded = true,
-    path = "D:\\software\\nvim-win64\\config\\nvim-data\\site\\pack\\packer\\start\\bufferline.nvim",
-    url = "https://github.com/akinsho/bufferline.nvim"
+    path = "D:\\software\\nvim-win64\\config\\nvim-data\\site\\pack\\packer\\start\\cmp-buffer",
+    url = "https://github.com/hrsh7th/cmp-buffer"
   },
-  ["gruvbox.nvim"] = {
+  ["cmp-cmdline"] = {
     loaded = true,
-    path = "D:\\software\\nvim-win64\\config\\nvim-data\\site\\pack\\packer\\start\\gruvbox.nvim",
-    url = "https://github.com/ellisonleao/gruvbox.nvim"
+    path = "D:\\software\\nvim-win64\\config\\nvim-data\\site\\pack\\packer\\start\\cmp-cmdline",
+    url = "https://github.com/hrsh7th/cmp-cmdline"
+  },
+  ["cmp-nvim-lsp"] = {
+    loaded = true,
+    path = "D:\\software\\nvim-win64\\config\\nvim-data\\site\\pack\\packer\\start\\cmp-nvim-lsp",
+    url = "https://github.com/hrsh7th/cmp-nvim-lsp"
+  },
+  ["cmp-path"] = {
+    loaded = true,
+    path = "D:\\software\\nvim-win64\\config\\nvim-data\\site\\pack\\packer\\start\\cmp-path",
+    url = "https://github.com/hrsh7th/cmp-path"
+  },
+  ["cmp-vsnip"] = {
+    loaded = true,
+    path = "D:\\software\\nvim-win64\\config\\nvim-data\\site\\pack\\packer\\start\\cmp-vsnip",
+    url = "https://github.com/hrsh7th/cmp-vsnip"
+  },
+  ["friendly-snippets"] = {
+    loaded = true,
+    path = "D:\\software\\nvim-win64\\config\\nvim-data\\site\\pack\\packer\\start\\friendly-snippets",
+    url = "https://github.com/rafamadriz/friendly-snippets"
+  },
+  ["indent-blankline.nvim"] = {
+    config = { "\27LJ\2\nP\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\2\18\2\0\0009\0\2\0B\0\2\1K\0\1\0\vconfig\"plugins.configs.ui_code_scope\frequire\0" },
+    load_after = {},
+    loaded = true,
+    needs_bufread = false,
+    path = "D:\\software\\nvim-win64\\config\\nvim-data\\site\\pack\\packer\\opt\\indent-blankline.nvim",
+    url = "https://github.com/lukas-reineke/indent-blankline.nvim"
+  },
+  ["lspkind-nvim"] = {
+    after = { "nvim-cmp" },
+    config = { "\27LJ\2\nA\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\2\18\2\0\0009\0\2\0B\0\2\1K\0\1\0\vconfig\19lsp.configs.ui\frequire\0" },
+    load_after = {},
+    loaded = true,
+    needs_bufread = false,
+    path = "D:\\software\\nvim-win64\\config\\nvim-data\\site\\pack\\packer\\opt\\lspkind-nvim",
+    url = "https://github.com/onsails/lspkind-nvim"
   },
   ["lualine-lsp-progress"] = {
     loaded = true,
@@ -92,46 +130,76 @@ _G.packer_plugins = {
     url = "https://github.com/arkav/lualine-lsp-progress"
   },
   ["lualine.nvim"] = {
-    config = { "\27LJ\2\n7\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\28plugins.configs.lualine\frequire\0" },
+    config = { "\27LJ\2\nO\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\2\18\2\0\0009\0\2\0B\0\2\1K\0\1\0\vconfig!plugins.configs.ui_statusbar\frequire\0" },
+    load_after = {},
     loaded = true,
-    path = "D:\\software\\nvim-win64\\config\\nvim-data\\site\\pack\\packer\\start\\lualine.nvim",
+    needs_bufread = false,
+    path = "D:\\software\\nvim-win64\\config\\nvim-data\\site\\pack\\packer\\opt\\lualine.nvim",
     url = "https://github.com/nvim-lualine/lualine.nvim"
   },
-  ["lush.nvim"] = {
-    loaded = true,
-    path = "D:\\software\\nvim-win64\\config\\nvim-data\\site\\pack\\packer\\start\\lush.nvim",
-    url = "https://github.com/rktjmp/lush.nvim"
-  },
   ["nightfox.nvim"] = {
+    config = { "\27LJ\2\nJ\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\2\18\2\0\0009\0\2\0B\0\2\1K\0\1\0\vconfig\28themes.configs.nightfox\frequire\0" },
+    load_after = {},
     loaded = true,
-    path = "D:\\software\\nvim-win64\\config\\nvim-data\\site\\pack\\packer\\start\\nightfox.nvim",
+    needs_bufread = false,
+    path = "D:\\software\\nvim-win64\\config\\nvim-data\\site\\pack\\packer\\opt\\nightfox.nvim",
     url = "https://github.com/EdenEast/nightfox.nvim"
   },
-  ["nord.nvim"] = {
+  ["nvim-autopairs"] = {
+    config = { "\27LJ\2\nO\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\2\18\2\0\0009\0\2\0B\0\2\1K\0\1\0\vconfig!plugins.configs.ui_autopairs\frequire\0" },
+    load_after = {},
     loaded = true,
-    path = "D:\\software\\nvim-win64\\config\\nvim-data\\site\\pack\\packer\\start\\nord.nvim",
-    url = "https://github.com/shaunsingh/nord.nvim"
+    needs_bufread = false,
+    path = "D:\\software\\nvim-win64\\config\\nvim-data\\site\\pack\\packer\\opt\\nvim-autopairs",
+    url = "https://github.com/windwp/nvim-autopairs"
+  },
+  ["nvim-cmp"] = {
+    config = { "\27LJ\2\nB\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\2\18\2\0\0009\0\2\0B\0\2\1K\0\1\0\vconfig\20lsp.configs.cmp\frequire\0" },
+    load_after = {},
+    loaded = true,
+    needs_bufread = false,
+    path = "D:\\software\\nvim-win64\\config\\nvim-data\\site\\pack\\packer\\opt\\nvim-cmp",
+    url = "https://github.com/hrsh7th/nvim-cmp"
+  },
+  ["nvim-lsp-installer"] = {
+    after = { "nvim-cmp" },
+    config = { "\27LJ\2\nH\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\2\18\2\0\0009\0\2\0B\0\2\1K\0\1\0\vconfig\26lsp.configs.installer\frequire\0" },
+    load_after = {},
+    loaded = true,
+    needs_bufread = false,
+    path = "D:\\software\\nvim-win64\\config\\nvim-data\\site\\pack\\packer\\opt\\nvim-lsp-installer",
+    url = "https://github.com/williamboman/nvim-lsp-installer"
+  },
+  ["nvim-lspconfig"] = {
+    loaded = true,
+    path = "D:\\software\\nvim-win64\\config\\nvim-data\\site\\pack\\packer\\start\\nvim-lspconfig",
+    url = "https://github.com/neovim/nvim-lspconfig"
+  },
+  ["nvim-notify"] = {
+    after = { "alpha-nvim", "indent-blankline.nvim", "nvim-treesitter", "nvim-cmp", "nvim-tree.lua", "nightfox.nvim", "nvim-autopairs", "nvim-lsp-installer", "telescope.nvim", "lualine.nvim", "lspkind-nvim" },
+    loaded = true,
+    only_config = true
   },
   ["nvim-tree.lua"] = {
-    config = { "\27LJ\2\n9\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\30plugins.configs.nvim-tree\frequire\0" },
+    config = { "\27LJ\2\nK\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\2\18\2\0\0009\0\2\0B\0\2\1K\0\1\0\vconfig\29plugins.configs.explorer\frequire\0" },
+    load_after = {},
     loaded = true,
-    path = "D:\\software\\nvim-win64\\config\\nvim-data\\site\\pack\\packer\\start\\nvim-tree.lua",
+    needs_bufread = false,
+    path = "D:\\software\\nvim-win64\\config\\nvim-data\\site\\pack\\packer\\opt\\nvim-tree.lua",
     url = "https://github.com/kyazdani42/nvim-tree.lua"
+  },
+  ["nvim-treesitter"] = {
+    config = { "\27LJ\2\nL\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\2\18\2\0\0009\0\2\0B\0\2\1K\0\1\0\vconfig\30plugins.configs.highlight\frequire\0" },
+    load_after = {},
+    loaded = true,
+    needs_bufread = false,
+    path = "D:\\software\\nvim-win64\\config\\nvim-data\\site\\pack\\packer\\opt\\nvim-treesitter",
+    url = "https://github.com/nvim-treesitter/nvim-treesitter"
   },
   ["nvim-web-devicons"] = {
     loaded = true,
     path = "D:\\software\\nvim-win64\\config\\nvim-data\\site\\pack\\packer\\start\\nvim-web-devicons",
     url = "https://github.com/kyazdani42/nvim-web-devicons"
-  },
-  ["oceanic-next"] = {
-    loaded = true,
-    path = "D:\\software\\nvim-win64\\config\\nvim-data\\site\\pack\\packer\\start\\oceanic-next",
-    url = "https://github.com/mhartington/oceanic-next"
-  },
-  ["onedark.nvim"] = {
-    loaded = true,
-    path = "D:\\software\\nvim-win64\\config\\nvim-data\\site\\pack\\packer\\start\\onedark.nvim",
-    url = "https://github.com/ful1e5/onedark.nvim"
   },
   ["packer.nvim"] = {
     loaded = true,
@@ -143,50 +211,99 @@ _G.packer_plugins = {
     path = "D:\\software\\nvim-win64\\config\\nvim-data\\site\\pack\\packer\\start\\plenary.nvim",
     url = "https://github.com/nvim-lua/plenary.nvim"
   },
+  ["rust-tools.nvim"] = {
+    loaded = true,
+    path = "D:\\software\\nvim-win64\\config\\nvim-data\\site\\pack\\packer\\start\\rust-tools.nvim",
+    url = "https://github.com/simrat39/rust-tools.nvim"
+  },
   ["telescope-env.nvim"] = {
     loaded = true,
     path = "D:\\software\\nvim-win64\\config\\nvim-data\\site\\pack\\packer\\start\\telescope-env.nvim",
     url = "https://github.com/LinArcX/telescope-env.nvim"
   },
-  ["telescope.nvim"] = {
-    config = { "\27LJ\2\n9\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\30plugins.configs.telescope\frequire\0" },
+  ["telescope-file-browser.nvim"] = {
     loaded = true,
-    path = "D:\\software\\nvim-win64\\config\\nvim-data\\site\\pack\\packer\\start\\telescope.nvim",
+    path = "D:\\software\\nvim-win64\\config\\nvim-data\\site\\pack\\packer\\start\\telescope-file-browser.nvim",
+    url = "https://github.com/nvim-telescope/telescope-file-browser.nvim"
+  },
+  ["telescope.nvim"] = {
+    config = { "\27LJ\2\nI\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\2\18\2\0\0009\0\2\0B\0\2\1K\0\1\0\vconfig\27plugins.configs.finder\frequire\0" },
+    load_after = {},
+    loaded = true,
+    needs_bufread = true,
+    path = "D:\\software\\nvim-win64\\config\\nvim-data\\site\\pack\\packer\\opt\\telescope.nvim",
     url = "https://github.com/nvim-telescope/telescope.nvim"
   },
-  ["tokyonight.nvim"] = {
+  ["vim-vsnip"] = {
     loaded = true,
-    path = "D:\\software\\nvim-win64\\config\\nvim-data\\site\\pack\\packer\\start\\tokyonight.nvim",
-    url = "https://github.com/folke/tokyonight.nvim"
-  },
-  ["vim-bbye"] = {
-    loaded = true,
-    path = "D:\\software\\nvim-win64\\config\\nvim-data\\site\\pack\\packer\\start\\vim-bbye",
-    url = "https://github.com/moll/vim-bbye"
+    path = "D:\\software\\nvim-win64\\config\\nvim-data\\site\\pack\\packer\\start\\vim-vsnip",
+    url = "https://github.com/hrsh7th/vim-vsnip"
   }
 }
 
 time([[Defining packer_plugins]], false)
--- Config for: nvim-tree.lua
-time([[Config for nvim-tree.lua]], true)
-try_loadstring("\27LJ\2\n9\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\30plugins.configs.nvim-tree\frequire\0", "config", "nvim-tree.lua")
-time([[Config for nvim-tree.lua]], false)
--- Config for: bufferline.nvim
-time([[Config for bufferline.nvim]], true)
-try_loadstring("\27LJ\2\n:\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\31plugins.configs.bufferline\frequire\0", "config", "bufferline.nvim")
-time([[Config for bufferline.nvim]], false)
+-- Config for: nvim-notify
+time([[Config for nvim-notify]], true)
+try_loadstring("\27LJ\2\nL\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\2\18\2\0\0009\0\2\0B\0\2\1K\0\1\0\vconfig\30plugins.configs.ui_notify\frequire\0", "config", "nvim-notify")
+time([[Config for nvim-notify]], false)
+-- Load plugins in order defined by `after`
+time([[Sequenced loading]], true)
+vim.cmd [[ packadd alpha-nvim ]]
+
 -- Config for: alpha-nvim
-time([[Config for alpha-nvim]], true)
-try_loadstring("\27LJ\2\na\0\0\5\0\5\0\n6\0\0\0'\2\1\0B\0\2\0029\0\2\0006\2\0\0'\4\3\0B\2\2\0029\2\4\2B\0\2\1K\0\1\0\vconfig\27alpha.themes.dashboard\nsetup\nalpha\frequire\0", "config", "alpha-nvim")
-time([[Config for alpha-nvim]], false)
+try_loadstring("\27LJ\2\nL\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\2\18\2\0\0009\0\2\0B\0\2\1K\0\1\0\vconfig\30plugins.configs.dashboard\frequire\0", "config", "alpha-nvim")
+
+vim.cmd [[ packadd nvim-tree.lua ]]
+
+-- Config for: nvim-tree.lua
+try_loadstring("\27LJ\2\nK\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\2\18\2\0\0009\0\2\0B\0\2\1K\0\1\0\vconfig\29plugins.configs.explorer\frequire\0", "config", "nvim-tree.lua")
+
+vim.cmd [[ packadd lspkind-nvim ]]
+
+-- Config for: lspkind-nvim
+try_loadstring("\27LJ\2\nA\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\2\18\2\0\0009\0\2\0B\0\2\1K\0\1\0\vconfig\19lsp.configs.ui\frequire\0", "config", "lspkind-nvim")
+
+vim.cmd [[ packadd nvim-lsp-installer ]]
+
+-- Config for: nvim-lsp-installer
+try_loadstring("\27LJ\2\nH\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\2\18\2\0\0009\0\2\0B\0\2\1K\0\1\0\vconfig\26lsp.configs.installer\frequire\0", "config", "nvim-lsp-installer")
+
+vim.cmd [[ packadd nvim-cmp ]]
+
+-- Config for: nvim-cmp
+try_loadstring("\27LJ\2\nB\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\2\18\2\0\0009\0\2\0B\0\2\1K\0\1\0\vconfig\20lsp.configs.cmp\frequire\0", "config", "nvim-cmp")
+
+vim.cmd [[ packadd telescope.nvim ]]
+
 -- Config for: telescope.nvim
-time([[Config for telescope.nvim]], true)
-try_loadstring("\27LJ\2\n9\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\30plugins.configs.telescope\frequire\0", "config", "telescope.nvim")
-time([[Config for telescope.nvim]], false)
+try_loadstring("\27LJ\2\nI\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\2\18\2\0\0009\0\2\0B\0\2\1K\0\1\0\vconfig\27plugins.configs.finder\frequire\0", "config", "telescope.nvim")
+
+vim.cmd [[ packadd lualine.nvim ]]
+
 -- Config for: lualine.nvim
-time([[Config for lualine.nvim]], true)
-try_loadstring("\27LJ\2\n7\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\28plugins.configs.lualine\frequire\0", "config", "lualine.nvim")
-time([[Config for lualine.nvim]], false)
+try_loadstring("\27LJ\2\nO\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\2\18\2\0\0009\0\2\0B\0\2\1K\0\1\0\vconfig!plugins.configs.ui_statusbar\frequire\0", "config", "lualine.nvim")
+
+vim.cmd [[ packadd nvim-treesitter ]]
+
+-- Config for: nvim-treesitter
+try_loadstring("\27LJ\2\nL\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\2\18\2\0\0009\0\2\0B\0\2\1K\0\1\0\vconfig\30plugins.configs.highlight\frequire\0", "config", "nvim-treesitter")
+
+vim.cmd [[ packadd indent-blankline.nvim ]]
+
+-- Config for: indent-blankline.nvim
+try_loadstring("\27LJ\2\nP\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\2\18\2\0\0009\0\2\0B\0\2\1K\0\1\0\vconfig\"plugins.configs.ui_code_scope\frequire\0", "config", "indent-blankline.nvim")
+
+vim.cmd [[ packadd nvim-autopairs ]]
+
+-- Config for: nvim-autopairs
+try_loadstring("\27LJ\2\nO\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\2\18\2\0\0009\0\2\0B\0\2\1K\0\1\0\vconfig!plugins.configs.ui_autopairs\frequire\0", "config", "nvim-autopairs")
+
+vim.cmd [[ packadd nightfox.nvim ]]
+
+-- Config for: nightfox.nvim
+try_loadstring("\27LJ\2\nJ\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\2\18\2\0\0009\0\2\0B\0\2\1K\0\1\0\vconfig\28themes.configs.nightfox\frequire\0", "config", "nightfox.nvim")
+
+time([[Sequenced loading]], false)
 if should_profile then save_profiles() end
 
 end)

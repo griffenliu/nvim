@@ -1,41 +1,30 @@
-local plugins = {
-    -- 文件树
-    ["nvim-tree"] = {
-        "kyazdani42/nvim-tree.lua",
-        requires = "kyazdani42/nvim-web-devicons",
-        config = function()
-            require("plugins.configs.nvim-tree")
-        end
-    },
-    -- 页签
-    bufferline = {
-        "akinsho/bufferline.nvim",
-        requires = { "kyazdani42/nvim-web-devicons", "moll/vim-bbye" },
-        config = function()
-            require("plugins.configs.bufferline")
-        end
-    },
-    -- 状态条
-    lualine = { "nvim-lualine/lualine.nvim", requires = { "kyazdani42/nvim-web-devicons" },
-        config = function()
-            require("plugins.configs.lualine")
-        end
-    },
-    ["lualine-lsp-progress"] = { "arkav/lualine-lsp-progress" },
-    -- 文件搜索
-    { 'nvim-telescope/telescope.nvim', requires = { "nvim-lua/plenary.nvim" },
-        config = function()
-            require("plugins.configs.telescope")
-        end
-    },
-    ["telescope-env"] = { "LinArcX/telescope-env.nvim" },
-    -- dashboard
-    alpha = {
-        'goolord/alpha-nvim',
-        config = function()
-            require("plugins.configs.alpha")
-            -- require 'alpha'.setup(require 'alpha.themes.dashboardq'.config)
-        end
-    }
-}
-return plugins
+local _M = {}
+
+-- 注意，这个会按照顺序自动进行排序，因此需要注意设置正确的排序路径
+_M.setup = function()
+  local plugins = require("core.plugins")
+  -- base
+  plugins.add(require("plugins.configs.ui_notify"))
+  plugins.add(require("plugins.configs.ui_code_scope"):after({ "nvim-notify" }))
+  plugins.add(require("plugins.configs.ui_autopairs"):after({ "nvim-notify" }))
+  -- 主题插件安装
+  require("themes").setup()
+  plugins.add(require("plugins.configs.ui_statusbar"):after({ "nvim-notify" }))
+  plugins.add(require("plugins.configs.ui_comment"):after({ "nvim-notify" }))
+  plugins.add(require("plugins.configs.code_highlight"):after({ "nvim-notify" }))
+  plugins.add(require("plugins.configs.finder"):after({ "nvim-notify" }))
+  plugins.add(require("plugins.configs.explorer"):after({ "nvim-notify" }))
+  plugins.add(require("plugins.configs.dashboard"):after({ "nvim-notify" }))
+
+  -- plugins.add(require("plugins.configs.project"))
+  -- code
+  require("lsp").setup()
+  -- plugins.add(require("lsp"))
+  -- plugins.add(require("lsp.ui"))
+  -- plugins.add(require("lsp.cmp"))
+  -- plugins.add(require("lsp.formatter"))
+  -- tool
+  -- plugins.add(require("plugins.configs.outline"))
+end
+
+return _M

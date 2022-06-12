@@ -1,180 +1,192 @@
+local vim = vim
 local table_insert = table.insert
 local keymap = vim.api.nvim_set_keymap
--- 复用 opt 参数
-local opt = {
-    noremap = true,
-    silent = true
+local buf_keymap = vim.api.nvim_buf_set_keymap
+
+
+local _M = {
+    leader_key = " ",
 }
--- local mappings = {
---     n = {},
---     i = {},
---     t = {},
---     v = {}
--- }
 
--- local function add_nkey(key, cmd, desc)
---     table_insert(mappings.n, {key, cmd, opt, desc or ""})
--- end
--- local function add_ikey(key, cmd, desc)
---     table_insert(mappings.i, {key, cmd, opt, desc or ""})
--- end
--- local function add_tkey(key, cmd, desc)
---     table_insert(mappings.t, {key, cmd, opt, desc or ""})
--- end
--- local function add_vkey(key, cmd, desc)
---     table_insert(mappings.v, {key, cmd, opt, desc or ""})
--- end
-
--- 设置Leader Key
-vim.g.mapleader = " "
-vim.g.maplocalleader = " "
-
-local _M = {}
---
 _M.mappings = {
-    default = {}
+    default = { global = {} }
 }
 
-local function init_plugin_mapping(plugin_name)
+local function init_plugin_mapping(plugin_name, target)
     if not _M.mappings[plugin_name] then
         _M.mappings[plugin_name] = {}
     end
-    if not _M.mappings[plugin_name]["global"] then
-        _M.mappings[plugin_name]["global"] = {}
-    end
-    if not _M.mappings[plugin_name]["local"] then
-        _M.mappings[plugin_name]["local"] = {}
+    if not _M.mappings[plugin_name][target] then
+        _M.mappings[plugin_name][target] = {}
     end
 end
 
-_M._set = function(mode, key, cmd, desc)
-    table.insert(_M.mappings.default, { mode, key, cmd, opt, desc or "" })
+local function set_keymap(name, target, mode, key, cmd, desc)
+    init_plugin_mapping(name, target)
+    if target == "local" then
+        table_insert(_M.mappings[name][target], mode)
+    else
+        -- 添加自定义标记
+        table_insert(_M.mappings[name][target], { mode, key, cmd, {
+            noremap = true,
+            silent = true,
+            desc = "@C " .. (desc or "")
+        } })
+    end
 end
+
+-- 设置内部
+local set = function(mode, key, cmd, desc)
+    _M.set("default", mode, key, cmd, desc)
+end
+-- 设置插件
 _M.set = function(name, mode, key, cmd, desc)
-    init_plugin_mapping(name)
-    table_insert(_M.mappings[name]["global"], { mode, key, cmd, opt, desc or "" })
+    set_keymap(name, "global", mode, key, cmd, desc)
 end
+-- 设置本地快捷键(用于返回结果给设置使用)
 _M.set_local = function(name, mapping)
-    init_plugin_mapping(name)
-    table_insert(_M.mappings[name]["local"], mapping)
+    set_keymap(name, "local", mapping)
 end
+-- 设置缓冲区特定快捷键(绑定执行时要指定缓冲区才能正常使用)
+_M.set_buffer = function(name, mode, key, cmd, desc)
+    set_keymap(name, "buffer", mode, key, cmd, desc)
+end
+-- 设置自定义快捷按键（绑定时第二个参数是一个函数，由配置自行处理绑定方式）
+_M.set_custom = function(name, mode, key, cmd, desc)
+    set_keymap(name, "custom", mode, key, cmd, desc)
+end
+
+
+_M.get_keys = function(name)
+    return _M.mappings[name] and _M.mappings[name]["global"]
+end
+
 _M.get_local_keys = function(name)
-    return _M.mappings[name]["local"]
+    return _M.mappings[name] and _M.mappings[name]["local"]
+end
+
+_M.get_buffer_keys = function(name)
+    return _M.mappings[name] and _M.mappings[name]["buffer"]
+end
+
+_M.get_custom_keys = function(name)
+    return _M.mappings[name] and _M.mappings[name]["custom"]
 end
 --[[
-        {global=[{}, {}, {}...], other_plugins={global=[{}, {}, ...], local=[...]}}
-    ]]
-_M.bind = function(plugin_name)
+    {global=[{}, {}, {}...], other_plugins={global=[{}, {}, ...], local=[...]}}
+]]
+
+_M.bind = function(plugin_name, bind_buffer, ...)
+    plugin_name = plugin_name or "default"
     local plugins
-    if plugin_name == "default" then
-        plugins = _M.mappings.default
+    if bind_buffer then
+        if type(bind_buffer) == "function" then
+            -- 由插件配置自定义的绑定方式
+            plugins = _M.get_custom_keys(plugin_name)
+        else
+            -- 默认为buffer按键设置
+            plugins = _M.get_buffer_keys(plugin_name)
+        end
     else
-        plugins = _M.mappings[plugin_name]["global"]
+        plugins = _M.get_keys(plugin_name)
     end
 
+    -- TODO: 生成按键映射表，方便查阅
     if plugins then
         -- print("设置[" .. plugin_name .. "]快捷键")
         for _, v in ipairs(plugins) do
-            -- vim.pretty_print(v)
-            -- vim.pretty_print(v[1])
-            -- vim.pretty_print(type(v[2]))
-            -- vim.pretty_print(type(v[3]))
-            keymap(v[1], v[2], v[3], v[4])
-            -- TODO: 生成按键映射表，方便查阅
+            if bind_buffer then
+                if type(bind_buffer) == "function" then
+                    bind_buffer(v, ...)
+                else
+                    buf_keymap(bind_buffer, v[1], v[2], v[3], v[4])
+                end
+            else
+                keymap(v[1], v[2], v[3], v[4])
+            end
         end
     end
-
-    -- for k, v in pairs(_M.mappings) do
-    --     vim.pretty_print(k)
-    --     if k == "default" then
-    --         for _, v in ipairs(v) do
-    --             -- vim.pretty_print(v)
-    --             -- vim.pretty_print(v[1])
-    --             -- vim.pretty_print(type(v[2]))
-    --             -- vim.pretty_print(type(v[3]))
-    --             keymap(v[1], v[2], v[3], v[4])
-    --             -- TODO: 生成按键映射表，方便查阅
-    --         end
-    --     else
-    --         for k, v in pairs(v) do
-    --             vim.pretty_print("设置[" .. k .. "]快捷键")
-    --             if v.global then
-    --                 for _, v in ipairs(v.global) do
-    --                     keymap(v[1], v[2], v[3], v[4])
-    --                     -- TODO: 生成按键映射表，方便查阅
-    --                 end
-    --             end
-
-    --             -- TODO: 生成按键映射表，方便查阅
-    --         end
-    --     end
-
-    -- end
 end
 
--- 默认按键 =========================================================================
--- 取消 s 默认功能
-_M._set("n", "s", "")
--- windows 分屏快捷键
-_M._set("n", "sv", ":vsp<CR>", "垂直分屏")
-_M._set("n", "sh", ":sp<CR>", "水平分屏")
--- 关闭当前窗口
-_M._set("n", "sc", "<C-w>c", "关闭当前窗口")
--- 关闭其他窗口
-_M._set("n", "so", "<C-w>o", "关闭其他窗口")
--- Alt + hjkl 窗口之间跳转
-_M._set("n", "<A-h>", "<C-w>h", "跳转到右侧窗口")
-_M._set("n", "<A-j>", "<C-w>j", "跳转到上方窗口")
-_M._set("n", "<A-k>", "<C-w>k", "跳转到下方窗口")
-_M._set("n", "<A-l>", "<C-w>l", "跳转到左侧窗口")
+_M.setup = function()
+    -- 默认按键 =========================================================================
+    vim.g.mapleader = _M.leader_key
+    vim.g.maplocalleader = _M.leader_key
+    -- 窗口操作 =========================================
+    -- TODO: 插件对象增加分类，可以直接标记到描述里面
+    -- {name: "", key: "", cat: "",...}
 
--- 左右比例控制
-_M._set("n", "<C-Left>", ":vertical resize -2<CR>", "向左移动2个单位")
-_M._set("n", "<C-Right>", ":vertical resize +2<CR>", "向右移动2个单位")
-_M._set("n", "s,", ":vertical resize -20<CR>", "向左移动20个单位")
-_M._set("n", "s.", ":vertical resize +20<CR>", "向右移动20个单位")
--- 上下比例
-_M._set("n", "sj", ":resize +10<CR>", "向上移动10个单位")
-_M._set("n", "sk", ":resize -10<CR>", "向下移动10个单位")
-_M._set("n", "<C-Down>", ":resize +2<CR>", "向下移动10个单位")
-_M._set("n", "<C-Up>", ":resize -2<CR>", "向上移动10个单位")
--- 等比例
-_M._set("n", "s=", "<C-w>=", "等比例分割窗口")
+    -- windows 分屏快捷键
+    set("n", "wv", ":vsp<CR>", "[窗口] 垂直分屏")
+    set("n", "wh", ":sp<CR>", "[窗口] 水平分屏")
+    -- set("n", "<C-=>", ":sp<CR> :vsp<CR>", "四分屏")
+    -- 关闭当前窗口
+    set("n", "wc", ":close<CR>", "[窗口] 关闭当前窗口")
+    -- 关闭其他窗口
+    set("n", "wo", ":only<CR>", "[窗口] 关闭其他窗口")
 
--- Terminal相关
-_M._set("n", "<leader>t", ":sp | terminal<CR>", "从下方打开终端")
-_M._set("n", "<leader>vt", ":vsp | terminal<CR>", "从右侧打开终端")
-_M._set("t", "<Esc>", "<C-\\><C-n>", "关闭终端")
-_M._set("t", "<A-h>", [[ <C-\><C-N><C-w>h ]], "opt")
-_M._set("t", "<A-j>", [[ <C-\><C-N><C-w>j ]], "opt")
-_M._set("t", "<A-k>", [[ <C-\><C-N><C-w>k ]], "opt")
-_M._set("t", "<A-l>", [[ <C-\><C-N><C-w>l ]], "opt")
+    -- 等比例
+    set("n", "ww", "<C-w>=", "[窗口] 等比例分割窗口")
+    -- 左右比例控制
+    set("n", "<C-h>", ":vertical resize +2<CR>", "[窗口] 向左移动2个单位")
+    set("n", "<C-l>", ":vertical resize -2<CR>", "[窗口] 向右移动2个单位")
+    set("n", "<C-j>", ":resize +2<CR>", "[窗口] 向上移动2个单位")
+    set("n", "<C-k>", ":resize -2<CR>", "[窗口] 向下移动2个单位")
+    set("n", "<C-Left>", ":vertical resize +10<CR>", "[窗口] 向左移动10个单位")
+    set("n", "<C-Right>", ":vertical resize -10<CR>", "[窗口] 向右移动10个单位")
+    set("n", "<C-Down>", ":resize -10<CR>", "[窗口] 向下移动10个单位")
+    set("n", "<C-Up>", ":resize +10<CR>", "[窗口] 向上移动10个单位")
+    -- 缓冲区维护 =========================================
+    set("n", "<leader>bd", ":bd<cr>", "[缓冲] 删除当前缓冲区") -- delete current buffer
+    set("n", "<leader>bn", ":bn<cr>", "[缓冲] 下一个缓冲区") -- goto next buffer
+    set("n", "<leader>bp", ":bp<cr>", "[缓冲] 上一个缓冲区") -- goto previous buffer
+    set("n", "<leader>bad", ":%bd<cr>", "[缓冲] 删除所有缓冲区") -- delete all buffers
+    -- Terminal相关 =========================================
+    set("n", "<leader>tt", ":sp | terminal<CR>", "[终端] 从下方打开终端")
+    set("n", "<leader>tv", ":vsp | terminal<CR>", "[终端] 从右侧打开终端")
+    set("t", "<Esc>", "<C-\\><C-n>", "[终端] 关闭终端")
+    set("t", "<A-h>", [[ <C-\><C-N><C-w>h ]], "[终端] 需要测试opt")
+    set("t", "<A-j>", [[ <C-\><C-N><C-w>j ]], "[终端] 需要测试opt")
+    set("t", "<A-k>", [[ <C-\><C-N><C-w>k ]], "[终端] 需要测试opt")
+    set("t", "<A-l>", [[ <C-\><C-N><C-w>l ]], "[终端] 需要测试opt")
+    -- 编辑操作 =========================================
+    set("n", "<C-s>", "<cmd> w <CR>", "[编辑] 保存文件")
+    set("n", "<C-c>", "<cmd> %y+ <CR>", "[编辑] 复制整个文件")
+    -- visual模式下缩进代码
+    set("v", "<", "<gv", "[编辑] 向左缩进代码")
+    set("v", ">", ">gv", "[编辑] 向右缩进代码")
+    -- 上下移动选中文本
+    set("v", "J", ":move '>+1<CR>gv-gv", "[编辑] 向上移动选中文本")
+    set("v", "K", ":move '<-2<CR>gv-gv", "[编辑] 向下移动选中文本")
 
--- visual模式下缩进代码
-_M._set("v", "<", "<gv", "Visual:向左缩进代码")
-_M._set("v", ">", ">gv", "Visual:向右缩进代码")
--- 上下移动选中文本
-_M._set("v", "J", ":move '>+1<CR>gv-gv", "向上移动选中文本")
-_M._set("v", "K", ":move '<-2<CR>gv-gv", "向下移动选中文本")
+    -- Insert 模式快捷键 =================================
+    set("i", "<C-a>", "<ESC>I", "[编辑] 光标跳转到行首") -- <ESC>^i
+    set("i", "<C-e>", "<ESC>A", "[编辑] 光标跳转到行尾") -- <End>
 
--- 上下滚动浏览
-_M._set("n", "<C-j>", "4j", "向上滚动4行")
-_M._set("n", "<C-k>", "4k", "向下滚动4行")
--- ctrl u / ctrl + d  只移动9行，默认移动半屏
-_M._set("n", "<C-u>", "9k", "向上滚动9行")
-_M._set("n", "<C-d>", "9j", "向下滚动9行")
+    set("i", "<C-f>", "<Right>", "[编辑] 光标向右移动")
+    set("i", "<C-b>", "<Left>", "[编辑] 光标向左移动")
+    set("i", "<C-n>", "<Down>", "[编辑] 光标向下移动")
+    set("i", "<C-p>", "<Up>", "[编辑] 光标向上移动")
 
--- 在visual 模式里粘贴不要复制
-_M._set("v", "p", '"_dP', "Visual: 粘贴时不复制")
+    -- 占用快捷键，4k，也是很方便的
+    -- -- 上下滚动浏览
+    -- set("n", "<C-j>", "4j", "向上滚动4行")
+    -- set("n", "<C-k>", "4k", "向下滚动4行")
+    -- -- ctrl u / ctrl + d  只移动9行，默认移动半屏
+    -- set("n", "<C-u>", "9k", "向上滚动9行")
+    -- set("n", "<C-d>", "9j", "向下滚动9行")
 
--- 退出
-_M._set("n", "qq", ":q!<CR>", "退出")
-_M._set("n", "Q", ":qa!<CR>", "退出")
+    -- 在visual 模式里粘贴不要复制
+    --set("v", "p", '"_dP', "Visual: 粘贴时不复制")
 
--- insert 模式下，跳到行首行尾
-_M._set("i", "<C-a>", "<ESC>I", "光标跳转到行首")
-_M._set("i", "<C-e>", "<ESC>A", "光标跳转到行尾")
+    -- 编辑器 =========================================
+    set("n", "mm", ":messages<CR>", "[Editor] 显示消息")
+    set("n", "<f5>", ":PackerSync<CR>", "[Editor] 显示消息")
+    set("n", "q", ":q<CR>", "[Editor] 退出")
+    set("n", "qq", ":q!<CR>", "[Editor] 退出")
+    set("n", "Q", ":qa!<CR>", "[Editor] 退出")
 
-_M.bind("default")
+    _M.bind()
+end
 
 return _M

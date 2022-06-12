@@ -1,4 +1,4 @@
-local keymaps = require("core.keymaps")
+local vim = vim
 
 local M = {}
 
@@ -89,18 +89,6 @@ M.bootstrap = function()
     -- vim.cmd "PackerSync"
 end
 
-M.is_finished = function()
-    if not packer_plugins then
-        return false
-    end
-    local _finished = true
-    for _, p in pairs(packer_plugins) do
-        if not p.loaded then
-            _finished = false
-            break
-        end
-    end
-    return _finished
-end
+
 
 return M
