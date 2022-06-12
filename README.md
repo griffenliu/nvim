@@ -1,9 +1,9 @@
 ## 环境变量
 
-TODO: 帮助里面还需要把光标移动到缓冲区，还需要完善快捷指令，例如按 q 或者<esc>会退出等
-TODO: 明天把 norg 的集成完成，基本就差不多了，写一个文档，用来查阅帮助就行了
-TODO: 需要把文档都查阅一下，尽量都使用默认的配置，如果可行的化，UI 可能需要自定义，其他默认能用就用，快捷键也是一样
-TODO: 窗口选择，参考一下[gitlab.com/yorickpeterse/nvim-window](https://gitlab.com/yorickpeterse/nvim-window) ，看看是如何实现的，同时快捷键按修改一下，使用<leader>键直接触发，不要加 w 了
+- [ ] TODO: 帮助里面还需要把光标移动到缓冲区，还需要完善快捷指令，例如按 q 或者<esc>会退出等
+- [ ] TODO: 明天把 norg 的集成完成，基本就差不多了，写一个文档，用来查阅帮助就行了
+- [ ] TODO: 需要把文档都查阅一下，尽量都使用默认的配置，如果可行的化，UI 可能需要自定义，其他默认能用就用，快捷键也是一样
+- [ ] TODO: 窗口选择，参考一下[gitlab.com/yorickpeterse/nvim-window](https://gitlab.com/yorickpeterse/nvim-window) ，看看是如何实现的，同时快捷键按修改一下，使用<leader>键直接触发，不要加 w 了
 
 ### Windows
 
