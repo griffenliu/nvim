@@ -180,7 +180,7 @@ _M.setup = function()
     --set("v", "p", '"_dP', "Visual: 粘贴时不复制")
 
     -- 编辑器 =========================================
-    set("n", "mm", ":messages<CR>", "[Editor] 显示消息")
+    set("n", "mm", ":Notifications<CR>", "[Editor] 显示消息")
     set("n", "<f5>", ":PackerSync<CR>", "[Editor] 显示消息")
     set("n", "q", ":q<CR>", "[Editor] 退出")
     set("n", "qq", ":q!<CR>", "[Editor] 退出")

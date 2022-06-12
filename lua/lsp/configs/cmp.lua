@@ -100,7 +100,7 @@ _M.plugin_setup = function(self, keymaps)
     -- 快捷键设置
     mapping = mappings,
     -- 使用lspkind-nvim显示类型图标 (新增)
-    formatting = require('lsp.ui').formatting
+    formatting = require('lsp.configs.ui').formatting
   })
 
   -- / 查找模式使用 buffer 源

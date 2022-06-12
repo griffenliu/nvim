@@ -10,7 +10,7 @@ _M.setup = function()
   -- 主题插件安装
   require("themes").setup()
   plugins.add(require("plugins.configs.ui_statusbar"):after({ "nvim-notify" }))
-  plugins.add(require("plugins.configs.ui_comment"):after({ "nvim-notify" }))
+  plugins.add(require("plugins.configs.code_comment"):after({ "nvim-notify" }))
   plugins.add(require("plugins.configs.code_highlight"):after({ "nvim-notify" }))
   plugins.add(require("plugins.configs.finder"):after({ "nvim-notify" }))
   plugins.add(require("plugins.configs.explorer"):after({ "nvim-notify" }))

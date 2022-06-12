@@ -35,7 +35,7 @@ end
 
 local _M = {}
 -- 定义leader key
-_M.leader_key = "<leader>w"
+_M.leader_key = "<leader>"
 -- 窗口编号和ID的映射
 -- data: { wid = wid, nwid = num_wid, nbufid = bufid }
 _M.wins = {}
@@ -185,11 +185,14 @@ _M.active_win = function(number)
 
   hide()
 end
-
+-- secret character that will be used to create <nop> mappings
+local secret = "Þ"
 _M.setup = function()
   api.nvim_create_user_command("PickWindow", pick_window, {})
   vim.api.nvim_set_keymap("n", _M.leader_key, "<cmd> PickWindow <CR>", { noremap = true,
     silent = true, nowait = true, expr = false, desc = "@C [WINDOW] 选择窗口" })
+  -- vim.api.nvim_set_keymap("n", _M.leader_key .. secret, "<nop>", { noremap = true,
+  --   silent = true, nowait = true, expr = false, desc = "@C [WINDOW] 选择窗口" })
 end
 
 return _M

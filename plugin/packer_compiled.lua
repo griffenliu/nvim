@@ -69,6 +69,15 @@ end
 time([[try_loadstring definition]], false)
 time([[Defining packer_plugins]], true)
 _G.packer_plugins = {
+  ["Comment.nvim"] = {
+    after_files = { "D:\\software\\nvim-win64\\config\\nvim-data\\site\\pack\\packer\\opt\\Comment.nvim\\after\\plugin\\Comment.lua" },
+    config = { "\27LJ\2\nO\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\2\18\2\0\0009\0\2\0B\0\2\1K\0\1\0\vconfig!plugins.configs.code_comment\frequire\0" },
+    load_after = {},
+    loaded = true,
+    needs_bufread = false,
+    path = "D:\\software\\nvim-win64\\config\\nvim-data\\site\\pack\\packer\\opt\\Comment.nvim",
+    url = "https://github.com/numToStr/Comment.nvim"
+  },
   ["alpha-nvim"] = {
     config = { "\27LJ\2\nL\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\2\18\2\0\0009\0\2\0B\0\2\1K\0\1\0\vconfig\30plugins.configs.dashboard\frequire\0" },
     load_after = {},
@@ -176,7 +185,7 @@ _G.packer_plugins = {
     url = "https://github.com/neovim/nvim-lspconfig"
   },
   ["nvim-notify"] = {
-    after = { "alpha-nvim", "indent-blankline.nvim", "nvim-treesitter", "nvim-cmp", "nvim-tree.lua", "nightfox.nvim", "nvim-autopairs", "nvim-lsp-installer", "telescope.nvim", "lualine.nvim", "lspkind-nvim" },
+    after = { "nvim-cmp", "alpha-nvim", "nvim-tree.lua", "telescope.nvim", "nvim-treesitter", "nvim-lsp-installer", "lualine.nvim", "nvim-autopairs", "lspkind-nvim", "Comment.nvim", "nightfox.nvim", "indent-blankline.nvim" },
     loaded = true,
     only_config = true
   },
@@ -189,7 +198,7 @@ _G.packer_plugins = {
     url = "https://github.com/kyazdani42/nvim-tree.lua"
   },
   ["nvim-treesitter"] = {
-    config = { "\27LJ\2\nL\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\2\18\2\0\0009\0\2\0B\0\2\1K\0\1\0\vconfig\30plugins.configs.highlight\frequire\0" },
+    config = { "\27LJ\2\nQ\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\2\18\2\0\0009\0\2\0B\0\2\1K\0\1\0\vconfig#plugins.configs.code_highlight\frequire\0" },
     load_after = {},
     loaded = true,
     needs_bufread = false,
@@ -248,16 +257,6 @@ try_loadstring("\27LJ\2\nL\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\2\18\2\0\0009\0\2\0B
 time([[Config for nvim-notify]], false)
 -- Load plugins in order defined by `after`
 time([[Sequenced loading]], true)
-vim.cmd [[ packadd alpha-nvim ]]
-
--- Config for: alpha-nvim
-try_loadstring("\27LJ\2\nL\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\2\18\2\0\0009\0\2\0B\0\2\1K\0\1\0\vconfig\30plugins.configs.dashboard\frequire\0", "config", "alpha-nvim")
-
-vim.cmd [[ packadd nvim-tree.lua ]]
-
--- Config for: nvim-tree.lua
-try_loadstring("\27LJ\2\nK\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\2\18\2\0\0009\0\2\0B\0\2\1K\0\1\0\vconfig\29plugins.configs.explorer\frequire\0", "config", "nvim-tree.lua")
-
 vim.cmd [[ packadd lspkind-nvim ]]
 
 -- Config for: lspkind-nvim
@@ -273,35 +272,50 @@ vim.cmd [[ packadd nvim-cmp ]]
 -- Config for: nvim-cmp
 try_loadstring("\27LJ\2\nB\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\2\18\2\0\0009\0\2\0B\0\2\1K\0\1\0\vconfig\20lsp.configs.cmp\frequire\0", "config", "nvim-cmp")
 
-vim.cmd [[ packadd telescope.nvim ]]
-
--- Config for: telescope.nvim
-try_loadstring("\27LJ\2\nI\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\2\18\2\0\0009\0\2\0B\0\2\1K\0\1\0\vconfig\27plugins.configs.finder\frequire\0", "config", "telescope.nvim")
-
-vim.cmd [[ packadd lualine.nvim ]]
-
--- Config for: lualine.nvim
-try_loadstring("\27LJ\2\nO\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\2\18\2\0\0009\0\2\0B\0\2\1K\0\1\0\vconfig!plugins.configs.ui_statusbar\frequire\0", "config", "lualine.nvim")
-
 vim.cmd [[ packadd nvim-treesitter ]]
 
 -- Config for: nvim-treesitter
-try_loadstring("\27LJ\2\nL\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\2\18\2\0\0009\0\2\0B\0\2\1K\0\1\0\vconfig\30plugins.configs.highlight\frequire\0", "config", "nvim-treesitter")
+try_loadstring("\27LJ\2\nQ\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\2\18\2\0\0009\0\2\0B\0\2\1K\0\1\0\vconfig#plugins.configs.code_highlight\frequire\0", "config", "nvim-treesitter")
+
+vim.cmd [[ packadd nightfox.nvim ]]
+
+-- Config for: nightfox.nvim
+try_loadstring("\27LJ\2\nJ\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\2\18\2\0\0009\0\2\0B\0\2\1K\0\1\0\vconfig\28themes.configs.nightfox\frequire\0", "config", "nightfox.nvim")
 
 vim.cmd [[ packadd indent-blankline.nvim ]]
 
 -- Config for: indent-blankline.nvim
 try_loadstring("\27LJ\2\nP\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\2\18\2\0\0009\0\2\0B\0\2\1K\0\1\0\vconfig\"plugins.configs.ui_code_scope\frequire\0", "config", "indent-blankline.nvim")
 
+vim.cmd [[ packadd telescope.nvim ]]
+
+-- Config for: telescope.nvim
+try_loadstring("\27LJ\2\nI\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\2\18\2\0\0009\0\2\0B\0\2\1K\0\1\0\vconfig\27plugins.configs.finder\frequire\0", "config", "telescope.nvim")
+
+vim.cmd [[ packadd nvim-tree.lua ]]
+
+-- Config for: nvim-tree.lua
+try_loadstring("\27LJ\2\nK\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\2\18\2\0\0009\0\2\0B\0\2\1K\0\1\0\vconfig\29plugins.configs.explorer\frequire\0", "config", "nvim-tree.lua")
+
+vim.cmd [[ packadd alpha-nvim ]]
+
+-- Config for: alpha-nvim
+try_loadstring("\27LJ\2\nL\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\2\18\2\0\0009\0\2\0B\0\2\1K\0\1\0\vconfig\30plugins.configs.dashboard\frequire\0", "config", "alpha-nvim")
+
+vim.cmd [[ packadd lualine.nvim ]]
+
+-- Config for: lualine.nvim
+try_loadstring("\27LJ\2\nO\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\2\18\2\0\0009\0\2\0B\0\2\1K\0\1\0\vconfig!plugins.configs.ui_statusbar\frequire\0", "config", "lualine.nvim")
+
+vim.cmd [[ packadd Comment.nvim ]]
+
+-- Config for: Comment.nvim
+try_loadstring("\27LJ\2\nO\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\2\18\2\0\0009\0\2\0B\0\2\1K\0\1\0\vconfig!plugins.configs.code_comment\frequire\0", "config", "Comment.nvim")
+
 vim.cmd [[ packadd nvim-autopairs ]]
 
 -- Config for: nvim-autopairs
 try_loadstring("\27LJ\2\nO\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\2\18\2\0\0009\0\2\0B\0\2\1K\0\1\0\vconfig!plugins.configs.ui_autopairs\frequire\0", "config", "nvim-autopairs")
-
-vim.cmd [[ packadd nightfox.nvim ]]
-
--- Config for: nightfox.nvim
-try_loadstring("\27LJ\2\nJ\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\2\18\2\0\0009\0\2\0B\0\2\1K\0\1\0\vconfig\28themes.configs.nightfox\frequire\0", "config", "nightfox.nvim")
 
 time([[Sequenced loading]], false)
 if should_profile then save_profiles() end

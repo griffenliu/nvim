@@ -124,7 +124,7 @@ o.swapfile = false
 -- smaller updatetime
 o.updatetime = 300
 -- 设置 timeoutlen 为等待键盘快捷键连击时间500毫秒，可根据需要设置
-o.timeoutlen = 800
+o.timeoutlen = 500
 -- split window 从下边和右边出现
 o.splitbelow = true
 o.splitright = true
