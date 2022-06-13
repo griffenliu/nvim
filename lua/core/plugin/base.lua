@@ -43,7 +43,8 @@ end
 -- ============================================================================
 _M.config = function(self)
   local is_loaded = self:check()
-  vim.notify("config " .. (self.desc or "") .. " " .. self.name)
+  -- vim.notify("config " .. (self.desc or "") .. " " .. self.name)
+  print("config " .. (self.desc or "") .. " " .. self.name)
   if not is_loaded then return end
   -- set key
   local keymaps = self:keymaps_setup()

@@ -12,10 +12,10 @@ _M.setup = function()
   plugins.add(require("plugins.configs.ui_statusbar"):after({ "nvim-notify" }))
   plugins.add(require("plugins.configs.code_comment"):after({ "nvim-notify" }))
   plugins.add(require("plugins.configs.code_highlight"):after({ "nvim-notify" }))
-  plugins.add(require("plugins.configs.finder"):after({ "nvim-notify" }))
+  plugins.add(require("plugins.configs.code_todo"):after({ "nvim-notify" }))
+  plugins.add(require("plugins.configs.telescope"):after({ "nvim-notify" }))
   plugins.add(require("plugins.configs.explorer"):after({ "nvim-notify" }))
   plugins.add(require("plugins.configs.dashboard"):after({ "nvim-notify" }))
-
   -- plugins.add(require("plugins.configs.project"))
   -- code
   require("lsp").setup()

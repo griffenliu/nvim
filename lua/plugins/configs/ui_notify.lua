@@ -1,3 +1,4 @@
+-- TODO: 工具分类
 local vim = vim
 local notify = vim.notify
 local cmd = vim.cmd
@@ -18,13 +19,15 @@ local _M = {
 }
 setmetatable(_M, { __index = base })
 
-
-_M.set_keymaps = function(self, keymaps)
-  keymaps.set(self.name, "n", "<leader>dd", ":Alpha<cr>", "[Dashboard] 显示Dashboard")
-end
+--_M.set_keymaps = function(self, keymaps)
+--  keymaps.set(self.name, "n", "<leader>dd", ":Alpha<cr>", "[Dashboard] 显示Dashboard")
+--end
 
 _M.plugin_setup = function(self, keymaps)
   -- 替换默认的通知，因为这个，所以这个插件要非常靠前，这里将其排序定义为1
+  self.plugin.setup({
+    background_colour = "#000000"
+  })
   vim.notify = self.plugin
 end
 

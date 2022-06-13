@@ -1,5 +1,6 @@
 ## 环境变量
 
+- [ ] TODO: insert模式下也可以使用Ctrl+s进行保存
 - [ ] TODO: 帮助里面还需要把光标移动到缓冲区，还需要完善快捷指令，例如按 q 或者<esc>会退出等
 - [ ] TODO: 明天把 norg 的集成完成，基本就差不多了，写一个文档，用来查阅帮助就行了
 - [ ] TODO: 需要把文档都查阅一下，尽量都使用默认的配置，如果可行的化，UI 可能需要自定义，其他默认能用就用，快捷键也是一样
@@ -192,3 +193,9 @@ pass the result to nvim_feedkeys().
 - [终端 Alacritty](https://github.com/alacritty/alacritty)
 - [awesome-neovim](https://github.com/rockerBOO/awesome-neovim)
 - [neorg(待研究)](https://github.com/nvim-neorg/neorg)
+- [ref configs](https://neovim.discourse.group/t/the-300-line-init-lua-challenge/227)
+- [Neovim配置实战](https://juejin.cn/book/7051157342770954277/section/7051399376945545252)
+- [Nerd Font图标](https://www.nerdfonts.com/cheat-sheet)
+- [nvim-lua-guide-zh](https://github.com/glepnir/nvim-lua-guide-zh)
+- [luarocks.cn](https://luarocks.cn/)
+- [Nerd Font](https://github.com/ryanoasis/nerd-fonts)

@@ -37,7 +37,8 @@ local opts = {
     -- 绑定快捷键
     require("core.keymaps").bind("nvim-lsp-installer", bufnr)
     -- 保存时自动格式化
-    vim.cmd('autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()')
+    -- FIXME: 暂时禁用，保存自动格式化还没有配好
+    -- vim.cmd('autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()')
   end,
 }
 
