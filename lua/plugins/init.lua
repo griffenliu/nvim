@@ -1,6 +1,5 @@
 local _M = {}
 
--- 注意，这个会按照顺序自动进行排序，因此需要注意设置正确的排序路径
 _M.setup = function()
   local plugins = require("core.plugins")
   -- base
@@ -19,10 +18,6 @@ _M.setup = function()
   -- plugins.add(require("plugins.configs.project"))
   -- code
   require("lsp").setup()
-  -- plugins.add(require("lsp"))
-  -- plugins.add(require("lsp.ui"))
-  -- plugins.add(require("lsp.cmp"))
-  -- plugins.add(require("lsp.formatter"))
   -- tool
   -- plugins.add(require("plugins.configs.outline"))
 end

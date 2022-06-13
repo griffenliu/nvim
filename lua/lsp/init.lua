@@ -5,6 +5,7 @@ _M.setup = function()
   local plugins = require("core.plugins")
   plugins.add(require("lsp.configs.installer"):after({ "nvim-notify" }))
   plugins.add(require("lsp.configs.ui"):after({ "nvim-notify" }))
+  plugins.add(require("lsp.configs.ui_progress"):after({ "nvim-notify" }))
   plugins.add(require("lsp.configs.cmp"):after({ "nvim-notify", "nvim-lsp-installer", "lspkind-nvim" }))
 end
 

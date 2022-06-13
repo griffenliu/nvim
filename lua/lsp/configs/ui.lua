@@ -6,16 +6,6 @@ local cmd = vim.cmd
 local base = require("core.plugin.base")
 
 local _M = {
-  name = "alpha",
-  desc = "仪表盘",
-  packer = {
-    'goolord/alpha-nvim',
-    config = function()
-      require("plugins.configs.dashboard"):config()
-    end
-  }
-}
-local _M = {
   name = "lspkind", -- require name
   desc = "LSP",
   packer = {

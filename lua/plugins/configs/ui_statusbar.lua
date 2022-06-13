@@ -14,17 +14,14 @@ local _M = {
     config = function()
       require("plugins.configs.ui_statusbar"):config()
     end
-  },
-  packer_ext = {
-    { "arkav/lualine-lsp-progress" }
   }
 }
 setmetatable(_M, { __index = base })
 
 
-_M.set_keymaps = function(self, keymaps)
-  keymaps.set(self.name, "n", "<leader>dd", ":Alpha<cr>", "[Dashboard] 显示Dashboard")
-end
+-- _M.set_keymaps = function(self, keymaps)
+--   keymaps.set(self.name, "n", "<leader>dd", ":Alpha<cr>", "[Dashboard] 显示Dashboard")
+-- end
 
 _M.plugin_setup = function(self, keymaps)
   self.plugin.setup({
@@ -36,22 +33,10 @@ _M.plugin_setup = function(self, keymaps)
     },
     extensions = { "nvim-tree", "toggleterm" },
     sections = {
-      lualine_c = {
-        "filename",
-        {
-          "lsp_progress",
-          spinner_symbols = { " ", " ", " ", " ", " ", " " },
-        },
-      },
       lualine_x = {
         "filesize",
         {
           "fileformat",
-          -- symbols = {
-          --   unix = '', -- e712
-          --   dos = '', -- e70f
-          --   mac = '', -- e711
-          -- },
           symbols = {
             unix = "LF",
             dos = "CRLF",
