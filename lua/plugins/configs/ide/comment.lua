@@ -2,21 +2,19 @@ local vim = vim
 local notify = vim.notify
 local cmd = vim.cmd
 
-
 local base = require("core.plugin.base")
 
-local _M = {
-  name = "Comment",
-  desc = "CODE 注释",
-  github = "https://github.com/numToStr/Comment.nvim",
-  packer = {
-    'numToStr/Comment.nvim',
-    config = function()
-      require("plugins.configs.code_comment"):config()
-    end
-  }
+local _M = base.new {
+    name = "Comment",
+    desc = "注释",
+    github = "https://github.com/numToStr/Comment.nvim",
+    packer = {
+        'numToStr/Comment.nvim',
+        config = function()
+            require("plugins.configs.ide.comment"):config()
+        end
+    }
 }
-setmetatable(_M, { __index = base })
 
 --[[
 
@@ -74,8 +72,8 @@ Examples
 --   keymaps.set(self.name, "n", "<leader>dd", ":Alpha<cr>", "[Dashboard] 显示Dashboard")
 -- end
 
-_M.plugin_setup = function(self, keymaps)
-  self.plugin.setup()
+_M.setup = function(self, keymaps)
+    self.plugin.setup()
 end
 
 return _M

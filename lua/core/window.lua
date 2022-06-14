@@ -189,7 +189,7 @@ end
 local secret = "Þ"
 _M.setup = function()
   api.nvim_create_user_command("PickWindow", pick_window, {})
-  vim.api.nvim_set_keymap("n", "<leader>", "<cmd> PickWindow <CR>", { noremap = true,
+  vim.api.nvim_set_keymap("n", "<leader> ", "<cmd> PickWindow <CR>", { noremap = true,
     silent = true, nowait = true, expr = false, desc = "@C [WINDOW] 选择窗口" })
   -- vim.api.nvim_set_keymap("n", _M.leader_key .. secret, "<nop>", { noremap = true,
   --   silent = true, nowait = true, expr = false, desc = "@C [WINDOW] 选择窗口" })

@@ -58,9 +58,7 @@ vim.env: 环境变量
 一些变量名可能包含不能在 Lua 中用作标识符的字符。你可以使用以下语法操作这些变量：vim.g['my#variable']
 
 删除变量只需要将它的值设置为 nil
---]]
-
-local vim = vim
+--]] local vim = vim
 local o = vim.o
 local g = vim.g
 local wo = vim.wo
@@ -130,13 +128,17 @@ o.splitbelow = true
 o.splitright = true
 -- 自动补全不自动选中
 g.completeopt = "menu,menuone,noselect,noinsert"
+
 -- 样式
 o.background = "dark"
 o.termguicolors = true
 opt.termguicolors = true
+
 -- 不可见字符的显示，这里只把空格显示为一个点
-o.list = true
-o.listchars = "space:·"
+opt.list = true
+opt.listchars:append("space:⋅")
+opt.listchars:append("eol:↴")
+
 -- 补全增强
 o.wildmenu = true
 -- Dont' pass messages to |ins-completin menu|
