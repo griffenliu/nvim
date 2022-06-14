@@ -140,14 +140,15 @@ pass the result to nvim_feedkeys().
 | 项目       | [ahmedkhalf/project.nvim](https://github.com/ahmedkhalf/project.nvim)                         | [ ]  | 448  | 卓越的项目管理。                                                                                                                  |
 | ? 按键绑定 | [folke/which-key.nvim](https://github.com/folke/which-key.nvim)                               | [ ]  | 1.5k | 显示一个弹出窗口，其中包含您开始输入的命令的可能键绑                                                                              |
 
+https://github.com/sudormrfbin/cheatsheet.nvim
+
 ### 参考
 
 | 分类                   | 名称                                                                                  | 选择 | Star | 描述                                                                                                         |
-| ---------------------- | ------------------------------------------------------------------------------------- | ---- | ---- | ------------------------------------------------------------------------------------------------------------ | --- |
+| ---------------------- | ------------------------------------------------------------------------------------- | ---- | ---- | ------------------------------------------------------------------------------------------------------------ |
 | ? 格式化               | [mhartington/formatter.nvim](https://github.com/mhartington/formatter.nvim)           | [ ]  | 512  | formatter                                                                                                    |
-| 定                     |
 | ? 配色方案             | [navarasu/onedark.nvim](https://github.com/navarasu/onedark.nvim)                     | [ ]  | 385  | One Dark Theme                                                                                               |
-| ? LSP 扩展             | [people/trouble.nvim](https://github.com/folke/trouble.nvim)                          | [ ]  | 1.7k | [参考] 一个漂亮的诊断列表，可帮助您解决代码造成的所有问题。                                                  |     |
+| ? LSP 扩展             | [people/trouble.nvim](https://github.com/folke/trouble.nvim)                          | [ ]  | 1.7k | [参考] 一个漂亮的诊断列表，可帮助您解决代码造成的所有问题。                                                  |
 | x LSP 扩展             | [jose-elias-alvarez/null-ls.nvim](https://github.com/jose-elias-alvarez/null-ls.nvim) | [ ]  | 1.4k | 使用 Neovim 作为语言服务器，通过 Lua 注入 LSP 诊断、代码操作等。格式化可以使用，但是貌似有些问题，暂时不用了 |
 | ? LSP 扩展             | [stevearc/aerial.nvim](https://github.com/stevearc/aerial.nvim)                       | [ ]  | 423  | [参考] 用于浏览和快速导航的代码大纲窗口。                                                                    |
 | LSP 扩展               | [weilbith/nvim-code-action-menu](https://github.com/weilbith/nvim-code-action-menu)   | [ ]  | 332  | 代码操作的浮动弹出菜单，用于显示代码操作信息和差异预览。                                                     |
