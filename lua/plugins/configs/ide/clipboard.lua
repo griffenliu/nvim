@@ -5,11 +5,11 @@ local base = require("core.plugin.base")
 
 local _M = base.new {
     name = "neoclip",
-    desc = "剪贴板",
+    desc = "[IDE]剪贴板",
     github = "https://github.com/AckslD/nvim-neoclip.lua",
     packer = {
         "AckslD/nvim-neoclip.lua",
-        requires = {{'nvim-telescope/telescope.nvim'}},
+        requires = { { 'nvim-telescope/telescope.nvim' } },
         config = function()
             require("plugins.configs.ide.clipboard"):config()
         end
@@ -20,7 +20,7 @@ _M.set_keymaps = function(self, keymaps)
     local wk = require("which-key")
     wk.register({
         ["<leader>b"] = {
-            c = {"<cmd>Telescope neoclip<cr>", "剪贴板"}
+            c = { "<cmd>Telescope neoclip<cr>", "剪贴板" }
         }
     })
 end

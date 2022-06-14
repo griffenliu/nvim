@@ -9,7 +9,7 @@ local base = require("core.plugin.base")
 local _M = base.new {
     name = "nvim-treesitter", -- require name
     ext_name = ".configs",
-    desc = "语法解析",
+    desc = "[IDE]语法解析",
     github = "https://github.com/nvim-treesitter/nvim-treesitter",
     packer = {
         "nvim-treesitter/nvim-treesitter",
@@ -24,7 +24,7 @@ _M.setup = function(self, keymaps)
     self.plugin.setup({
         -- 安装 language parser
         -- :TSInstallInfo 命令查看支持的语言
-        ensure_installed = {"norg", "json", "html", "css", "vim", "lua", "javascript", "typescript", "rust"},
+        ensure_installed = { "norg", "json", "html", "css", "vim", "lua", "javascript", "typescript", "rust" },
         -- 启用代码高亮模块
         highlight = {
             enable = true,

@@ -5,7 +5,7 @@ local base = require("core.plugin.base")
 
 local _M = base.new {
     name = "colorizer",
-    desc = "色彩高亮",
+    desc = "[IDE]色彩高亮",
     github = "https://github.com/norcalli/nvim-colorizer.lua",
     packer = {
         'norcalli/nvim-colorizer.lua',

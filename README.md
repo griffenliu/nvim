@@ -106,8 +106,8 @@ pass the result to nvim_feedkeys().
 - https://neovimcraft.com/
 - https://vimawesome.com/
 
-| 安装 | 分类                                 | 排序        | 名称                                                                                          | Star |
-| ---- | ------------------------------------ | ----------- | --------------------------------------------------------------------------------------------- | ---- |
+| 安装  | 分类                                 | 排序        | 名称                                                                                          | Star |
+| ----- | ------------------------------------ | ----------- | --------------------------------------------------------------------------------------------- | ---- |
 | [⭐]√ | 插件管理(packer)                     |             | [wbthomason/packer.nvim](https://github.com/wbthomason/packer.nvim)                           | 3k   |
 | [⭐]√ | [lib]图标库(devicons)                |             | [kyazdani42/nvim-web-devicons](https://github.com/kyazdani42/nvim-web-devicons)               | 591  |
 | [⭐]√ | [lib]函数库(plenary)                 | devicons    | [nvim-lua/plenary.nvim](https://github.com/nvim-lua/plenary.nvim)                             | 901  |
@@ -121,79 +121,78 @@ pass the result to nvim_feedkeys().
 | [⭐]√ | [编辑器增强]项目(project)            | which-key   | [ahmedkhalf/project.nvim](https://github.com/ahmedkhalf/project.nvim)                         | 448  |
 | [⭐]√ | [编辑器增强]语法解析(treesitter)     | which-key   | [nvim-treesitter/nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter)         | 4k   |
 | [⭐]√ | [编辑器增强]自动配对(autopairs)      | treesitter  | [windwp/nvim-autopairs](https://github.com/windwp/nvim-autopairs)                             | 977  |
+| [⭐]√ | [编辑器增强]TODO 高亮                | treesitter  | [folke/todo-comments.nvim](https://github.com/folke/todo-comments.nvim)                       | 865  |
 | [⭐]√ | [编辑器增强]注释(Comment)            | treesmitter | [numToStr/Comment.nvim](https://github.com/numToStr/Comment.nvim)                             | 1k   |
 | [⭐]√ | [编辑器增强]文件查找(telescope)      | treesitter  | [nvim-telescope/telescope.nvim](https://github.com/nvim-telescope/telescope.nvim)             | 6k   |
-| [⭐]  | [编辑器增强]剪贴板增强(neoclip)      | telescope   | [acksld/nvim-neoclip.lua](https://github.com/AckslD/nvim-neoclip.lua)                         | 413  |
+| [⭐]√ | [编辑器增强]剪贴板增强(neoclip)      | telescope   | [acksld/nvim-neoclip.lua](https://github.com/AckslD/nvim-neoclip.lua)                         | 413  |
 
-| 安装 | 分类                                             | 排序      | 名称                                                                                  | Star |
-| ---- | ------------------------------------------------ | --------- | ------------------------------------------------------------------------------------- | ---- |
-| [⭐]  | [LSP]配置集合(nvim-lspconfig)                    | telescope | [neovim/nvim-lspconfig](https://github.com/neovim/nvim-lspconfig)                     | 4.7k |
-| [⭐]  | [LSP]安装工具(installer)                         | lspconfig | [williamboman/nvim-lsp-installer](https://github.com/williamboman/nvim-lsp-installer) | 1.7k |
-| [⭐]  | [LSP]格式化等(null-ls)                           | installer | [jose-elias-alvarez/null-ls.nvim](https://github.com/jose-elias-alvarez/null-ls.nvim) | 1.4k |
-| [⭐]  | [LSP]替换默认操作 (after lsp config)             | installer | [glepnir/lspsaga.nvim](https://github.com/glepnir/lspsaga.nvim)                       | 1.4k |
-| [⭐]  | [LSP-UI]加载进度  (after (lsp instaler, config)) | installer | [fidget.nvim](https://github.com/j-hui/fidget.nvim)                                   | 500  |
-| [⭐]  | [LSP-ui]诊断行增强 (after lsp config)            | installer | [git.sr.ht/~whynothugo/lsp_lines.nvim](https://git.sr.ht/~whynothugo/lsp_lines.nvim)  |      |
+| 安装  | 分类                          | 排序      | 名称                                                                                  | Star |
+| ----- | ----------------------------- | --------- | ------------------------------------------------------------------------------------- | ---- |
+| [⭐]√ | [LSP]配置集合(nvim-lspconfig) | telescope | [neovim/nvim-lspconfig](https://github.com/neovim/nvim-lspconfig)                     | 4.7k |
+| [⭐]√ | [LSP]安装工具(installer)      | lspconfig | [williamboman/nvim-lsp-installer](https://github.com/williamboman/nvim-lsp-installer) | 1.7k |
+| [⭐]√ | [LSP]格式化等(null-ls)        | installer | [jose-elias-alvarez/null-ls.nvim](https://github.com/jose-elias-alvarez/null-ls.nvim) | 1.4k |
+| [⭐]√ | [LSP]UI 美化                  | installer | [onsails/lspkind.nvim](https://github.com/onsails/lspkind.nvim)                       | 538  |
+| [⭐]√ | [LSP]替换默认操作             | installer | [glepnir/lspsaga.nvim](https://github.com/glepnir/lspsaga.nvim)                       | 1.4k |
+| [⭐]√ | [LSP]加载进度                 | installer | [fidget.nvim](https://github.com/j-hui/fidget.nvim)                                   | 500  |
+| [⭐]√ | [LSP]诊断行增强               | installer | [git.sr.ht/~whynothugo/lsp_lines.nvim](https://git.sr.ht/~whynothugo/lsp_lines.nvim)  |      |
 
-
-| 安装 | 分类                     | 排序                                  | 名称                                                                    | Star |
-| ---- | ------------------------ | ------------------------------------- | ----------------------------------------------------------------------- | ---- |
-| [⭐]  | [补全]LSP补全源          | lspconfig                             | [hrsh7th/cmp-nvim-lsp](https://github.com/hrsh7th/cmp-nvim-lsp)         | 261  |
-| [⭐]  | [补全]代码片段引擎       | lspconfig                             | [L3MON4D3/LuaSnip](https://github.com/L3MON4D3/LuaSnip)                 | 971  |
-| [⭐]  | [补全]代码片段补全源     | lspconfig                             | [saadparwaiz1/cmp_luasnip](https://github.com/saadparwaiz1/cmp_luasnip) | 165  |
-| [⭐]  | [补全]缓冲区补全源       | lspconfig                             | [hrsh7th/cmp-buffer](https://github.com/hrsh7th/cmp-buffer)             | 154  |
-| [⭐]  | [补全]LUA API补全源      | lspconfig                             | [hrsh7th/cmp-nvim-lua](https://github.com/hrsh7th/cmp-nvim-lua)         | 118  |
-| [⭐]  | [补全]文件系统路径补全源 | lspconfig                             | [hrsh7th/cmp-path](https://github.com/hrsh7th/cmp-path)                 | 163  |
-| [⭐]  | [补全]补全引擎           | lsp, snip, luasnip, buffer, lua, path | [hrsh7th/nvim-cmp](https://github.com/hrsh7th/nvim-cmp)                 | 3k   |
+| 安装  | 分类                     | 排序                         | 名称                                                                            | Star |
+| ----- | ------------------------ | ---------------------------- | ------------------------------------------------------------------------------- | ---- |
+| [⭐]√ | [补全]代码片段引擎       | installer                    | [L3MON4D3/LuaSnip](https://github.com/L3MON4D3/LuaSnip)                         | 971  |
+| [⭐]√ | [补全]代码片段源         | snip                         | [rafamadriz/friendly-snippets](https://github.com/rafamadriz/friendly-snippets) | 493  |
+| [⭐]√ | [补全]代码片段补全源     | snip                         | [saadparwaiz1/cmp_luasnip](https://github.com/saadparwaiz1/cmp_luasnip)         | 165  |
+| [⭐]√ | [补全]LSP 补全源         | snip                         | [hrsh7th/cmp-nvim-lsp](https://github.com/hrsh7th/cmp-nvim-lsp)                 | 261  |
+| [⭐]√ | [补全]缓冲区补全源       | snip                         | [hrsh7th/cmp-buffer](https://github.com/hrsh7th/cmp-buffer)                     | 154  |
+| [⭐]√ | [补全]LUA API 补全源     | snip                         | [hrsh7th/cmp-nvim-lua](https://github.com/hrsh7th/cmp-nvim-lua)                 | 118  |
+| [⭐]√ | [补全]文件系统路径补全源 | snip                         | [hrsh7th/cmp-path](https://github.com/hrsh7th/cmp-path)                         | 163  |
+| [⭐]√ | [补全]补全引擎           | lsp, snip, buffer, lua, path | [hrsh7th/nvim-cmp](https://github.com/hrsh7th/nvim-cmp)                         | 3k   |
 
 | 安装 | 分类       | 名称                                                                          | 排序      | Star |
 | ---- | ---------- | ----------------------------------------------------------------------------- | --------- | ---- |
-| [  ] | 辅助记忆   | [sudormrfbin/cheatsheet.nvim](https://github.com/sudormrfbin/cheatsheet.nvim) | telescope | 326  |
-| [⭐]  | 启动屏     | [goolord/alpha-nvim](https://github.com/goolord/alpha-nvim)                   | telescope | 504  |
-| [  ] | 笔记       | [nvim-neorg/neorg](https://github.com/nvim-neorg/neorg)                       | telescope | 2.4k |
-| [  ] | 浏览器集成 | [glacambre/firenvim](https://github.com/glacambre/firenvim)                   |           | 2.8k |
-
-
-
+| [ ]  | 辅助记忆   | [sudormrfbin/cheatsheet.nvim](https://github.com/sudormrfbin/cheatsheet.nvim) | telescope | 326  |
+| [⭐] | 启动屏     | [goolord/alpha-nvim](https://github.com/goolord/alpha-nvim)                   | telescope | 504  |
+| [ ]  | 笔记       | [nvim-neorg/neorg](https://github.com/nvim-neorg/neorg)                       | telescope | 2.4k |
+| [ ]  | 浏览器集成 | [glacambre/firenvim](https://github.com/glacambre/firenvim)                   |           | 2.8k |
 
 ### 参考
 
-| 分类                   | 名称                                                                                 | 选择                                                                | Star | 描述                                                                                                      |
-| ---------------------- | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------- | ---- | --------------------------------------------------------------------------------------------------------- |
-| [  ]                   | 工具                                                                                 | [stevearc/dressing.nvim](https://github.com/stevearc/dressing.nvim) | [ ]  | 508                                                                                                       | 改进与望远镜、fzf 等的内置接口。 |
-| ? 格式化               | [mhartington/formatter.nvim](https://github.com/mhartington/formatter.nvim)          | [ ]                                                                 | 512  | formatter                                                                                                 |
-| ? 配色方案             | [navarasu/onedark.nvim](https://github.com/navarasu/onedark.nvim)                    | [ ]                                                                 | 385  | One Dark Theme                                                                                            |
-| ? LSP 扩展             | [people/trouble.nvim](https://github.com/folke/trouble.nvim)                         | [ ]                                                                 | 1.7k | [参考] 一个漂亮的诊断列表，可帮助您解决代码造成的所有问题。                                               |
-| ? LSP 扩展             | [stevearc/aerial.nvim](https://github.com/stevearc/aerial.nvim)                      | [ ]                                                                 | 423  | [参考] 用于浏览和快速导航的代码大纲窗口。                                                                 |
-| LSP 扩展               | [weilbith/nvim-code-action-menu](https://github.com/weilbith/nvim-code-action-menu)  | [ ]                                                                 | 332  | 代码操作的浮动弹出菜单，用于显示代码操作信息和差异预览。                                                  |
-| LSP 扩展               | [ldelossa/litee.nvim](https://github.com/ldelossa/litee.nvim)                        | [ ]                                                                 | 251  | [参考] Neovim 缺少的 IDE 功能。                                                                           |
-| LSP 扩展               | [amrbashir/nvim-docs-view](https://github.com/amrbashir/nvim-docs-view)              | [ ]                                                                 | 11   | [参考] 用于在侧面板中显示 lsp 悬停文档。                                                                  |
-| 启动                   | [glepnir/dashboard-nvim](https://github.com/glepnir/dashboard-nvim)                  | [ ]                                                                 | 877  | 简约仪表板，灵感来自 doom-emacs.                                                                          |
-| ? 配色方案             | [mhartington/oceanic-next](https://github.com/mhartington/oceanic-next)              | [ ]                                                                 | 1k   | Oceanic Next 主题.                                                                                        |
-| ? 配色方案             | [sainnhe/gruvbox-material](https://github.com/sainnhe/gruvbox-material)              | [ ]                                                                 | 939  | Gruvbox 修改，具有更柔和的对比度和 Tree-sitter 支持。                                                     |
-| 配色方案               | [sainnhe/everforest](https://github.com/sainnhe/everforest)                          | [ ]                                                                 | 1.1k | 一种基于绿色的配色方案，设计为温暖、柔和且易于上眼。                                                      |
-| 配色方案               | [dracula/vim](https://github.com/dracula/vim)                                        | [ ]                                                                 | 1.1k | 著名的美丽黑暗动力主题。                                                                                  |
-| ? 配色方案             | [EdenEast/nightfox.nvim](https://github.com/EdenEast/nightfox.nvim)                  | [ ]                                                                 | 913  | 一个柔和的深色、完全可定制的 Neovim 主题，支持 lsp、treesitter 和各种插件。                               |
-| Markdown               | [ellisonleao/glow.nvim](https://github.com/ellisonleao/glow.nvim)                    | [ ]                                                                 | 560  | Markdown 预览。                                                                                           |
-| 终端                   | [akinsho/nvim-toggleterm.lua](https://github.com/akinsho/nvim-toggleterm.lua)        | [ ]                                                                 | 1.2k | 帮助轻松管理多个终端窗口。                                                                                |
-| 寄存器                 | [tversteeg/registers.nvim](https://github.com/tversteeg/registers.nvim)              | [ ]                                                                 | 416  | vim 寄存器的非侵入式最小预览。                                                                            |
-| Mark (after telescope) | [ThePrimeagen/harpoon](https://github.com/ThePrimeagen/harpoon)                      | [ ]                                                                 | 829  | 每个项目的自动更新和可编辑标记实用程序，用于快速文件导航。                                                |
-| 调试                   | [mfussenegger/nvim-dap](https://github.com/mfussenegger/nvim-dap)                    | [ ]                                                                 | 1.7k | Neovim 的调试适配器协议客户端实现。                                                                       |
-| 调试                   | [rcarriga/nvim-dap-ui](https://github.com/rcarriga/nvim-dap-ui)                      | [ ]                                                                 | 598  | nvim-dap 的 UI。                                                                                          |
-| LUA 库                 | [nvim-luadev](https://github.com/bfredl/nvim-luadev)                                 | [ ]                                                                 | 189  | Neovim Lua 插件的 REPL/调试控制台。该:Luadev 命令将打开一个临时窗口，该窗口将显示执行 Lua 代码的输出。    |
-| ? LUA 库               | [tami5/sqlite.lua](https://github.com/tami5/sqlite.lua)                              | [ ]                                                                 | 237  | Lua 和 Neovim 的 SQLite/LuaJIT 绑定。                                                                     |
-| LUA 库                 | [MuifTanjim/nui.nvim](https://github.com/MunifTanjim/nui.nvim)                       | [ ]                                                                 | 464  | Neovim 的 UI 组件库。                                                                                     |
-| Tabline                | [akinsho/bufferline.nvim](https://github.com/akinsho/bufferline.nvim)                | [ ]                                                                 | 1.3k | 使用 Lua 构建的 Neovim 的时髦缓冲线。                                                                     |
-| Tabline                | [romgrk/barbar.nvim](https://github.com/romgrk/barbar.nvim)                          | [ ]                                                                 | 1.1k | The Neovim tabline plugin.                                                                                |
-| 注释                   | [folke/todo-comments.nvim](https://github.com/folke/todo-comments.nvim)              | [ ]                                                                 | 865  | 突出显示、列出和搜索项目中的待办事项评论。                                                                |
-| x 光标线               | [RRethy/vim-illuminate](https://github.com/RRethy/vim-illuminate)                    | [ ]                                                                 | 1.1k | 突出显示光标下的单词。Neovim 的内置 LSP 可用，它可以用来更智能地突出显示。                                |
-| 快速移动 Motion        | [phaazon/hop.nvim](https://github.com/phaazon/hop.nvim)                              | [ ]                                                                 | 1.3k | Hop 是一个类似于 EasyMotion 的插件，允许您以尽可能少的击键次数跳转到文档中的任何位置。                    |
-| 快速移动 Motion        | [ggandor/lightspeed.nvim](https://github.com/ggandor/lightspeed.nvim)                | [ ]                                                                 | 1.2k | 一个类似 Sneak 的插件，通过提前显示的标签提供无与伦比的导航速度，消除了输入搜索模式和选择目标之间的暂停。 |
-| 项目                   | [windwp/nvim-spectre](https://github.com/windwp/nvim-spectre)                        | [ ]                                                                 | 494  | Neovim 的搜索和替换面板。                                                                                 |
-| 格式化                 | [sbdchd/neoformat](https://github.com/sbdchd/neoformat)                              | [ ]                                                                 | 1.5k | 用于格式化代码的 (Neo)vim 插件。                                                                          |
-| Media                  | [ekickx/clipboard-image.nvim](https://github.com/ekickx/clipboard-image.nvim)        | [ ]                                                                 | 125  | Neovim Lua 插件，用于从剪贴板粘贴图像。                                                                   |
-| Command Line           | [gelguy/wilder.nvim](https://github.com/gelguy/wilder.nvim)                          | [ ]                                                                 | 691  | 用于模糊命令行自动完成的插件。                                                                            |
-| 按键绑定               | [mrjones2014/legendary.nvim](https://github.com/mrjones2014/legendary.nvim)          | [ ]                                                                 | 343  | 将您的键盘映射、命令和自动命令定义为简单的 Lua 表，并同时为它们创建图例，与 which-key.nvim.               |
-| Window                 | [gitlab.com/yorickpeterse/nvim-window](https://gitlab.com/yorickpeterse/nvim-window) | [ ]                                                                 |      | [参考]在 Neovim 窗口之间轻松跳转。                                                                        |
+| 分类                   | 名称                                                                                | 选择                                                                | Star | 描述                                                                                                   |
+| ---------------------- | ----------------------------------------------------------------------------------- | ------------------------------------------------------------------- | ---- | ------------------------------------------------------------------------------------------------------ | -------------------------------- |
+| [ ]                    | 工具                                                                                | [stevearc/dressing.nvim](https://github.com/stevearc/dressing.nvim) | [ ]  | 508                                                                                                    | 改进与望远镜、fzf 等的内置接口。 |
+| ? 格式化               | [mhartington/formatter.nvim](https://github.com/mhartington/formatter.nvim)         | [ ]                                                                 | 512  | formatter                                                                                              |
+| ? 配色方案             | [navarasu/onedark.nvim](https://github.com/navarasu/onedark.nvim)                   | [ ]                                                                 | 385  | One Dark Theme                                                                                         |
+| ? LSP 扩展             | [people/trouble.nvim](https://github.com/folke/trouble.nvim)                        | [ ]                                                                 | 1.7k | [参考] 一个漂亮的诊断列表，可帮助您解决代码造成的所有问题。                                            |
+| ? LSP 扩展             | [stevearc/aerial.nvim](https://github.com/stevearc/aerial.nvim)                     | [ ]                                                                 | 423  | [参考] 用于浏览和快速导航的代码大纲窗口。                                                              |
+| LSP 扩展               | [weilbith/nvim-code-action-menu](https://github.com/weilbith/nvim-code-action-menu) | [ ]                                                                 | 332  | 代码操作的浮动弹出菜单，用于显示代码操作信息和差异预览。                                               |
+| LSP 扩展               | [ldelossa/litee.nvim](https://github.com/ldelossa/litee.nvim)                       | [ ]                                                                 | 251  | [参考] Neovim 缺少的 IDE 功能。                                                                        |
+| LSP 扩展               | [amrbashir/nvim-docs-view](https://github.com/amrbashir/nvim-docs-view)             | [ ]                                                                 | 11   | [参考] 用于在侧面板中显示 lsp 悬停文档。                                                               |
+| 启动                   | [glepnir/dashboard-nvim](https://github.com/glepnir/dashboard-nvim)                 | [ ]                                                                 | 877  | 简约仪表板，灵感来自 doom-emacs.                                                                       |
+| ? 配色方案             | [mhartington/oceanic-next](https://github.com/mhartington/oceanic-next)             | [ ]                                                                 | 1k   | Oceanic Next 主题.                                                                                     |
+| ? 配色方案             | [sainnhe/gruvbox-material](https://github.com/sainnhe/gruvbox-material)             | [ ]                                                                 | 939  | Gruvbox 修改，具有更柔和的对比度和 Tree-sitter 支持。                                                  |
+| 配色方案               | [sainnhe/everforest](https://github.com/sainnhe/everforest)                         | [ ]                                                                 | 1.1k | 一种基于绿色的配色方案，设计为温暖、柔和且易于上眼。                                                   |
+| 配色方案               | [dracula/vim](https://github.com/dracula/vim)                                       | [ ]                                                                 | 1.1k | 著名的美丽黑暗动力主题。                                                                               |
+| ? 配色方案             | [EdenEast/nightfox.nvim](https://github.com/EdenEast/nightfox.nvim)                 | [ ]                                                                 | 913  | 一个柔和的深色、完全可定制的 Neovim 主题，支持 lsp、treesitter 和各种插件。                            |
+| Markdown               | [ellisonleao/glow.nvim](https://github.com/ellisonleao/glow.nvim)                   | [ ]                                                                 | 560  | Markdown 预览。                                                                                        |
+| 终端                   | [akinsho/nvim-toggleterm.lua](https://github.com/akinsho/nvim-toggleterm.lua)       | [ ]                                                                 | 1.2k | 帮助轻松管理多个终端窗口。                                                                             |
+| 寄存器                 | [tversteeg/registers.nvim](https://github.com/tversteeg/registers.nvim)             | [ ]                                                                 | 416  | vim 寄存器的非侵入式最小预览。                                                                         |
+| Mark (after telescope) | [ThePrimeagen/harpoon](https://github.com/ThePrimeagen/harpoon)                     | [ ]                                                                 | 829  | 每个项目的自动更新和可编辑标记实用程序，用于快速文件导航。                                             |
+| 调试                   | [mfussenegger/nvim-dap](https://github.com/mfussenegger/nvim-dap)                   | [ ]                                                                 | 1.7k | Neovim 的调试适配器协议客户端实现。                                                                    |
+| 调试                   | [rcarriga/nvim-dap-ui](https://github.com/rcarriga/nvim-dap-ui)                     | [ ]                                                                 | 598  | nvim-dap 的 UI。                                                                                       |
+| LUA 库                 | [nvim-luadev](https://github.com/bfredl/nvim-luadev)                                | [ ]                                                                 | 189  | Neovim Lua 插件的 REPL/调试控制台。该:Luadev 命令将打开一个临时窗口，该窗口将显示执行 Lua 代码的输出。 |
+| ? LUA 库               | [tami5/sqlite.lua](https://github.com/tami5/sqlite.lua)                             | [ ]                                                                 | 237  | Lua 和 Neovim 的 SQLite/LuaJIT 绑定。                                                                  |
+| LUA 库                 | [MuifTanjim/nui.nvim](https://github.com/MunifTanjim/nui.nvim)                      | [ ]                                                                 | 464  | Neovim 的 UI 组件库。                                                                                  |
+| Tabline                | [akinsho/bufferline.nvim](https://github.com/akinsho/bufferline.nvim)               | [ ]                                                                 | 1.3k | 使用 Lua 构建的 Neovim 的时髦缓冲线。                                                                  |
+| Tabline                | [romgrk/barbar.nvim](https://github.com/romgrk/barbar.nvim)                         | [ ]                                                                 | 1.1k | The Neovim tabline plugin.                                                                             |
+
+| x 光标线 | [RRethy/vim-illuminate](https://github.com/RRethy/vim-illuminate) | [ ] | 1.1k | 突出显示光标下的单词。Neovim 的内置 LSP 可用，它可以用来更智能地突出显示。 |
+| 快速移动 Motion | [phaazon/hop.nvim](https://github.com/phaazon/hop.nvim) | [ ] | 1.3k | Hop 是一个类似于 EasyMotion 的插件，允许您以尽可能少的击键次数跳转到文档中的任何位置。 |
+| 快速移动 Motion | [ggandor/lightspeed.nvim](https://github.com/ggandor/lightspeed.nvim) | [ ] | 1.2k | 一个类似 Sneak 的插件，通过提前显示的标签提供无与伦比的导航速度，消除了输入搜索模式和选择目标之间的暂停。 |
+| 项目 | [windwp/nvim-spectre](https://github.com/windwp/nvim-spectre) | [ ] | 494 | Neovim 的搜索和替换面板。 |
+| 格式化 | [sbdchd/neoformat](https://github.com/sbdchd/neoformat) | [ ] | 1.5k | 用于格式化代码的 (Neo)vim 插件。 |
+| Media | [ekickx/clipboard-image.nvim](https://github.com/ekickx/clipboard-image.nvim) | [ ] | 125 | Neovim Lua 插件，用于从剪贴板粘贴图像。 |
+| Command Line | [gelguy/wilder.nvim](https://github.com/gelguy/wilder.nvim) | [ ] | 691 | 用于模糊命令行自动完成的插件。 |
+| 按键绑定 | [mrjones2014/legendary.nvim](https://github.com/mrjones2014/legendary.nvim) | [ ] | 343 | 将您的键盘映射、命令和自动命令定义为简单的 Lua 表，并同时为它们创建图例，与 which-key.nvim. |
+| Window | [gitlab.com/yorickpeterse/nvim-window](https://gitlab.com/yorickpeterse/nvim-window) | [ ] | | [参考]在 Neovim 窗口之间轻松跳转。 |
 
 ## 代码格式化
 
@@ -210,6 +209,12 @@ https://www.codingfont.com/
 - [Nerd Font](https://github.com/ryanoasis/nerd-fonts)
 - Fira Code
 - Courier New
+
+## 启动时间调试
+
+```
+nvim --startuptime ./vimstart.log
+```
 
 ## 参考记录
 

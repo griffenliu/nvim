@@ -6,7 +6,7 @@ local base = require("core.plugin.base")
 
 local _M = base.new {
     name = "Comment",
-    desc = "注释",
+    desc = "[IDE]注释",
     github = "https://github.com/numToStr/Comment.nvim",
     packer = {
         'numToStr/Comment.nvim',

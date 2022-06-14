@@ -26,6 +26,7 @@ end
 local _M = {
     name = "default", -- require name(可以定义一个扩展名称，以便在不同的插件下使用)
     desc = "default",
+    auto_load = true,
     packer = {}
     -- ext_name = "",
 }
@@ -38,7 +39,7 @@ _M.new = function(def)
     return p
 end
 
-_M.check = function(self)
+_M.load = function(self)
     local status, plugin = pcall(require, self.name .. (self.ext_name or ""))
     if not status then
         notify(self.name .. " not found!")
@@ -80,7 +81,10 @@ end
 
 -- ============================================================================
 _M.config = function(self)
-    local is_loaded = self:check()
+    local is_loaded = false
+    if self.auto_load then
+        is_loaded = self:load()
+    end
     -- vim.notify("config " .. (self.desc or "") .. " " .. self.name)
     print("config " .. (self.desc or "") .. " " .. self.name)
     if not is_loaded then

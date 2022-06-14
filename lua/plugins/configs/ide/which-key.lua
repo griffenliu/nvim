@@ -6,7 +6,7 @@ local base = require("core.plugin.base")
 
 local _M = base.new({
     name = "which-key",
-    desc = "按键提示",
+    desc = "[IDE]按键提示",
     github = "https://github.com/folke/which-key.nvim",
     packer = {
         "folke/which-key.nvim",
@@ -21,4 +21,3 @@ _M.setup = function(self, keymaps)
 end
 
 return _M
-

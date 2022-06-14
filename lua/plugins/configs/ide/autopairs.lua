@@ -6,7 +6,7 @@ local base = require("core.plugin.base")
 
 local _M = base.new {
     name = "nvim-autopairs",
-    desc = "自动配对",
+    desc = "[IDE]自动配对",
     github = "https://github.com/windwp/nvim-autopairs",
     packer = {
         'windwp/nvim-autopairs',

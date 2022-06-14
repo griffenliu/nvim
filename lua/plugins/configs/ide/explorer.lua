@@ -7,7 +7,7 @@ local base = require("core.plugin.base")
 
 local _M = base.new {
     name = "nvim-tree",
-    desc = "导航树", -- 资源管理器
+    desc = "[IDE]导航树", -- 资源管理器
     github = "https://github.com/kyazdani42/nvim-tree.lua",
     packer = {
         "kyazdani42/nvim-tree.lua",
@@ -40,7 +40,7 @@ _M.setup = function(self, keymaps)
         -- 隐藏 .文件 和 node_modules 文件夹
         filters = {
             dotfiles = true,
-            custom = {'node_modules'}
+            custom = { 'node_modules' }
         }
     })
 end

@@ -5,19 +5,19 @@ local cmd = vim.cmd
 
 local base = require("core.plugin.base")
 
-local _M = {
+local _M = base.new {
   name = "fidget",
-  desc = "LSP 加载进度",
+  desc = "[LSP]加载进度",
+  github = "https://github.com/j-hui/fidget.nvim",
   packer = {
     'j-hui/fidget.nvim',
     config = function()
-      require("lsp.configs.ui_progress"):config()
+      require("plugins.configs.lsp.loading"):config()
     end
   }
 }
-setmetatable(_M, { __index = base })
 
-_M.plugin_setup = function(self, keymaps)
+_M.setup = function(self, keymaps)
   self.plugin.setup {}
 end
 

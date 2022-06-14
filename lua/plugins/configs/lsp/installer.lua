@@ -6,7 +6,7 @@ local base = require("core.plugin.base")
 
 local _M = base.new {
     name = "nvim-lsp-installer", -- require name
-    desc = "LSP-Installer",
+    desc = "[LSP]Installer",
     github = "https://github.com/williamboman/nvim-lsp-installer",
     packer = {
         "williamboman/nvim-lsp-installer",
@@ -17,7 +17,7 @@ local _M = base.new {
         end
     },
     packer_ext = { -- rust 语言增强
-    {"simrat39/rust-tools.nvim"}}
+        { "simrat39/rust-tools.nvim" } }
 }
 
 -- _M.set_keymaps = function(self, keymaps)

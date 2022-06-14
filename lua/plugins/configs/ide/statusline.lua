@@ -7,11 +7,11 @@ local base = require("core.plugin.base")
 
 local _M = base.new {
     name = "lualine",
-    desc = "状态条",
+    desc = "[IDE]状态条",
     github = "https://github.com/nvim-lualine/lualine.nvim",
     packer = {
         "nvim-lualine/lualine.nvim",
-        requires = {"kyazdani42/nvim-web-devicons"},
+        requires = { "kyazdani42/nvim-web-devicons" },
         config = function()
             require("plugins.configs.ide.statusline"):config()
         end
@@ -32,16 +32,16 @@ _M.setup = function(self, keymaps)
                 right = ""
             }
         },
-        extensions = {"nvim-tree", "toggleterm"},
+        extensions = { "nvim-tree", "toggleterm" },
         sections = {
-            lualine_x = {"filesize", {
+            lualine_x = { "filesize", {
                 "fileformat",
                 symbols = {
                     unix = "LF",
                     dos = "CRLF",
                     mac = "CR"
                 }
-            }, "encoding", "filetype"}
+            }, "encoding", "filetype" }
         }
     })
 end

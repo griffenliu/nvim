@@ -5,7 +5,7 @@ local base = require("core.plugin.base")
 
 local _M = base.new {
     name = "project_nvim",
-    desc = "项目管理",
+    desc = "[IDE]项目管理",
     github = "https://github.com/ahmedkhalf/project.nvim",
     packer = {
         "ahmedkhalf/project.nvim",

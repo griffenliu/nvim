@@ -6,7 +6,7 @@ local base = require("core.plugin.base")
 
 local _M = base.new({
     name = "notify",
-    desc = "通知",
+    desc = "[IDE]通知",
     github = "https://github.com/rcarriga/nvim-notify",
     packer = {
         'rcarriga/nvim-notify',

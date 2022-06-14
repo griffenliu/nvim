@@ -7,7 +7,7 @@ local base = require("core.plugin.base")
 
 local _M = base.new {
     name = "indent_blankline", -- require name
-    desc = "空白线",
+    desc = "[IDE]空白线",
     github = "https://github.com/lukas-reineke/indent-blankline.nvim",
     packer = {
         "lukas-reineke/indent-blankline.nvim",

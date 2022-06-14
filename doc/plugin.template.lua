@@ -1,6 +1,8 @@
 -- local vim = vim
 -- local notify = vim.notify
 -- local cmd = vim.cmd
+-- local api = vim.api
+
 local base = require("core.plugin.base")
 
 local _M = base.new {
