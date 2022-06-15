@@ -79,13 +79,21 @@ _G.packer_plugins = {
     url = "https://github.com/numToStr/Comment.nvim"
   },
   LuaSnip = {
-    after = { "cmp_luasnip", "cmp-nvim-lsp", "friendly-snippets", "cmp-buffer", "cmp-path", "cmp-nvim-lua" },
+    after = { "cmp-nvim-lsp", "cmp-buffer", "cmp-path", "friendly-snippets", "cmp_luasnip", "cmp-nvim-lua" },
     config = { "\27LJ\2\nK\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\2\18\2\0\0009\0\2\0B\0\2\1K\0\1\0\vconfig\29plugins.configs.cmp.snip\frequire\0" },
     load_after = {},
     loaded = true,
     needs_bufread = true,
     path = "D:\\software\\nvim-win64\\config\\nvim-data\\site\\pack\\packer\\opt\\LuaSnip",
     url = "https://github.com/L3MON4D3/LuaSnip"
+  },
+  ["cheatsheet.nvim"] = {
+    config = { "\27LJ\2\nS\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\2\18\2\0\0009\0\2\0B\0\2\1K\0\1\0\vconfig%plugins.configs.tools.cheatsheet\frequire\0" },
+    load_after = {},
+    loaded = true,
+    needs_bufread = true,
+    path = "D:\\software\\nvim-win64\\config\\nvim-data\\site\\pack\\packer\\opt\\cheatsheet.nvim",
+    url = "https://github.com/sudormrfbin/cheatsheet.nvim"
   },
   ["cmp-buffer"] = {
     after = { "nvim-cmp" },
@@ -227,7 +235,7 @@ _G.packer_plugins = {
     url = "https://github.com/norcalli/nvim-colorizer.lua"
   },
   ["nvim-lsp-installer"] = {
-    after = { "lspsaga.nvim", "null-ls.nvim", "lsp_lines", "LuaSnip", "lspkind-nvim", "fidget.nvim" },
+    after = { "lspkind-nvim", "lspsaga.nvim", "null-ls.nvim", "LuaSnip", "lsp_lines", "fidget.nvim" },
     config = { "\27LJ\2\nP\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\2\18\2\0\0009\0\2\0B\0\2\1K\0\1\0\vconfig\"plugins.configs.lsp.installer\frequire\0" },
     load_after = {},
     loaded = true,
@@ -289,13 +297,22 @@ _G.packer_plugins = {
     url = "https://github.com/wbthomason/packer.nvim"
   },
   ["plenary.nvim"] = {
-    after = { "tokyonight.nvim" },
+    after = { "popup.nvim", "tokyonight.nvim" },
     config = { "\27LJ\2\nT\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\2\18\2\0\0009\0\2\0B\0\2\1K\0\1\0\vconfig&plugins.configs.libs.func_plenary\frequire\0" },
     load_after = {},
     loaded = true,
     needs_bufread = false,
     path = "D:\\software\\nvim-win64\\config\\nvim-data\\site\\pack\\packer\\opt\\plenary.nvim",
     url = "https://github.com/nvim-lua/plenary.nvim"
+  },
+  ["popup.nvim"] = {
+    after = { "cheatsheet.nvim" },
+    config = { "\27LJ\2\nP\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\2\18\2\0\0009\0\2\0B\0\2\1K\0\1\0\vconfig\"plugins.configs.libs.ui_popup\frequire\0" },
+    load_after = {},
+    loaded = true,
+    needs_bufread = false,
+    path = "D:\\software\\nvim-win64\\config\\nvim-data\\site\\pack\\packer\\opt\\popup.nvim",
+    url = "https://github.com/nvim-lua/popup.nvim"
   },
   ["project.nvim"] = {
     after = { "nvim-treesitter" },
@@ -317,7 +334,7 @@ _G.packer_plugins = {
     url = "https://github.com/LinArcX/telescope-env.nvim"
   },
   ["telescope.nvim"] = {
-    after = { "todo-comments.nvim", "nvim-lspconfig", "nvim-neoclip.lua" },
+    after = { "todo-comments.nvim", "nvim-lspconfig", "cheatsheet.nvim", "nvim-neoclip.lua" },
     config = { "\27LJ\2\nP\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\2\18\2\0\0009\0\2\0B\0\2\1K\0\1\0\vconfig\"plugins.configs.ide.telescope\frequire\0" },
     load_after = {},
     loaded = true,
@@ -343,7 +360,7 @@ _G.packer_plugins = {
     url = "https://github.com/folke/tokyonight.nvim"
   },
   ["which-key.nvim"] = {
-    after = { "indent-blankline.nvim", "lualine.nvim", "nvim-tree.lua", "nvim-colorizer.lua", "project.nvim" },
+    after = { "project.nvim", "indent-blankline.nvim", "lualine.nvim", "nvim-colorizer.lua", "nvim-tree.lua" },
     config = { "\27LJ\2\nP\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\2\18\2\0\0009\0\2\0B\0\2\1K\0\1\0\vconfig\"plugins.configs.ide.which-key\frequire\0" },
     load_after = {},
     loaded = true,
@@ -365,6 +382,11 @@ vim.cmd [[ packadd plenary.nvim ]]
 -- Config for: plenary.nvim
 try_loadstring("\27LJ\2\nT\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\2\18\2\0\0009\0\2\0B\0\2\1K\0\1\0\vconfig&plugins.configs.libs.func_plenary\frequire\0", "config", "plenary.nvim")
 
+vim.cmd [[ packadd popup.nvim ]]
+
+-- Config for: popup.nvim
+try_loadstring("\27LJ\2\nP\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\2\18\2\0\0009\0\2\0B\0\2\1K\0\1\0\vconfig\"plugins.configs.libs.ui_popup\frequire\0", "config", "popup.nvim")
+
 vim.cmd [[ packadd tokyonight.nvim ]]
 
 -- Config for: tokyonight.nvim
@@ -380,11 +402,6 @@ vim.cmd [[ packadd which-key.nvim ]]
 -- Config for: which-key.nvim
 try_loadstring("\27LJ\2\nP\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\2\18\2\0\0009\0\2\0B\0\2\1K\0\1\0\vconfig\"plugins.configs.ide.which-key\frequire\0", "config", "which-key.nvim")
 
-vim.cmd [[ packadd indent-blankline.nvim ]]
-
--- Config for: indent-blankline.nvim
-try_loadstring("\27LJ\2\nP\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\2\18\2\0\0009\0\2\0B\0\2\1K\0\1\0\vconfig\"plugins.configs.ide.blankline\frequire\0", "config", "indent-blankline.nvim")
-
 vim.cmd [[ packadd project.nvim ]]
 
 -- Config for: project.nvim
@@ -394,6 +411,11 @@ vim.cmd [[ packadd nvim-treesitter ]]
 
 -- Config for: nvim-treesitter
 try_loadstring("\27LJ\2\nQ\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\2\18\2\0\0009\0\2\0B\0\2\1K\0\1\0\vconfig#plugins.configs.ide.treesitter\frequire\0", "config", "nvim-treesitter")
+
+vim.cmd [[ packadd nvim-autopairs ]]
+
+-- Config for: nvim-autopairs
+try_loadstring("\27LJ\2\nP\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\2\18\2\0\0009\0\2\0B\0\2\1K\0\1\0\vconfig\"plugins.configs.ide.autopairs\frequire\0", "config", "nvim-autopairs")
 
 vim.cmd [[ packadd telescope.nvim ]]
 
@@ -405,6 +427,11 @@ vim.cmd [[ packadd nvim-neoclip.lua ]]
 -- Config for: nvim-neoclip.lua
 try_loadstring("\27LJ\2\nP\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\2\18\2\0\0009\0\2\0B\0\2\1K\0\1\0\vconfig\"plugins.configs.ide.clipboard\frequire\0", "config", "nvim-neoclip.lua")
 
+vim.cmd [[ packadd cheatsheet.nvim ]]
+
+-- Config for: cheatsheet.nvim
+try_loadstring("\27LJ\2\nS\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\2\18\2\0\0009\0\2\0B\0\2\1K\0\1\0\vconfig%plugins.configs.tools.cheatsheet\frequire\0", "config", "cheatsheet.nvim")
+
 vim.cmd [[ packadd nvim-lspconfig ]]
 
 -- Config for: nvim-lspconfig
@@ -415,45 +442,45 @@ vim.cmd [[ packadd nvim-lsp-installer ]]
 -- Config for: nvim-lsp-installer
 try_loadstring("\27LJ\2\nP\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\2\18\2\0\0009\0\2\0B\0\2\1K\0\1\0\vconfig\"plugins.configs.lsp.installer\frequire\0", "config", "nvim-lsp-installer")
 
-vim.cmd [[ packadd fidget.nvim ]]
+vim.cmd [[ packadd lspsaga.nvim ]]
 
--- Config for: fidget.nvim
-try_loadstring("\27LJ\2\nN\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\2\18\2\0\0009\0\2\0B\0\2\1K\0\1\0\vconfig plugins.configs.lsp.loading\frequire\0", "config", "fidget.nvim")
-
-vim.cmd [[ packadd lsp_lines ]]
-
--- Config for: lsp_lines
-try_loadstring("\27LJ\2\nS\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\2\18\2\0\0009\0\2\0B\0\2\1K\0\1\0\vconfig%plugins.configs.lsp.virtual-line\frequire\0", "config", "lsp_lines")
-
-vim.cmd [[ packadd lspkind-nvim ]]
-
--- Config for: lspkind-nvim
-try_loadstring("\27LJ\2\nN\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\2\18\2\0\0009\0\2\0B\0\2\1K\0\1\0\vconfig plugins.configs.lsp.lspkind\frequire\0", "config", "lspkind-nvim")
+-- Config for: lspsaga.nvim
+try_loadstring("\27LJ\2\nN\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\2\18\2\0\0009\0\2\0B\0\2\1K\0\1\0\vconfig plugins.configs.lsp.lspsaga\frequire\0", "config", "lspsaga.nvim")
 
 vim.cmd [[ packadd null-ls.nvim ]]
 
 -- Config for: null-ls.nvim
 try_loadstring("\27LJ\2\nN\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\2\18\2\0\0009\0\2\0B\0\2\1K\0\1\0\vconfig plugins.configs.lsp.null-ls\frequire\0", "config", "null-ls.nvim")
 
-vim.cmd [[ packadd lspsaga.nvim ]]
+vim.cmd [[ packadd lsp_lines ]]
 
--- Config for: lspsaga.nvim
-try_loadstring("\27LJ\2\nN\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\2\18\2\0\0009\0\2\0B\0\2\1K\0\1\0\vconfig plugins.configs.lsp.lspsaga\frequire\0", "config", "lspsaga.nvim")
+-- Config for: lsp_lines
+try_loadstring("\27LJ\2\nS\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\2\18\2\0\0009\0\2\0B\0\2\1K\0\1\0\vconfig%plugins.configs.lsp.virtual-line\frequire\0", "config", "lsp_lines")
 
 vim.cmd [[ packadd LuaSnip ]]
 
 -- Config for: LuaSnip
 try_loadstring("\27LJ\2\nK\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\2\18\2\0\0009\0\2\0B\0\2\1K\0\1\0\vconfig\29plugins.configs.cmp.snip\frequire\0", "config", "LuaSnip")
 
-vim.cmd [[ packadd friendly-snippets ]]
+vim.cmd [[ packadd cmp-buffer ]]
 
--- Config for: friendly-snippets
-try_loadstring("\27LJ\2\nS\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\2\18\2\0\0009\0\2\0B\0\2\1K\0\1\0\vconfig%plugins.configs.cmp.snip_friends\frequire\0", "config", "friendly-snippets")
+-- Config for: cmp-buffer
+try_loadstring("\27LJ\2\nU\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\2\18\2\0\0009\0\2\0B\0\2\1K\0\1\0\vconfig'plugins.configs.cmp.sources.buffer\frequire\0", "config", "cmp-buffer")
 
 vim.cmd [[ packadd cmp-nvim-lsp ]]
 
 -- Config for: cmp-nvim-lsp
 try_loadstring("\27LJ\2\nR\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\2\18\2\0\0009\0\2\0B\0\2\1K\0\1\0\vconfig$plugins.configs.cmp.sources.lsp\frequire\0", "config", "cmp-nvim-lsp")
+
+vim.cmd [[ packadd cmp_luasnip ]]
+
+-- Config for: cmp_luasnip
+try_loadstring("\27LJ\2\nS\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\2\18\2\0\0009\0\2\0B\0\2\1K\0\1\0\vconfig%plugins.configs.cmp.sources.snip\frequire\0", "config", "cmp_luasnip")
+
+vim.cmd [[ packadd friendly-snippets ]]
+
+-- Config for: friendly-snippets
+try_loadstring("\27LJ\2\nS\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\2\18\2\0\0009\0\2\0B\0\2\1K\0\1\0\vconfig%plugins.configs.cmp.snip_friends\frequire\0", "config", "friendly-snippets")
 
 vim.cmd [[ packadd cmp-nvim-lua ]]
 
@@ -465,15 +492,15 @@ vim.cmd [[ packadd cmp-path ]]
 -- Config for: cmp-path
 try_loadstring("\27LJ\2\nS\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\2\18\2\0\0009\0\2\0B\0\2\1K\0\1\0\vconfig%plugins.configs.cmp.sources.path\frequire\0", "config", "cmp-path")
 
-vim.cmd [[ packadd cmp-buffer ]]
+vim.cmd [[ packadd fidget.nvim ]]
 
--- Config for: cmp-buffer
-try_loadstring("\27LJ\2\nU\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\2\18\2\0\0009\0\2\0B\0\2\1K\0\1\0\vconfig'plugins.configs.cmp.sources.buffer\frequire\0", "config", "cmp-buffer")
+-- Config for: fidget.nvim
+try_loadstring("\27LJ\2\nN\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\2\18\2\0\0009\0\2\0B\0\2\1K\0\1\0\vconfig plugins.configs.lsp.loading\frequire\0", "config", "fidget.nvim")
 
-vim.cmd [[ packadd cmp_luasnip ]]
+vim.cmd [[ packadd lspkind-nvim ]]
 
--- Config for: cmp_luasnip
-try_loadstring("\27LJ\2\nS\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\2\18\2\0\0009\0\2\0B\0\2\1K\0\1\0\vconfig%plugins.configs.cmp.sources.snip\frequire\0", "config", "cmp_luasnip")
+-- Config for: lspkind-nvim
+try_loadstring("\27LJ\2\nN\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\2\18\2\0\0009\0\2\0B\0\2\1K\0\1\0\vconfig plugins.configs.lsp.lspkind\frequire\0", "config", "lspkind-nvim")
 
 vim.cmd [[ packadd nvim-cmp ]]
 
@@ -485,15 +512,20 @@ vim.cmd [[ packadd todo-comments.nvim ]]
 -- Config for: todo-comments.nvim
 try_loadstring("\27LJ\2\nK\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\2\18\2\0\0009\0\2\0B\0\2\1K\0\1\0\vconfig\29plugins.configs.ide.todo\frequire\0", "config", "todo-comments.nvim")
 
-vim.cmd [[ packadd nvim-autopairs ]]
-
--- Config for: nvim-autopairs
-try_loadstring("\27LJ\2\nP\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\2\18\2\0\0009\0\2\0B\0\2\1K\0\1\0\vconfig\"plugins.configs.ide.autopairs\frequire\0", "config", "nvim-autopairs")
-
 vim.cmd [[ packadd Comment.nvim ]]
 
 -- Config for: Comment.nvim
 try_loadstring("\27LJ\2\nN\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\2\18\2\0\0009\0\2\0B\0\2\1K\0\1\0\vconfig plugins.configs.ide.comment\frequire\0", "config", "Comment.nvim")
+
+vim.cmd [[ packadd nvim-tree.lua ]]
+
+-- Config for: nvim-tree.lua
+try_loadstring("\27LJ\2\nO\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\2\18\2\0\0009\0\2\0B\0\2\1K\0\1\0\vconfig!plugins.configs.ide.explorer\frequire\0", "config", "nvim-tree.lua")
+
+vim.cmd [[ packadd indent-blankline.nvim ]]
+
+-- Config for: indent-blankline.nvim
+try_loadstring("\27LJ\2\nP\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\2\18\2\0\0009\0\2\0B\0\2\1K\0\1\0\vconfig\"plugins.configs.ide.blankline\frequire\0", "config", "indent-blankline.nvim")
 
 vim.cmd [[ packadd nvim-colorizer.lua ]]
 
@@ -504,11 +536,6 @@ vim.cmd [[ packadd lualine.nvim ]]
 
 -- Config for: lualine.nvim
 try_loadstring("\27LJ\2\nQ\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\2\18\2\0\0009\0\2\0B\0\2\1K\0\1\0\vconfig#plugins.configs.ide.statusline\frequire\0", "config", "lualine.nvim")
-
-vim.cmd [[ packadd nvim-tree.lua ]]
-
--- Config for: nvim-tree.lua
-try_loadstring("\27LJ\2\nO\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\2\18\2\0\0009\0\2\0B\0\2\1K\0\1\0\vconfig!plugins.configs.ide.explorer\frequire\0", "config", "nvim-tree.lua")
 
 time([[Sequenced loading]], false)
 if should_profile then save_profiles() end

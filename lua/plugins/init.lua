@@ -6,7 +6,9 @@ _M.setup = function()
     local lib_icon_devions = require("plugins.configs.libs.icon_devicons")
     -- 常用函数库
     local lib_func_plenary = require("plugins.configs.libs.func_plenary"):after(lib_icon_devions)
-
+    -- 弹窗库(被其他插件依赖)
+    local lib_ui_popup = require("plugins.configs.libs.ui_popup"):after(lib_func_plenary)
+    -- FIXME: 最好可以在这里有一个阻挡，当基础库加载完毕再开始其他插件加载，虽然时间可能会慢一些
     -- ### 主题
     local theme_tokyonight = require("plugins.configs.themes.tokyonight"):after(lib_func_plenary)
 
@@ -69,7 +71,7 @@ _M.setup = function()
         cmp_source_path, cmp_source_nvim_lua)
 
     -- ### 其他辅助和工具类
-
+    require("plugins.configs.tools.cheatsheet"):after(lib_ui_popup, ide_telescope)
 end
 
 return _M
