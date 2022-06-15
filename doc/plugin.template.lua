@@ -2,7 +2,6 @@
 -- local notify = vim.notify
 -- local cmd = vim.cmd
 -- local api = vim.api
-
 local base = require("core.plugin.base")
 
 local _M = base.new {
@@ -17,11 +16,7 @@ local _M = base.new {
     }
 }
 
-_M.set_keymaps = function(self, keymaps)
-    keymaps.set(self.name, "n", "<leader>dd", ":Alpha<cr>", "[Dashboard] 显示Dashboard")
-end
-
-_M.setup = function(self, keymaps)
+_M.setup = function(self)
     self.plugin.setup {}
 end
 

@@ -50,6 +50,7 @@ local leader_mappings = {
     },
     ["<leader>t"] = {
         name = "+tool",
+        a = {":Alpha<cr>", "显示Dashboard"},
         d = {"<cmd>TodoTelescope<cr>", "显示TODO列表"},
         t = {":sp | terminal<CR>", "从下方打开终端"},
         v = {":vsp | terminal<CR>", "从右侧打开终端"}

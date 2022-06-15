@@ -1,0 +1,18 @@
+@document.meta
+  title: Neorg help-page
+  description: The Neorg vim help page
+  author: jon
+  categories: docs
+@end
+
+= TOC
+
+* The `.norg` file-format
+  If you find the ....
+  too long and want jump-start
+** Basic Markup
+  Here is how you can do very basic markup. First you see it raw, then rendered:
+   - \*bold\*: *bold*
+   - \/italic\/: /italic/
+   - \_underline\_: _underline_
+   - \-strikethrough\-: -strikethrough-
