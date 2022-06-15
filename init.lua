@@ -1,8 +1,12 @@
 vim.g.options = {
-  -- "tokyonight"; "onedark"; "gruvbox"; "nord"; "nightfox";
-  theme = "tokyonight",
-  workspace = {}
-  -- TODO: 测试...
+    leader = ' ', -- leader key
+    -- "tokyonight"; "onedark"; "gruvbox"; "nord"; "nightfox";
+    theme = 'tokyonight',
+    workspace = {},
+    langs = {
+        'lua',
+        'rust',
+    },
 }
 
-require "core"
+require('core')

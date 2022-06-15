@@ -16,8 +16,7 @@ require("plugins").setup()
 -- 插件管理
 require("core.plugins").bootstrap()
 -- 按键映射配置
-require("core.keymaps").setup()
+require("core.keys").setup()
 -- 添加数字选择窗口的功能
 require("core.window").setup()
--- 添加自定义帮助
-require("core.help").setup()
+

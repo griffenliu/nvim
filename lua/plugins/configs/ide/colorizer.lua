@@ -15,7 +15,7 @@ local _M = base.new {
     }
 }
 
-_M.setup = function(self, keymaps)
+_M.setup = function(self)
     self.plugin.setup {}
 end
 

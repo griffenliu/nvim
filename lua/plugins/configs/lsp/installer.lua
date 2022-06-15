@@ -17,7 +17,7 @@ local _M = base.new {
         end
     },
     packer_ext = { -- rust 语言增强
-        { "simrat39/rust-tools.nvim" } }
+    {"simrat39/rust-tools.nvim"}}
 }
 
 -- _M.set_keymaps = function(self, keymaps)
@@ -47,7 +47,7 @@ local _M = base.new {
 -- keymaps.set_buffer(plugin_name, 'n', '<space>D', '<cmd>lua vim.lsp.buf.type_definition()<CR>', opt)
 -- end
 
-_M.setup = function(self, keymaps)
+_M.setup = function(self)
 
     -- 安装列表
     -- { key: 语言 value: 配置文件 }

@@ -72,7 +72,7 @@ Examples
 --   keymaps.set(self.name, "n", "<leader>dd", ":Alpha<cr>", "[Dashboard] 显示Dashboard")
 -- end
 
-_M.setup = function(self, keymaps)
+_M.setup = function(self)
     self.plugin.setup()
 end
 

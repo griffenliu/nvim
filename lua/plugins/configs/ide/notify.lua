@@ -16,7 +16,7 @@ local _M = base.new({
     }
 })
 
-_M.setup = function(self, keymaps)
+_M.setup = function(self)
     -- 替换默认的通知，因为这个，所以这个插件要非常靠前，这里将其排序定义为1
     self.plugin.setup({
         background_colour = "#000000"

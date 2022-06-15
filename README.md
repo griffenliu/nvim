@@ -106,8 +106,8 @@ pass the result to nvim_feedkeys().
 - https://neovimcraft.com/
 - https://vimawesome.com/
 
-| 安装  | 分类                                 | 排序        | 名称                                                                                          | Star |
-| ----- | ------------------------------------ | ----------- | --------------------------------------------------------------------------------------------- | ---- |
+| 安装 | 分类                                 | 排序        | 名称                                                                                          | Star |
+| ---- | ------------------------------------ | ----------- | --------------------------------------------------------------------------------------------- | ---- |
 | [⭐]√ | 插件管理(packer)                     |             | [wbthomason/packer.nvim](https://github.com/wbthomason/packer.nvim)                           | 3k   |
 | [⭐]√ | [lib]图标库(devicons)                |             | [kyazdani42/nvim-web-devicons](https://github.com/kyazdani42/nvim-web-devicons)               | 591  |
 | [⭐]√ | [lib]函数库(plenary)                 | devicons    | [nvim-lua/plenary.nvim](https://github.com/nvim-lua/plenary.nvim)                             | 901  |
@@ -126,8 +126,8 @@ pass the result to nvim_feedkeys().
 | [⭐]√ | [编辑器增强]文件查找(telescope)      | treesitter  | [nvim-telescope/telescope.nvim](https://github.com/nvim-telescope/telescope.nvim)             | 6k   |
 | [⭐]√ | [编辑器增强]剪贴板增强(neoclip)      | telescope   | [acksld/nvim-neoclip.lua](https://github.com/AckslD/nvim-neoclip.lua)                         | 413  |
 
-| 安装  | 分类                          | 排序      | 名称                                                                                  | Star |
-| ----- | ----------------------------- | --------- | ------------------------------------------------------------------------------------- | ---- |
+| 安装 | 分类                          | 排序      | 名称                                                                                  | Star |
+| ---- | ----------------------------- | --------- | ------------------------------------------------------------------------------------- | ---- |
 | [⭐]√ | [LSP]配置集合(nvim-lspconfig) | telescope | [neovim/nvim-lspconfig](https://github.com/neovim/nvim-lspconfig)                     | 4.7k |
 | [⭐]√ | [LSP]安装工具(installer)      | lspconfig | [williamboman/nvim-lsp-installer](https://github.com/williamboman/nvim-lsp-installer) | 1.7k |
 | [⭐]√ | [LSP]格式化等(null-ls)        | installer | [jose-elias-alvarez/null-ls.nvim](https://github.com/jose-elias-alvarez/null-ls.nvim) | 1.4k |
@@ -136,8 +136,8 @@ pass the result to nvim_feedkeys().
 | [⭐]√ | [LSP]加载进度                 | installer | [fidget.nvim](https://github.com/j-hui/fidget.nvim)                                   | 500  |
 | [⭐]√ | [LSP]诊断行增强               | installer | [git.sr.ht/~whynothugo/lsp_lines.nvim](https://git.sr.ht/~whynothugo/lsp_lines.nvim)  |      |
 
-| 安装  | 分类                     | 排序                         | 名称                                                                            | Star |
-| ----- | ------------------------ | ---------------------------- | ------------------------------------------------------------------------------- | ---- |
+| 安装 | 分类                     | 排序                         | 名称                                                                            | Star |
+| ---- | ------------------------ | ---------------------------- | ------------------------------------------------------------------------------- | ---- |
 | [⭐]√ | [补全]代码片段引擎       | installer                    | [L3MON4D3/LuaSnip](https://github.com/L3MON4D3/LuaSnip)                         | 971  |
 | [⭐]√ | [补全]代码片段源         | snip                         | [rafamadriz/friendly-snippets](https://github.com/rafamadriz/friendly-snippets) | 493  |
 | [⭐]√ | [补全]代码片段补全源     | snip                         | [saadparwaiz1/cmp_luasnip](https://github.com/saadparwaiz1/cmp_luasnip)         | 165  |
@@ -150,8 +150,8 @@ pass the result to nvim_feedkeys().
 | 安装 | 分类       | 名称                                                                          | 排序      | Star |
 | ---- | ---------- | ----------------------------------------------------------------------------- | --------- | ---- |
 | [ ]  | 辅助记忆   | [sudormrfbin/cheatsheet.nvim](https://github.com/sudormrfbin/cheatsheet.nvim) | telescope | 326  |
-| [⭐] | 启动屏     | [goolord/alpha-nvim](https://github.com/goolord/alpha-nvim)                   | telescope | 504  |
-| [ ]  | 笔记       | [nvim-neorg/neorg](https://github.com/nvim-neorg/neorg)                       | telescope | 2.4k |
+| [⭐]  | 启动屏     | [goolord/alpha-nvim](https://github.com/goolord/alpha-nvim)                   | telescope | 504  |
+|[ ]  | 笔记       | [nvim-neorg/neorg](https://github.com/nvim-neorg/neorg)                       | telescope | 2.4k |
 | [ ]  | 浏览器集成 | [glacambre/firenvim](https://github.com/glacambre/firenvim)                   |           | 2.8k |
 
 ### 参考
@@ -228,7 +228,7 @@ nvim --startuptime ./vimstart.log
 - [awesome-neovim](https://github.com/rockerBOO/awesome-neovim)
 - [neorg(待研究)](https://github.com/nvim-neorg/neorg)
 - [300 line configs](https://neovim.discourse.group/t/the-300-line-init-lua-challenge/227)
-- [Neovim 配置实战](https://juejin.cn/book/7051157342770954277/section/7051399376945545252)
+- [掘金 - Neovim 配置实战](https://juejin.cn/book/7051157342770954277/section/7051399376945545252)
 - [Nerd Font 图标](https://www.nerdfonts.com/cheat-sheet)
 - [nvim-lua-guide-zh](https://github.com/glepnir/nvim-lua-guide-zh)
 - [luarocks.cn](https://luarocks.cn/)

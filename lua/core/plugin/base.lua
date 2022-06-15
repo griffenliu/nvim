@@ -28,7 +28,7 @@ local _M = {
     desc = "default",
     auto_load = true,
     packer = {}
-    -- ext_name = "",
+    -- ext_name = "",   -- 有些插件加载的package名称和其插件名称是不同的，此时可以使用这个进行扩展
 }
 
 _M.new = function(def)
@@ -49,18 +49,18 @@ _M.load = function(self)
     return true
 end
 
-_M.keymaps_setup = function(self)
-    local keymaps = require("core.keymaps")
-    self:set_keymaps(keymaps)
-    keymaps.bind(self.name)
-    return keymaps
-end
+-- _M.keymaps_setup = function(self)
+--     local keymaps = require("core.keymaps")
+--     self:set_keymaps(keymaps)
+--     keymaps.bind(self.name)
+--     return keymaps
+-- end
 
-_M.set_keymaps = function(self, keymaps)
-    -- do nothing...
-end
+-- _M.set_keymaps = function(self, keymaps)
+--     -- do nothing...
+-- end
 
-_M.setup = function(self, keymaps)
+_M.setup = function(self)
     -- self.plugin.setup({ ... })
 end
 
@@ -90,10 +90,10 @@ _M.config = function(self)
     if not is_loaded then
         return
     end
-    -- set key
-    local keymaps = self:keymaps_setup()
+    -- -- set key
+    -- local keymaps = self:keymaps_setup()
     -- config
-    self:setup(keymaps)
+    self:setup()
 end
 
 return _M

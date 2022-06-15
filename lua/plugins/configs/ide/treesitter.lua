@@ -20,11 +20,11 @@ local _M = base.new {
     }
 }
 
-_M.setup = function(self, keymaps)
+_M.setup = function(self)
     self.plugin.setup({
         -- 安装 language parser
         -- :TSInstallInfo 命令查看支持的语言
-        ensure_installed = { "norg", "json", "html", "css", "vim", "lua", "javascript", "typescript", "rust" },
+        ensure_installed = {"norg", "json", "html", "css", "vim", "lua", "javascript", "typescript", "rust"},
         -- 启用代码高亮模块
         highlight = {
             enable = true,

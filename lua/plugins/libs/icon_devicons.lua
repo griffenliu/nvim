@@ -10,7 +10,7 @@ local _M = base.new {
         'kyazdani42/nvim-web-devicons',
         github = "https://github.com/kyazdani42/nvim-web-devicons",
         config = function()
-            require("plugins.configs.libs.icon_devicons"):config()
+            require("plugins.libs.icon_devicons"):config()
         end
     }
 }

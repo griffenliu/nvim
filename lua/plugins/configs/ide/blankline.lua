@@ -38,7 +38,7 @@ local _M = base.new {
         char = "▏"
     }
 --]]
-_M.setup = function(self, keymaps)
+_M.setup = function(self)
     self.plugin.setup {
         -- space_char_blankline = " ",
         -- show_end_of_line = true,

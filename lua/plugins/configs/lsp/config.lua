@@ -7,6 +7,7 @@ local _M = base.new {
     name = "lspconfig",
     desc = "[LSP]Config",
     github = "https://github.com/neovim/nvim-lspconfig",
+    auto_load = false,
     packer = {
         'neovim/nvim-lspconfig',
         config = function()

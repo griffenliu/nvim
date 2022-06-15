@@ -9,25 +9,16 @@ local _M = base.new {
     github = "https://github.com/AckslD/nvim-neoclip.lua",
     packer = {
         "AckslD/nvim-neoclip.lua",
-        requires = { { 'nvim-telescope/telescope.nvim' } },
+        requires = {{'nvim-telescope/telescope.nvim'}},
         config = function()
             require("plugins.configs.ide.clipboard"):config()
         end
     }
 }
 
-_M.set_keymaps = function(self, keymaps)
-    local wk = require("which-key")
-    wk.register({
-        ["<leader>b"] = {
-            c = { "<cmd>Telescope neoclip<cr>", "剪贴板" }
-        }
-    })
-end
-
--- TODO: 未安装成功，回去再研究
-_M.setup = function(self, keymaps)
-    self.plugin.setup {}
+_M.setup = function(self)
+    self.plugin.setup()
+    require('telescope').load_extension('neoclip')
 end
 
 return _M
