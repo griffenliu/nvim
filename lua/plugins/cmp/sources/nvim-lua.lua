@@ -2,19 +2,18 @@
 -- local notify = vim.notify
 -- local cmd = vim.cmd
 -- local api = vim.api
--- 辅助工具需要，所以这里加进来
 local base = require("core.plugin.base")
 
 local _M = base.new {
-    name = "popup",
-    group = "LIB",
-    desc = "弹出窗口",
-    github = "https://github.com/nvim-lua/popup.nvim",
+    name = "cmp_nvim_lua",
+    group = "CMP",
+    desc = "NeoVim-LuaApi",
+    github = "https://github.com/hrsh7th/cmp-nvim-lua",
     auto_load = false,
     packer = {
-        'nvim-lua/popup.nvim',
+        'hrsh7th/cmp-nvim-lua',
         config = function()
-            require("plugins.libs.ui_popup"):config()
+            require("plugins.cmp.sources.nvim-lua"):config()
         end
     }
 }

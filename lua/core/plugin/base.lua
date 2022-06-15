@@ -3,7 +3,7 @@ local notify = vim.notify
 local cmd = vim.cmd
 local string_find = string.find
 local string_sub = string.sub
-local table_new = require("table.new")
+local table_new = require('table.new')
 -- require("table.nkeys")
 -- require("table.clear")
 -- require("table.clone")
@@ -12,11 +12,11 @@ local tabler_insert = table.insert
 -- table.concat
 -- table.sort
 
-local plugin_loader = require("core.plugins")
+local plugin_loader = require('core.plugins')
 
 -- pakcer会截取 `/` 后面的作为after的KEY
 local function get_packer_key(packer_name)
-    local idx_start, idx_end = string_find(packer_name, "/", 1, true)
+    local idx_start, idx_end = string_find(packer_name, '/', 1, true)
     if idx_end then
         return string_sub(packer_name, idx_end + 1)
     end
@@ -24,8 +24,9 @@ local function get_packer_key(packer_name)
 end
 
 local _M = {
-    name = "default", -- require name(可以定义一个扩展名称，以便在不同的插件下使用)
-    desc = "default",
+    name = 'default', -- require name(可以定义一个扩展名称，以便在不同的插件下使用)
+    desc = 'default',
+    group = "default",
     auto_load = true,
     packer = {}
     -- ext_name = "",   -- 有些插件加载的package名称和其插件名称是不同的，此时可以使用这个进行扩展
@@ -40,9 +41,9 @@ _M.new = function(def)
 end
 
 _M.load = function(self)
-    local status, plugin = pcall(require, self.name .. (self.ext_name or ""))
+    local status, plugin = pcall(require, self.name .. (self.ext_name or ''))
     if not status then
-        notify(self.name .. " not found!")
+        notify(self.name .. ' not found!')
         return false
     end
     self.plugin = plugin
@@ -75,7 +76,7 @@ _M.after = function(self, ...)
         tabler_insert(keys, key)
     end
     self.packer.after = keys
-    print(self.name .. " after=" .. vim.inspect(keys))
+    -- print(self.name .. ' after=' .. vim.inspect(keys))
     return self
 end
 
@@ -86,13 +87,14 @@ _M.config = function(self)
         is_loaded = self:load()
     end
     -- vim.notify("config " .. (self.desc or "") .. " " .. self.name)
-    print("config " .. (self.desc or "") .. " " .. self.name)
+    local group = string.format('%5s', (self.group or ""))
+    local name = string.format('%-20s', self.name)
+    local desc = self.desc or ''
+    print('load [' .. group .. '] ' .. name .. ' ' .. desc)
     if not is_loaded then
         return
     end
-    -- -- set key
-    -- local keymaps = self:keymaps_setup()
-    -- config
+
     self:setup()
 end
 

@@ -50,11 +50,6 @@ local leader_mappings = {
     },
     ["<leader>t"] = {
         name = "+tool",
-        c = {
-            name = "+辅助记忆",
-            c = {"<cmd>Cheatsheet<cr>", "查找信息"},
-            e = {"<cmd>CheatsheetEdit<cr>", "编辑信息"}
-        },
         d = {"<cmd>TodoTelescope<cr>", "显示TODO列表"},
         t = {":sp | terminal<CR>", "从下方打开终端"},
         v = {":vsp | terminal<CR>", "从右侧打开终端"}
@@ -73,6 +68,14 @@ local leader_mappings = {
         name = "+setting",
         s = {":e $MYVIMRC | :cd %:p:h | split . | wincmd k | pwd<CR>", "编辑配置"},
         r = {":PackerSync<CR>", "同步插件"}
+    },
+    ["<leader>h"] = {
+        name = "+help",
+        c = {
+            name = "+辅助记忆",
+            c = {"<cmd>Cheatsheet<cr>", "查找信息"},
+            e = {"<cmd>CheatsheetEdit<cr>", "编辑信息"}
+        }
     },
     ["<leader>"] = {
         ["`"] = {"<cmd>ToggleExplorer<cr>", "打开文件树"},

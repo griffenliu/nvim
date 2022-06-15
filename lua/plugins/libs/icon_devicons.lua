@@ -5,6 +5,7 @@ local base = require("core.plugin.base")
 
 local _M = base.new {
     name = "nvim-web-devicons",
+    group = "LIB",
     desc = "图标库",
     packer = {
         'kyazdani42/nvim-web-devicons',

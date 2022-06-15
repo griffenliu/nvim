@@ -2,19 +2,18 @@
 -- local notify = vim.notify
 -- local cmd = vim.cmd
 -- local api = vim.api
--- 辅助工具需要，所以这里加进来
 local base = require("core.plugin.base")
 
 local _M = base.new {
-    name = "popup",
-    group = "LIB",
-    desc = "弹出窗口",
-    github = "https://github.com/nvim-lua/popup.nvim",
+    name = "friendly-snippets",
+    group = "CMP",
+    desc = "默认代码片段",
+    github = "https://github.com/rafamadriz/friendly-snippets",
     auto_load = false,
     packer = {
-        'nvim-lua/popup.nvim',
+        "rafamadriz/friendly-snippets",
         config = function()
-            require("plugins.libs.ui_popup"):config()
+            require("plugins.cmp.snip_friends"):config()
         end
     }
 }
