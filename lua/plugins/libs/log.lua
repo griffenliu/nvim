@@ -5,20 +5,20 @@
 local base = require("core.plugin.base")
 
 local _M = base.new {
-    name = "alpha",
+    name = "luadev",
     group = "TOOL",
-    desc = "仪表盘",
-    github = "",
+    desc = "打印输出日志",
+    github = "https://github.com/bfredl/nvim-luadev",
     packer = {
-        'goolord/alpha-nvim',
+        "bfredl/nvim-luadev",
         config = function()
-            require("plugins.configs.dashboard"):config()
+            require("plugins.libs.log"):config()
         end
     }
 }
 
 _M.setup = function(self)
-    self.plugin.setup {}
+    -- print = self.plugin.print
 end
 
 return _M

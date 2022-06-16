@@ -8,4 +8,6 @@ vim.g.options = {
     langs = {'lua', 'rust'}
 }
 
+print(vim.fn.stdpath "data")
+
 require('core')

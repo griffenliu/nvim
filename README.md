@@ -147,12 +147,12 @@ pass the result to nvim_feedkeys().
 | [⭐]√ | [补全]文件系统路径补全源 | snip                         | [hrsh7th/cmp-path](https://github.com/hrsh7th/cmp-path)                         | 163  |
 | [⭐]√ | [补全]补全引擎           | lsp, snip, buffer, lua, path | [hrsh7th/nvim-cmp](https://github.com/hrsh7th/nvim-cmp)                         | 3k   |
 
-| 安装 | 分类       | 名称                                                                          | 排序      | Star |
-| ---- | ---------- | ----------------------------------------------------------------------------- | --------- | ---- |
-| [ ]  | 辅助记忆   | [sudormrfbin/cheatsheet.nvim](https://github.com/sudormrfbin/cheatsheet.nvim) | telescope | 326  |
-| [⭐] | 启动屏     | [goolord/alpha-nvim](https://github.com/goolord/alpha-nvim)                   | telescope | 504  |
-| [ ]  | 笔记       | [nvim-neorg/neorg](https://github.com/nvim-neorg/neorg)                       | telescope | 2.4k |
-| [ ]  | 浏览器集成 | [glacambre/firenvim](https://github.com/glacambre/firenvim)                   |           | 2.8k |
+| 安装  | 分类       | 名称                                                                          | 排序      | Star |
+| ----- | ---------- | ----------------------------------------------------------------------------- | --------- | ---- |
+| [⭐]√ | 辅助记忆   | [sudormrfbin/cheatsheet.nvim](https://github.com/sudormrfbin/cheatsheet.nvim) | telescope | 326  |
+| [⭐]√ | 启动屏     | [goolord/alpha-nvim](https://github.com/goolord/alpha-nvim)                   | telescope | 504  |
+| [⭐]√ | 笔记       | [nvim-neorg/neorg](https://github.com/nvim-neorg/neorg)                       | telescope | 2.4k |
+| [⭐]√ | 浏览器集成 | [glacambre/firenvim](https://github.com/glacambre/firenvim)                   |           | 2.8k |
 
 ### 参考
 
