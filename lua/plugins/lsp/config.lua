@@ -12,6 +12,7 @@ local _M = base.new {
     packer = {
         'neovim/nvim-lspconfig',
         config = function()
+            -- require('plugins.lsp.installer'):config()
             require("plugins.lsp.config"):config()
         end
     }

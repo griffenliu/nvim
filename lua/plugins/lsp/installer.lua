@@ -11,17 +11,19 @@ local _M = base.new({
     github = 'https://github.com/williamboman/nvim-lsp-installer',
     packer = {
         'williamboman/nvim-lsp-installer',
-        config = function()
-            require('plugins.lsp.installer'):config()
-        end
+        -- ft = "*",
+        -- config = function()
+        --     -- TODO: 这个要异步，那么到底是使用ft等参数还是使用自定义的lazy呢?
+        -- end
     },
     packer_ext = { -- rust 语言增强
-    {'simrat39/rust-tools.nvim'}}
+        { 'simrat39/rust-tools.nvim' } }
 })
 
 _M.setup = function(self)
     self.plugin.setup {
-        ensure_installed = {"sumneko_lua", "rust_analyzer"},
+        -- ensure_installed = { "sumneko_lua", "rust_analyzer" },
+        automatic_installation = true,
         ui = {
             icons = {
                 server_installed = "✓",

@@ -109,4 +109,10 @@ M.gitsigns = function()
     })
 end
 
+-- TODO: 暂未实现，写死了...
+-- 默认都添加到file open中
+M.lazy = function(name)
+
+end
+
 return M
