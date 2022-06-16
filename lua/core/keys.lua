@@ -24,7 +24,6 @@ local leader_mappings = {
         x = {":close<CR>", "关闭当前窗口"},
         o = {":only<CR>", "关闭其他窗口"},
         ["="] = {"<C-w>=", "等比例分割窗口"}
-
     },
     ["<leader>f"] = {
         name = "+file",
@@ -36,7 +35,10 @@ local leader_mappings = {
         c = {"<cmd>Telescope commands<cr>", "查找Nvim命令"},
         h = {"<cmd>Telescope help_tags<cr>", "查找帮助"},
         k = {"<cmd>Telescope keymaps<cr>", "查找快捷键"},
-        e = {"<cmd>Telescope env<cr>", "查找环境变量"},
+        e = {"<cmd>Telescope env<cr>", "查找环境变量"}
+    },
+    ["<leader>p"] = {
+        name = "+project",
         p = {"<cmd>Telescope projects<cr>", "项目列表"}
     },
     ["<leader>b"] = {
@@ -78,17 +80,32 @@ local leader_mappings = {
             e = {"<cmd>CheatsheetEdit<cr>", "编辑信息"}
         }
     },
+    ["<leader>c"] = {
+        name = "+code action",
+        a = {":Lspsaga code_action<CR>", "Code Action"}
+    },
     ["<leader>"] = {
         ["`"] = {"<cmd>ToggleExplorer<cr>", "打开文件树"},
         ["?"] = {"<cmd>Cheatsheet<cr>", "打开CheatSheet"}
     }
 }
+
+local leader_vmappings = {
+    ["<leader>c"] = {
+        name = "+code action",
+        a = {":<C-U>Lspsaga range_code_action<CR>", "Code Action"}
+    }
+}
+
 local _M = {}
 
 -- 可以使用多种mapper，只要定义了register函数就可以使用
 -- 这里简单使用which-key
 _M.bind = function(mapper)
     mapper.register(leader_mappings)
+    mapper.register(leader_vmappings, {
+        mode = "v"
+    })
 end
 
 local function opt(desc)
@@ -128,6 +145,9 @@ _M.setup = function()
     -- keymap("n", "q", ":q<CR>", opt("[Editor] 退出"))
     keymap("n", "qq", ":q!<CR>", opt("[Editor] 退出"))
     keymap("n", "Q", ":qa!<CR>", opt("[Editor] 退出"))
+
+    -- LSP ============================================
+    keymap("n", "gh", ":Lspsaga lsp_finder<CR>", opt("查找定义"))
 end
 
 return _M

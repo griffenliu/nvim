@@ -21,7 +21,7 @@ local _M = base.new({
 
 _M.setup = function(self)
     self.plugin.setup {
-        automatic_installation = true, -- 自动安装lsp-config配置好的server
+        ensure_installed = {"sumneko_lua", "rust_analyzer"},
         ui = {
             icons = {
                 server_installed = "✓",

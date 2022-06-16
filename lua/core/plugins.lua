@@ -16,6 +16,10 @@ local function startup()
     if not present then
         return
     end
+    packer.set_handler("after", function(plugins, plugin, value)
+        vim.pretty_print(plugin)
+        vim.pretty_print(value)
+    end)
 
     -- 初始化packer
     packer.init(M.options)

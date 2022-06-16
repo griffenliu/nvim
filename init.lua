@@ -3,11 +3,11 @@ vim.g.options = {
     -- "tokyonight"; "onedark"; "gruvbox"; "nord"; "nightfox";
     theme = 'tokyonight',
     workspace = {
-        main = "D:\\坚果云同步\\我的知识库\\笔记"
+        main = 'D:\\坚果云同步\\我的知识库\\笔记',
     },
-    langs = {'lua', 'rust'}
+    langs = { 'lua', 'rust' },
 }
 
-print(vim.fn.stdpath "data")
+print(vim.fn.stdpath('data'))
 
 require('core')
