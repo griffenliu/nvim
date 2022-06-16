@@ -73,7 +73,7 @@ M.options = {
 M.bootstrap = function()
     local fn = vim.fn
     local install_path = fn.stdpath "data" .. "/site/pack/packer/start/packer.nvim"
-
+    print("packer install path: " .. install_path)
     vim.api.nvim_set_hl(0, "NormalFloat", {
         bg = "#1e222a"
     })
@@ -81,7 +81,7 @@ M.bootstrap = function()
     if fn.empty(fn.glob(install_path)) > 0 then
         print "Cloning packer ..."
 
-        fn.system { "git", "clone", "--depth", "1", "https://github.com/wbthomason/packer.nvim", install_path }
+        fn.system {"git", "clone", "--depth", "1", "https://github.com/wbthomason/packer.nvim", install_path}
         -- vim.fn.execute('!git clone --depth 1 https://github.com/wbthomason/packer.nvim ' .. install_path)
         -- install plugins + compile their configs
         vim.cmd "packadd packer.nvim"
