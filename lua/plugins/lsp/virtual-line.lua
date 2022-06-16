@@ -6,7 +6,7 @@ local diagnostic = vim.diagnostic
 
 local base = require('core.plugin.base')
 
-local config_path = fn.stdpath "config"
+local config_path = vim.fn.stdpath "config"
 
 -- FIXME: 使用其git库下载比较费劲，这里直接使用本地目录
 local _M = base.new({
