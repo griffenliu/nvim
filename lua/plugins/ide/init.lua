@@ -1,33 +1,43 @@
 local _M = {}
 
 _M.setup = function(after_plugin)
-    -- 弹出信息窗口
-    local ide_notify = require('plugins.ide.notify'):after(after_plugin)
-    -- 快捷键预览
-    local ide_which_key = require('plugins.ide.which-key'):after(ide_notify)
-    -- 状态行
-    require('plugins.ide.statusline'):after(ide_which_key)
-    -- 色彩高亮显示
-    require('plugins.ide.colorizer'):after(ide_which_key)
-    -- 空白线
-    require('plugins.ide.blankline'):after(ide_which_key)
-    -- 资源管理器
-    require('plugins.ide.explorer'):after(ide_which_key)
-    -- 项目管理
-    local ide_project = require('plugins.ide.project'):after(ide_which_key)
-    -- 语法分析器
-    local ide_treesitter = require('plugins.ide.treesitter'):after(ide_project)
-    -- 自动配对括号
-    require('plugins.ide.autopairs'):after(ide_treesitter)
-    -- 注释
-    require('plugins.ide.comment'):after(ide_treesitter)
-    -- 搜索
-    local ide_telescope = require('plugins.ide.telescope'):after(ide_treesitter)
-    -- TOD O 高亮
-    require('plugins.ide.todo'):after(ide_telescope)
-    -- 剪贴板
-    require('plugins.ide.clipboard'):after(ide_telescope)
-    return ide_telescope
+    local plugins = {
+        notify = require('plugins.ide.notify'), -- 弹出信息窗口
+        which_key = require('plugins.ide.which-key'), -- 快捷键预览
+        statuline = require('plugins.ide.statusline'), -- 状态行
+        colorizer = require('plugins.ide.colorizer'), -- 色彩高亮显示
+        blankline = require('plugins.ide.blankline'), -- 空白线
+        explorer = require('plugins.ide.explorer'), -- 资源管理器
+        project = require('plugins.ide.project'), -- 项目管理
+        treesitter = require('plugins.ide.treesitter'), -- 语法分析器
+        autopairs = require('plugins.ide.autopairs'), -- 自动配对括号
+        comment = require('plugins.ide.comment'), -- 注释
+        telescope = require('plugins.ide.telescope'), -- 搜索
+        todo = require('plugins.ide.todo'), -- TOD0 高亮
+        clipboard = require('plugins.ide.clipboard') -- 剪贴板
+    }
+
+    plugins.notify:after(after_plugin)
+    plugins.which_key:after(plugins.notify)
+    plugins.statuline:after(plugins.which_key)
+    plugins.colorizer:after(plugins.which_key)
+    plugins.blankline:after(plugins.which_key)
+    plugins.explorer:after(plugins.which_key)
+    plugins.project:after(plugins.which_key)
+    plugins.treesitter:after(plugins.project)
+    plugins.autopairs:after(plugins.treesitter)
+    plugins.comment:after(plugins.treesitter)
+    plugins.telescope:after(plugins.treesitter)
+    plugins.todo:after(plugins.telescope)
+    plugins.clipboard:after(plugins.telescope)
+
+    local finish = require("plugins.ide.finish")
+    local afters = {}
+    for _, p in pairs(plugins) do
+        table.insert(afters, p)
+    end
+    finish:after(unpack(afters))
+    return finish
 end
 
 return _M

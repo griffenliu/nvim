@@ -6,7 +6,7 @@ local M = {}
 M.plugins = {}
 
 local function add_lazy_autocmd_hook(plugins, output_lua, should_profile)
-
+    -- TODO: 这里后面可以修改为代码生成
     local output = [[
         local lazy_load = function(tb)
             vim.api.nvim_create_autocmd(tb.events, {
@@ -47,16 +47,17 @@ local function hook_compile(hook)
     local compile = require('packer.compile')
     local meta = getmetatable(compile)
     local call = meta.__call
-    setmetatable(compile, { __call = function(this, plugins, output_lua, should_profile)
-        --print(vim.inspect(this))
-        local output = call(nil, plugins, output_lua, should_profile)
-        output = output .. "\n" .. hook(plugins, output_lua, should_profile)
-        return output
-    end })
+    setmetatable(compile, {
+        __call = function(_, plugins, output_lua, should_profile)
+            local output = call(nil, plugins, output_lua, should_profile)
+            output = output .. '\n' .. hook(plugins, output_lua, should_profile)
+            return output
+        end,
+    })
 end
 
 local function startup()
-    local present, packer = pcall(require, "packer")
+    local present, packer = pcall(require, 'packer')
     if not present then
         return
     end
@@ -93,12 +94,15 @@ local function startup()
     end)
 
     -- 每次保存 plugins.lua 自动安装插件
-    pcall(vim.cmd, [[
+    pcall(
+        vim.cmd,
+        [[
         augroup packer_user_config
         autocmd!
         autocmd BufWritePost plugins.lua source <afile> | PackerSync
         augroup end
-    ]])
+    ]]
+    )
 end
 
 M.options = {
@@ -107,7 +111,7 @@ M.options = {
     -- 并发数限制
     max_jobs = 16,
     git = {
-        clone_timeout = 6000
+        clone_timeout = 6000,
         -- default_url_format = "https://hub.fastgit.xyz/%s",
         -- default_url_format = "https://mirror.ghproxy.com/https://github.com/%s",
         -- default_url_format = "https://gitcode.net/mirrors/%s",
@@ -120,28 +124,28 @@ M.options = {
         -- removed_sym = " ",
         -- moved_sym = "",
         open_fn = function()
-            return require("packer.util").float {
-                border = "single"
-            }
-        end
-    }
+            return require('packer.util').float({
+                border = 'single',
+            })
+        end,
+    },
 }
 
 M.bootstrap = function()
     local fn = vim.fn
-    local install_path = fn.stdpath "data" .. "/site/pack/packer/start/packer.nvim"
-    print("packer install path: " .. install_path)
-    vim.api.nvim_set_hl(0, "NormalFloat", {
-        bg = "#1e222a"
+    local install_path = fn.stdpath('data') .. '/site/pack/packer/start/packer.nvim'
+    print('packer install path: ' .. install_path)
+    vim.api.nvim_set_hl(0, 'NormalFloat', {
+        bg = '#1e222a',
     })
 
     if fn.empty(fn.glob(install_path)) > 0 then
-        print "Cloning packer ..."
+        print('Cloning packer ...')
 
-        fn.system { "git", "clone", "--depth", "1", "https://github.com/wbthomason/packer.nvim", install_path }
+        fn.system({ 'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path })
         -- vim.fn.execute('!git clone --depth 1 https://github.com/wbthomason/packer.nvim ' .. install_path)
         -- install plugins + compile their configs
-        vim.cmd "packadd packer.nvim"
+        vim.cmd('packadd packer.nvim')
     end
     startup()
     -- execute sync...

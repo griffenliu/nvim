@@ -1,19 +1,19 @@
 -- local vim = vim
 -- local notify = vim.notify
 -- local cmd = vim.cmd
-local base = require("core.plugin.base")
+local base = require('core.plugin.base')
 
-local _M = base.new {
-    name = "cmp", -- require name
-    group = "CMP",
-    desc = "引擎",
+local _M = base.new({
+    name = 'cmp', -- require name
+    group = 'CMP',
+    desc = '引擎',
     packer = {
-        "hrsh7th/nvim-cmp",
+        'hrsh7th/nvim-cmp',
         config = function()
-            require("plugins.cmp.cmp"):config()
-        end
-    }
-}
+            require('plugins.cmp.cmp'):config()
+        end,
+    },
+})
 -- local mappings = {}
 -- _M.set_keymaps = function(self, keymaps)
 --   keymaps.set_custom(self.name, "n", "<A-.>", function(_cmp)
@@ -50,32 +50,38 @@ local _M = base.new {
 -- end
 
 _M.setup = function(self)
-
     local config = {
         -- 指定 snippet 引擎
         snippet = {
             expand = function(args)
                 require('luasnip').lsp_expand(args.body)
-            end
+            end,
         },
         -- 补全源
-        sources = self.plugin.config.sources({{
-            name = "nvim_lsp"
-        }, {
-            name = 'luasnip'
-        }}, {{
-            name = "buffer"
-        }, {
-            name = "path"
-        }, {
-            name = 'nvim_lua'
-        }}),
+        sources = self.plugin.config.sources(
+            { {
+                name = 'nvim_lsp',
+            }, {
+                name = 'luasnip',
+            } },
+            {
+                {
+                    name = 'buffer',
+                },
+                {
+                    name = 'path',
+                },
+                {
+                    name = 'nvim_lua',
+                },
+            }
+        ),
 
         -- 快捷键设置
-        mapping = mappings
+        -- mapping = mappings
     }
 
-    local ok, lspkind = pcall(require, "lspkind")
+    local ok, lspkind = pcall(require, 'lspkind')
     if ok then
         -- 使用lspkind-nvim显示类型图标
         config.formatting = {
@@ -87,31 +93,34 @@ _M.setup = function(self)
                 -- so that you can provide more controls on popup customization. (See [#30](https://github.com/onsails/lspkind-nvim/pull/30))
                 before = function(entry, vim_item)
                     -- Source 显示提示来源
-                    vim_item.menu = "[" .. string.upper(entry.source.name) .. "]"
+                    vim_item.menu = '[' .. string.upper(entry.source.name) .. ']'
                     return vim_item
-                end
-            })
+                end,
+            }),
         }
     end
 
     self.plugin.setup(config)
 
     -- / 查找模式使用 buffer 源
-    self.plugin.setup.cmdline("/", {
+    self.plugin.setup.cmdline('/', {
         mapping = self.plugin.mapping.preset.cmdline(),
-        sources = {{
-            name = "buffer"
-        }}
+        sources = { {
+            name = 'buffer',
+        } },
     })
 
     -- : 命令行模式中使用 path 和 cmdline 源.
-    self.plugin.setup.cmdline(":", {
+    self.plugin.setup.cmdline(':', {
         mapping = self.plugin.mapping.preset.cmdline(),
-        sources = self.plugin.config.sources({{
-            name = "path"
-        }}, {{
-            name = "cmdline"
-        }})
+        sources = self.plugin.config.sources(
+            { {
+                name = 'path',
+            } },
+            { {
+                name = 'cmdline',
+            } }
+        ),
     })
 
     -- Setup lspconfig.

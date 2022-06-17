@@ -148,6 +148,9 @@ _M.setup = function()
 
     -- LSP ============================================
     keymap("n", "gh", ":Lspsaga lsp_finder<CR>", opt("查找定义"))
+
+    keymap("n", "<f5>", ":PackerSync<CR>", opt("刷新配置"))
+    keymap("n", "<f6>", ":PackerClean |:PackerCompile<CR>", opt("重新编译配置"))
 end
 
 return _M

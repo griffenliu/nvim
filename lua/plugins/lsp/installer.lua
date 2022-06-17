@@ -11,16 +11,27 @@ local _M = base.new({
     github = 'https://github.com/williamboman/nvim-lsp-installer',
     packer = {
         'williamboman/nvim-lsp-installer',
-        -- ft = "*",
+        -- 研究半天，觉得这个拦截在是有BUG的，还是自己实现一个？
+        -- ft = "*", -- 懒加载
+        -- cond = function()
+        --     -- print("111111111111111111")
+        --     -- local file = vim.fn.expand "%"
+        --     -- -- vim.notify("current file" .. vim.inspect(file))
+        --     -- return file ~= "NvimTree_1" and file ~= "[packer]" and file ~= ""
+        --     return true
+        -- end,
+        opt = true
         -- config = function()
-        --     -- TODO: 这个要异步，那么到底是使用ft等参数还是使用自定义的lazy呢?
+        --     print("1111111111111111111111111111")
+        --     require('plugins.lsp.installer'):config()
         -- end
     },
     packer_ext = { -- rust 语言增强
-        { 'simrat39/rust-tools.nvim' } }
+    {'simrat39/rust-tools.nvim'}}
 })
 
 _M.setup = function(self)
+    print("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
     self.plugin.setup {
         -- ensure_installed = { "sumneko_lua", "rust_analyzer" },
         automatic_installation = true,
@@ -30,8 +41,13 @@ _M.setup = function(self)
                 server_pending = "➜",
                 server_uninstalled = "✗"
             }
-        }
+        },
+        max_concurrent_installers = 20
     }
+
+    -- for _, s in ipairs(self.plugin.get_installed_servers()) do
+    --     s:setup()
+    -- end
 
     -- 安装列表
     -- { key: 语言 value: 配置文件 }

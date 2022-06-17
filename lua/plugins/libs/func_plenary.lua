@@ -1,20 +1,21 @@
 -- local vim = vim
 -- local notify = vim.notify
 -- local cmd = vim.cmd
-local base = require("core.plugin.base")
+local base = require('core.plugin.base')
 
-local _M = base.new {
-    name = "plenary",
-    group = "LIB",
-    desc = "函数库",
+local _M = base.new({
+    name = 'plenary',
+    group = 'LIB',
+    desc = '函数库',
     auto_load = false,
+    auto_config = false,
     packer = {
         'nvim-lua/plenary.nvim',
-        github = "https://github.com/nvim-lua/plenary.nvim",
+        github = 'https://github.com/nvim-lua/plenary.nvim',
         config = function()
-            require("plugins.libs.func_plenary"):config()
-        end
-    }
-}
+            require('plugins.libs.func_plenary'):config()
+        end,
+    },
+})
 
 return _M

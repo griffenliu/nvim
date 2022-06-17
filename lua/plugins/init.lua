@@ -1,6 +1,7 @@
 local _M = {}
 
 _M.setup = function()
+    vim.lsp.set_log_level('debug')
     local fn = vim.fn
     local plugin_config_path = fn.stdpath('config') .. '/lua/plugins'
 
@@ -20,7 +21,7 @@ _M.setup = function()
     local cmp = require('plugins.cmp').setup(lsp)
 
     -- ### 其他辅助和工具类
-    require('plugins.tools').setup(cmp)
+    require('plugins.tools').setup(ide)
 end
 
 return _M

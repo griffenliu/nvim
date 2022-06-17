@@ -2,21 +2,22 @@
 -- local notify = vim.notify
 -- local cmd = vim.cmd
 -- local api = vim.api
-local base = require("core.plugin.base")
+local base = require('core.plugin.base')
 
-local _M = base.new {
-    name = "cmp_nvim_lsp",
-    group = "CMP",
-    desc = "Lsp",
-    github = "https://github.com/hrsh7th/cmp-nvim-lsp",
+local _M = base.new({
+    name = 'cmp_nvim_lsp',
+    group = 'CMP',
+    desc = 'Lsp',
+    github = 'https://github.com/hrsh7th/cmp-nvim-lsp',
     auto_load = false,
+    auto_config = false,
     packer = {
         'hrsh7th/cmp-nvim-lsp',
         config = function()
-            require("plugins.cmp.sources.lsp"):config()
-        end
-    }
-}
+            require('plugins.cmp.sources.lsp'):config()
+        end,
+    },
+})
 
 -- _M.setup = function(self, keymaps)
 --   require('cmp').setup {
