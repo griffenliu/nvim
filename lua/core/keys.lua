@@ -152,6 +152,7 @@ _M.setup = function()
     keymap("i", "<C-b>", "<Left>", opt("[编辑] 光标向左移动"))
     keymap("i", "<C-n>", "<Down>", opt("[编辑] 光标向下移动"))
     keymap("i", "<C-p>", "<Up>", opt("[编辑] 光标向上移动"))
+    keymap("i", "<C-/>", '<CMD>lua require("Comment.api").call("toggle_current_linewise_op")<CR>g@$', opt("注释"))
 
     -- 编辑器 =========================================
     -- keymap("n", "q", ":q<CR>", opt("[Editor] 退出"))
