@@ -1,20 +1,20 @@
 -- local vim = vim
 -- local notify = vim.notify
 -- local cmd = vim.cmd
-local base = require("core.plugin.base")
+local base = require('core.plugin.base')
 
-local _M = base.new {
-    name = "lspkind", -- require name
-    group = "LSP",
-    desc = "UI美化",
-    github = "https://github.com/onsails/lspkind.nvim",
+local _M = base.new({
+    name = 'lspkind', -- require name
+    group = 'LSP',
+    desc = 'UI美化',
+    github = 'https://github.com/onsails/lspkind.nvim',
     packer = {
-        "onsails/lspkind-nvim",
+        'onsails/lspkind-nvim',
         config = function()
-            require("plugins.lsp.lspkind"):config()
-        end
-    }
-}
+            require('plugins.lsp.lspkind'):config()
+        end,
+    },
+})
 
 _M.setup = function(self)
     -- lspkind: 美化补全提示界面
@@ -35,32 +35,32 @@ _M.setup = function(self)
         --
         -- default: {}
         symbol_map = {
-            Text = "",
-            Method = "",
-            Function = "",
-            Constructor = "",
-            Field = "ﰠ",
-            Variable = "",
-            Class = "ﴯ",
-            Interface = "",
-            Module = "",
-            Property = "ﰠ",
-            Unit = "塞",
-            Value = "",
-            Enum = "",
-            Keyword = "",
-            Snippet = "",
-            Color = "",
-            File = "",
-            Reference = "",
-            Folder = "",
-            EnumMember = "",
-            Constant = "",
-            Struct = "פּ",
-            Event = "",
-            Operator = "",
-            TypeParameter = ""
-        }
+            Text = '',
+            Method = '',
+            Function = '',
+            Constructor = '',
+            Field = 'ﰠ',
+            Variable = '',
+            Class = 'ﴯ',
+            Interface = '',
+            Module = '',
+            Property = 'ﰠ',
+            Unit = '塞',
+            Value = '',
+            Enum = '',
+            Keyword = '',
+            Snippet = '',
+            Color = '',
+            File = '',
+            Reference = '',
+            Folder = '',
+            EnumMember = '',
+            Constant = '',
+            Struct = 'פּ',
+            Event = '',
+            Operator = '',
+            TypeParameter = '',
+        },
     })
 end
 

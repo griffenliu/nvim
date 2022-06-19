@@ -19,83 +19,94 @@ vim.g.maplocalleader = vim.g.options.leader
 local leader_mappings = {
     ["<leader>w"] = {
         name = "+window",
-        w = {":vsp<CR>", "垂直分屏"},
-        h = {":sp<CR>", "水平分屏"}, -- TODO: 实现一个默认的屏幕布局，快捷键自动布局
-        x = {":close<CR>", "关闭当前窗口"},
-        o = {":only<CR>", "关闭其他窗口"},
-        ["="] = {"<C-w>=", "等比例分割窗口"}
+        w = { ":vsp<CR>", "垂直分屏" },
+        h = { ":sp<CR>", "水平分屏" }, -- TODO: 实现一个默认的屏幕布局，快捷键自动布局
+        x = { ":close<CR>", "关闭当前窗口" },
+        o = { ":only<CR>", "关闭其他窗口" },
+        ["="] = { "<C-w>=", "等比例分割窗口" }
     },
     ["<leader>f"] = {
         name = "+file",
-        n = {"<cmd>enew<cr>", "创建文件"},
-        f = {"<cmd>Telescope find_files<cr>", "查找文件"},
-        r = {"<cmd>Telescope oldfiles<cr>", "打开最近文件"},
-        g = {"<cmd>Telescope live_grep<cr>", "查找指定字符串"},
-        s = {"<cmd>Telescope grep_string<cr>", "查找光标位置的字符串"},
-        c = {"<cmd>Telescope commands<cr>", "查找Nvim命令"},
-        h = {"<cmd>Telescope help_tags<cr>", "查找帮助"},
-        k = {"<cmd>Telescope keymaps<cr>", "查找快捷键"},
-        e = {"<cmd>Telescope env<cr>", "查找环境变量"}
+        n = { "<cmd>enew<cr>", "创建文件" },
+        f = { "<cmd>Telescope find_files<cr>", "查找文件" },
+        r = { "<cmd>Telescope oldfiles<cr>", "打开最近文件" },
+        g = { "<cmd>Telescope live_grep<cr>", "查找指定字符串" },
+        s = { "<cmd>Telescope grep_string<cr>", "查找光标位置的字符串" },
+        c = { "<cmd>Telescope commands<cr>", "查找Nvim命令" },
+        h = { "<cmd>Telescope help_tags<cr>", "查找帮助" },
+        k = { "<cmd>Telescope keymaps<cr>", "查找快捷键" },
+        e = { "<cmd>Telescope env<cr>", "查找环境变量" }
     },
     ["<leader>p"] = {
         name = "+project",
-        p = {"<cmd>Telescope projects<cr>", "项目列表"}
+        p = { "<cmd>Telescope projects<cr>", "项目列表" }
     },
     ["<leader>b"] = {
         name = "+buffer",
-        b = {"<cmd>Telescope buffers<cr>", "打开缓冲区列表"},
-        d = {"<cmd>bd<cr>", "删除当前缓冲区"},
-        n = {"<cmd>bn<cr>", "下一个缓冲区"},
-        p = {"<cmd>bp<cr>", "上一个缓冲区"},
-        ad = {"<cmd>%bd<cr>", "删除所有缓冲区"},
-        c = {"<cmd>Telescope neoclip<cr>", "剪贴板"}
+        b = { "<cmd>Telescope buffers<cr>", "打开缓冲区列表" },
+        d = { "<cmd>bd<cr>", "删除当前缓冲区" },
+        n = { "<cmd>bn<cr>", "下一个缓冲区" },
+        p = { "<cmd>bp<cr>", "上一个缓冲区" },
+        ad = { "<cmd>%bd<cr>", "删除所有缓冲区" },
+        c = { "<cmd>Telescope neoclip<cr>", "剪贴板" }
     },
     ["<leader>t"] = {
         name = "+tool",
-        a = {":Alpha<cr>", "显示Dashboard"},
-        d = {"<cmd>TodoTelescope<cr>", "显示TODO列表"},
-        t = {":sp | terminal<CR>", "从下方打开终端"},
-        v = {":vsp | terminal<CR>", "从右侧打开终端"}
+        a = { ":Alpha<cr>", "显示Dashboard" },
+        d = { "<cmd>TodoTelescope<cr>", "显示TODO列表" },
+        t = { ":sp | terminal<CR>", "从下方打开终端" },
+        v = { ":vsp | terminal<CR>", "从右侧打开终端" }
 
     },
     ["<leader>v"] = {
         name = "+virtual",
-        v = {"<cmd>ToggleLspVirtualLine<CR>", "虚拟诊断样式切换"}
+        v = { "<cmd>ToggleLspVirtualLine<CR>", "虚拟诊断样式切换" }
     },
     ["<leader>m"] = {
         name = "+message",
-        m = {":messages<CR>", "显示消息"},
-        n = {":Notifications<CR>", "显示通知"}
+        m = { ":messages<CR>", "显示消息" },
+        n = { ":Notifications<CR>", "显示通知" }
     },
     ["<leader>s"] = {
         name = "+setting",
-        s = {":e $MYVIMRC | :cd %:p:h | split . | wincmd k | pwd<CR>", "编辑配置"},
-        r = {":PackerSync<CR>", "同步插件"}
+        s = { ":e $MYVIMRC | :cd %:p:h | split . | wincmd k | pwd<CR>", "编辑配置" },
+        r = { ":PackerSync<CR>", "同步插件" }
     },
     ["<leader>h"] = {
         name = "+help",
         c = {
             name = "+辅助记忆",
-            c = {"<cmd>Cheatsheet<cr>", "查找信息"},
-            e = {"<cmd>CheatsheetEdit<cr>", "编辑信息"}
+            c = { "<cmd>Cheatsheet<cr>", "查找信息" },
+            e = { "<cmd>CheatsheetEdit<cr>", "编辑信息" }
         }
     },
-    ["<leader>c"] = {
-        name = "+code action",
-        a = {":Lspsaga code_action<CR>", "Code Action"}
+    -- ["<leader>c"] = {
+    --     name = "+code action",
+    --     a = {":Lspsaga code_action<CR>", "Code Action"}
+    -- },
+
+    -- ["<leader>d"] = {
+    --     name = "+diagnostic",
+    --     o = { "vim.diagnostic.open_float", "打开诊断窗口" },
+    --     p = { "vim.diagnostic.goto_prev", "上一个诊断" },
+    --     n = { "vim.diagnostic.goto_next", "下一个诊断" },
+    --     q = { "vim.diagnostic.setloclist", "loclist?" }
+    -- },
+    ["<leader>l"] = {
+        name = "+LSP",
     },
     ["<leader>"] = {
-        ["`"] = {"<cmd>ToggleExplorer<cr>", "打开文件树"},
-        ["?"] = {"<cmd>Cheatsheet<cr>", "打开CheatSheet"}
+        ["`"] = { "<cmd>ToggleExplorer<cr>", "打开文件树" },
+        ["?"] = { "<cmd>Cheatsheet<cr>", "打开CheatSheet" }
     }
 }
 
-local leader_vmappings = {
-    ["<leader>c"] = {
-        name = "+code action",
-        a = {":<C-U>Lspsaga range_code_action<CR>", "Code Action"}
-    }
-}
+-- local leader_vmappings = {
+--     ["<leader>c"] = {
+--         name = "+code action",
+--         a = { ":<C-U>Lspsaga range_code_action<CR>", "Code Action" }
+--     }
+-- }
 
 local _M = {}
 
@@ -103,9 +114,9 @@ local _M = {}
 -- 这里简单使用which-key
 _M.bind = function(mapper)
     mapper.register(leader_mappings)
-    mapper.register(leader_vmappings, {
-        mode = "v"
-    })
+    -- mapper.register(leader_vmappings, {
+    --     mode = "v"
+    -- })
 end
 
 local function opt(desc)
@@ -115,6 +126,7 @@ local function opt(desc)
         desc = desc or ""
     }
 end
+
 _M.setup = function()
     -- 窗口左右比例控制
     keymap("n", "<C-h>", ":vertical resize -2<CR>", opt("[窗口] 向左移动2个单位"))
@@ -143,11 +155,16 @@ _M.setup = function()
 
     -- 编辑器 =========================================
     -- keymap("n", "q", ":q<CR>", opt("[Editor] 退出"))
+    -- 取消recording快捷键
+    keymap("", "q", "<Nop>", {
+        noremap = true,
+        silent = true
+    })
     keymap("n", "qq", ":q!<CR>", opt("[Editor] 退出"))
     keymap("n", "Q", ":qa!<CR>", opt("[Editor] 退出"))
 
     -- LSP ============================================
-    keymap("n", "gh", ":Lspsaga lsp_finder<CR>", opt("查找定义"))
+    -- keymap("n", "gh", ":Lspsaga lsp_finder<CR>", opt("查找定义"))
 
     keymap("n", "<f5>", ":PackerSync<CR>", opt("刷新配置"))
     keymap("n", "<f6>", ":PackerClean |:PackerCompile<CR>", opt("重新编译配置"))

@@ -61,7 +61,10 @@ _M.after = function(self, ...)
     local keys = table_new(len, 0)
     for i = 1, len do
         local p = select(i, ...)
-        local key = get_packer_key(p.packer[1])
+        local key = p.packer.as
+        if not key then
+            key = get_packer_key(p.packer[1])
+        end
         tabler_insert(keys, key)
     end
     self.packer.after = keys
@@ -79,7 +82,7 @@ _M.config = function(self)
     local group = string.format('%5s', (self.group or ''))
     local name = string.format('%-20s', self.name)
     local desc = self.desc or ''
-    print('load [' .. group .. '] ' .. name .. ' ' .. desc)
+    log.warn('load [' .. group .. '] ' .. name .. ' ' .. desc)
     if not is_loaded then
         return
     end

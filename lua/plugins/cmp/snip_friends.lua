@@ -9,7 +9,6 @@ local _M = base.new({
     group = 'CMP',
     desc = '默认代码片段',
     github = 'https://github.com/rafamadriz/friendly-snippets',
-    auto_load = false,
     auto_config = false,
     packer = {
         'rafamadriz/friendly-snippets',

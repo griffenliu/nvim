@@ -11,7 +11,7 @@ local _M = base.new({
     github = 'https://github.com/williamboman/nvim-lsp-installer',
     packer = {
         'williamboman/nvim-lsp-installer',
-        -- 研究半天，觉得这个拦截在是有BUG的，还是自己实现一个？
+        -- 研究半天，觉得这个懒加载是有BUG的，还是自己实现一个？
         -- ft = "*", -- 懒加载
         -- cond = function()
         --     -- print("111111111111111111")
@@ -25,15 +25,12 @@ local _M = base.new({
         --     print("1111111111111111111111111111")
         --     require('plugins.lsp.installer'):config()
         -- end
-    },
-    packer_ext = { -- rust 语言增强
-    {'simrat39/rust-tools.nvim'}}
+    }
 })
 
 _M.setup = function(self)
-    print("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
+    -- print("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
     self.plugin.setup {
-        -- ensure_installed = { "sumneko_lua", "rust_analyzer" },
         automatic_installation = true,
         ui = {
             icons = {

@@ -11,17 +11,14 @@ local _M = base.new({
     packer = {
         'neovim/nvim-lspconfig',
         config = function()
-            require('plugins.lsp.installer'):config()
             require('plugins.lsp.config'):config()
         end,
     },
 })
 
 _M.setup = function(self)
-    -- lua
-    require('plugins.lsp.langs.lua').setup(self.plugin)
-    -- rust
-    require('plugins.lsp.langs.rust').setup(self.plugin)
+    require('plugins.lsp.installer'):config()
+    -- 其他配置需要Lspsage，因此后移到Lspsaga加载完成后
 end
 
 return _M

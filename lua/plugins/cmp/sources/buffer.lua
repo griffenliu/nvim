@@ -9,7 +9,6 @@ local _M = base.new({
     group = 'CMP',
     desc = '缓冲区',
     github = 'https://github.com/hrsh7th/cmp-buffer',
-    auto_load = false,
     auto_config = false,
     packer = {
         'hrsh7th/cmp-buffer',

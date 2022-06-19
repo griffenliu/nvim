@@ -1,12 +1,17 @@
--- local vim = vim
+local vim = vim
 -- local notify = vim.notify
 -- local cmd = vim.cmd
 local base = require('core.plugin.base')
 
+local has_words_before = function()
+    local line, col = unpack(vim.api.nvim_win_get_cursor(0))
+    return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match('%s') == nil
+end
 local _M = base.new({
     name = 'cmp', -- require name
     group = 'CMP',
     desc = '引擎',
+    github = 'https://github.com/hrsh7th/nvim-cmp',
     packer = {
         'hrsh7th/nvim-cmp',
         config = function()
@@ -14,42 +19,10 @@ local _M = base.new({
         end,
     },
 })
--- local mappings = {}
--- _M.set_keymaps = function(self, keymaps)
---   keymaps.set_custom(self.name, "n", "<A-.>", function(_cmp)
---     return _cmp.mapping(_cmp.mapping.complete(), { "i", "c" })
---   end, "出现补全")
---   keymaps.set_custom(self.name, "n", "<A-,>", function(_cmp)
---     return _cmp.mapping({
---       i = _cmp.mapping.abort(),
---       c = _cmp.mapping.close()
---     })
---   end, "取消")
---   keymaps.set_custom(self.name, "n", "<C-k>", function(_cmp)
---     return _cmp.mapping.select_prev_item()
---   end, "上一个")
---   keymaps.set_custom(self.name, "n", "<C-j>", function(_cmp)
---     return _cmp.mapping.select_next_item()
---   end, "下一个")
---   keymaps.set_custom(self.name, "n", "<CR>", function(_cmp)
---     return _cmp.mapping.confirm({
---       select = true,
---       behavior = _cmp.ConfirmBehavior.Replace
---     })
---   end, "确认")
---   keymaps.set_custom(self.name, "n", "<C-u>", function(_cmp)
---     return _cmp.mapping(_cmp.mapping.scroll_docs(-4), { "i", "c" })
---   end, "向上滚动")
---   keymaps.set_custom(self.name, "n", "<C-d>", function(_cmp)
---     return _cmp.mapping(_cmp.mapping.scroll_docs(4), { "i", "c" })
---   end, "向下滚动")
-
---   keymaps.bind(self.name, function(key, _cmp, _mappings)
---     _mappings[key[2]] = key[3](_cmp)
---   end, self.plugin, mappings)
--- end
 
 _M.setup = function(self)
+    local luasnip = require('luasnip')
+    local cmp = self.plugin
     local config = {
         -- 指定 snippet 引擎
         snippet = {
@@ -58,7 +31,7 @@ _M.setup = function(self)
             end,
         },
         -- 补全源
-        sources = self.plugin.config.sources(
+        sources = cmp.config.sources(
             { {
                 name = 'nvim_lsp',
             }, {
@@ -78,7 +51,29 @@ _M.setup = function(self)
         ),
 
         -- 快捷键设置
-        -- mapping = mappings
+        mapping = {
+            ['<Tab>'] = cmp.mapping(function(fallback)
+                if cmp.visible() then
+                    cmp.select_next_item()
+                elseif luasnip.expand_or_jumpable() then
+                    luasnip.expand_or_jump()
+                elseif has_words_before() then
+                    cmp.complete()
+                else
+                    fallback()
+                end
+            end, { 'i', 's' }),
+
+            ['<S-Tab>'] = cmp.mapping(function(fallback)
+                if cmp.visible() then
+                    cmp.select_prev_item()
+                elseif luasnip.jumpable(-1) then
+                    luasnip.jump(-1)
+                else
+                    fallback()
+                end
+            end, { 'i', 's' }),
+        },
     }
 
     local ok, lspkind = pcall(require, 'lspkind')
@@ -100,20 +95,20 @@ _M.setup = function(self)
         }
     end
 
-    self.plugin.setup(config)
+    cmp.setup(config)
 
     -- / 查找模式使用 buffer 源
-    self.plugin.setup.cmdline('/', {
-        mapping = self.plugin.mapping.preset.cmdline(),
+    cmp.setup.cmdline('/', {
+        mapping = cmp.mapping.preset.cmdline(),
         sources = { {
             name = 'buffer',
         } },
     })
 
     -- : 命令行模式中使用 path 和 cmdline 源.
-    self.plugin.setup.cmdline(':', {
-        mapping = self.plugin.mapping.preset.cmdline(),
-        sources = self.plugin.config.sources(
+    cmp.setup.cmdline(':', {
+        mapping = cmp.mapping.preset.cmdline(),
+        sources = cmp.config.sources(
             { {
                 name = 'path',
             } },
@@ -122,14 +117,6 @@ _M.setup = function(self)
             } }
         ),
     })
-
-    -- Setup lspconfig.
-    -- local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
-    -- -- Replace <YOUR_LSP_SERVER> with each lsp server you've enabled.
-    -- -- TODO: 这里还未搞明白，多半是直接设置成null-ls就行了
-    -- require('lspconfig')['<YOUR_LSP_SERVER>'].setup {
-    --   capabilities = capabilities
-    -- }
 end
 
 return _M

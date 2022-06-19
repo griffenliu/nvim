@@ -9,7 +9,6 @@ local _M = base.new({
     group = 'CMP',
     desc = '代码片段引擎',
     github = 'https://github.com/L3MON4D3/LuaSnip',
-    auto_load = false,
     auto_config = false,
     packer = {
         'L3MON4D3/LuaSnip',

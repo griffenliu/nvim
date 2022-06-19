@@ -93,7 +93,7 @@ local function show_pick_window()
 end
 
 local function hide()
-  vim.pretty_print(_M.wins)
+  -- vim.pretty_print(_M.wins)
   for _, win in pairs(_M.wins) do
     -- 隐藏浮动窗口
     -- local bufid = api.nvim_win_get_buf(win.nwid) -- bufid 也存储了，省略一次获取操作

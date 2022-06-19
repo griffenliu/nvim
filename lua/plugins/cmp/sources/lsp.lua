@@ -9,7 +9,6 @@ local _M = base.new({
     group = 'CMP',
     desc = 'Lsp',
     github = 'https://github.com/hrsh7th/cmp-nvim-lsp',
-    auto_load = false,
     auto_config = false,
     packer = {
         'hrsh7th/cmp-nvim-lsp',

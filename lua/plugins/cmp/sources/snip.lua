@@ -9,7 +9,6 @@ local _M = base.new({
     group = 'CMP',
     desc = '代码片段',
     github = 'https://github.com/saadparwaiz1/cmp_luasnip',
-    auto_load = false,
     auto_config = false,
     packer = {
         'saadparwaiz1/cmp_luasnip',

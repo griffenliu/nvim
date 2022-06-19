@@ -31,13 +31,7 @@ _M.setup = function(after_plugin)
     plugins.todo:after(plugins.telescope)
     plugins.clipboard:after(plugins.telescope)
 
-    local finish = require("plugins.ide.finish")
-    local afters = {}
-    for _, p in pairs(plugins) do
-        table.insert(afters, p)
-    end
-    finish:after(unpack(afters))
-    return finish
+    return plugins.telescope
 end
 
 return _M

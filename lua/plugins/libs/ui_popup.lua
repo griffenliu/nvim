@@ -10,7 +10,6 @@ local _M = base.new({
     group = 'LIB',
     desc = '弹出窗口',
     github = 'https://github.com/nvim-lua/popup.nvim',
-    auto_load = false,
     auto_config = false,
     packer = {
         'nvim-lua/popup.nvim',

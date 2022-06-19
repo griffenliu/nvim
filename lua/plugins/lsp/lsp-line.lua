@@ -6,7 +6,7 @@ local diagnostic = vim.diagnostic
 
 local base = require('core.plugin.base')
 
-local config_path = vim.fn.stdpath "config"
+local config_path = vim.g.options.config_path
 
 -- FIXME: 使用其git库下载比较费劲，这里直接使用本地目录
 local _M = base.new({
@@ -18,7 +18,7 @@ local _M = base.new({
         config_path .. '/ext/lsp_lines.nvim',
         as = 'lsp_lines', -- 定义别名，否则创建目录报错
         config = function()
-            require('plugins.lsp.virtual-line'):config()
+            require('plugins.lsp.lsp-line'):config()
         end
     }
 })

@@ -134,7 +134,7 @@ M.options = {
 M.bootstrap = function()
     local fn = vim.fn
     local install_path = fn.stdpath('data') .. '/site/pack/packer/start/packer.nvim'
-    print('packer install path: ' .. install_path)
+
     vim.api.nvim_set_hl(0, 'NormalFloat', {
         bg = '#1e222a',
     })

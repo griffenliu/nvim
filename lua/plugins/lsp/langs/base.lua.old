@@ -1,0 +1,97 @@
+local vim = vim
+local lsp = vim.lsp
+local api = vim.api
+
+local _M = {}
+
+local default_keymaps = function(opt)
+    vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, opt("跳转到声明"))
+    vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opt("跳转到定义"))
+    vim.keymap.set('n', 'gh', vim.lsp.buf.hover, opt("显示悬停信息"))
+    vim.keymap.set('n', 'gm', vim.lsp.buf.implementation, opt("跳转到实现"))
+    vim.keymap.set('n', 'gr', vim.lsp.buf.rename, opt("重命名"))
+    vim.keymap.set('n', 'ga', vim.lsp.buf.code_action, opt("代码动作"))
+    vim.keymap.set('n', 'K', vim.lsp.buf.references, opt("快速参考"))
+    vim.keymap.set('n', 'gt', vim.lsp.buf.type_definition, opt("类型定义"))
+    vim.keymap.set('n', 'gk', vim.lsp.buf.signature_help, opt("签名帮助"))
+    vim.keymap.set('n', 'wa', vim.lsp.buf.add_workspace_folder, opt("添加工作空间目录"))
+    vim.keymap.set('n', 'wr', vim.lsp.buf.remove_workspace_folder, opt("移除工作空间目录"))
+    vim.keymap.set('n', 'wl', function()
+        print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
+    end, opt("打印工作空间列表"))
+end
+
+local get_on_attach = function(keymaps)
+    return function(client, bufnr)
+        client.server_capabilities.documentFormattingProvider      = false
+        client.server_capabilities.documentRangeFormattingProvider = false
+
+        -- Enable completion triggered by <c-x><c-o>
+        api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
+        -- Mappings.
+        -- See `:help vim.diagnostic.*` for documentation on any of the below functions
+        -- local opts = { noremap = true, silent = true }
+        -- vim.keymap.set('n', '<space>e', vim.diagnostic.open_float, opts)
+        -- vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, opts)
+        -- vim.keymap.set('n', ']d', vim.diagnostic.goto_next, opts)
+        -- vim.keymap.set('n', '<space>q', vim.diagnostic.setloclist, opts)
+        -- Mappings.
+        -- See `:help vim.lsp.*` for documentation on any of the below functions
+
+        local bufopts = { noremap = true, silent = true, buffer = bufnr }
+        local opt = function(desc)
+            local newopt = vim.deepcopy(bufopts)
+            newopt.desc = desc
+            return newopt
+        end
+        default_keymaps(opt)
+        if keymaps and type(keymaps) == "function" then
+            keymaps(opt)
+        end
+
+        -- vim.keymap.set('n', '<leader>f', vim.lsp.buf.formatting, bufopts)
+        -- ???
+        if client.supports_method('textDocument/signatureHelp') then
+            api.nvim_create_autocmd({ 'CursorHoldI' }, {
+                pattern = '*',
+                group = api.nvim_create_augroup('LspSignature', {}),
+                callback = function()
+                    lsp.buf.signature_help()
+                end,
+            })
+        end
+    end
+end
+
+local capabilities = lsp.protocol.make_client_capabilities()
+
+capabilities.textDocument.completion.completionItem = {
+    documentationFormat = { 'markdown', 'plaintext' },
+    snippetSupport = true,
+    preselectSupport = true,
+    insertReplaceSupport = true,
+    labelDetailsSupport = true,
+    deprecatedSupport = true,
+    commitCharactersSupport = true,
+    tagSupport = {
+        valueSet = { 1 },
+    },
+    resolveSupport = {
+        properties = { 'documentation', 'detail', 'additionalTextEdits' },
+    },
+}
+
+_M.merge = function(opts)
+    opts = opts or {}
+    opts.on_attach = get_on_attach(opts.keymaps)
+    opts.capabilities = capabilities
+    return opts
+end
+-- _M.new = function(opts)
+--     opts = opts or {}
+--     opts.on_attach = get_on_attach(opts.keymaps)
+--     opts.capabilities = capabilities
+--     return { opts = opts }
+-- end
+
+return _M

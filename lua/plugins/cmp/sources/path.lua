@@ -9,7 +9,6 @@ local _M = base.new({
     group = 'CMP',
     desc = '系统路径',
     github = 'https://github.com/hrsh7th/cmp-path',
-    auto_load = false,
     auto_config = false,
     packer = {
         'hrsh7th/cmp-path',

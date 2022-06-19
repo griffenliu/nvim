@@ -5,7 +5,6 @@ if not status then
   return
 end
 local home = vim.env.HOME
-print("============= " .. home)
 local workspace_root = home .. "/notes"
 
 neorg.setup {

@@ -12,23 +12,19 @@ _M.setup = function(after_plugin)
         source_path = require('plugins.cmp.sources.path'),
         source_nvim_lua = require('plugins.cmp.sources.nvim-lua')
     }
-    plugins.cmp:after(after_plugin)
     -- 代码片段引擎
-    plugins.snip:after(plugins.cmp)
+    plugins.snip:after(after_plugin)
     plugins.snip_friends:after(plugins.snip)
+    -- 补全
+    plugins.cmp:after(plugins.snip)
     -- 补全源定义
-    plugins.source_snip:after(plugins.snip)
-    plugins.source_lsp:after(plugins.snip)
-    plugins.source_buffer:after(plugins.snip)
-    plugins.source_path:after(plugins.snip)
-    plugins.source_nvim_lua:after(plugins.snip)
-    local finish = require('plugins.cmp.finish')
-    local afters = {}
-    for _, p in pairs(plugins) do
-        table.insert(afters, p)
-    end
-    finish:after(unpack(afters))
-    return finish
+    plugins.source_snip:after(plugins.cmp)
+    plugins.source_lsp:after(plugins.cmp)
+    plugins.source_buffer:after(plugins.cmp)
+    plugins.source_path:after(plugins.cmp)
+    plugins.source_nvim_lua:after(plugins.cmp)
+
+    return plugins.snip
 end
 
 return _M

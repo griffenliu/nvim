@@ -9,7 +9,6 @@ local _M = base.new({
     group = 'CMP',
     desc = 'NeoVim-LuaApi',
     github = 'https://github.com/hrsh7th/cmp-nvim-lua',
-    auto_load = false,
     auto_config = false,
     packer = {
         'hrsh7th/cmp-nvim-lua',
