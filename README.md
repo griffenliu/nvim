@@ -1,9 +1,7 @@
 ## 环境变量
 
 -- FIXME: 注意：版本一定要选择最新的 0.8 版本
--- FIXME: null-ls 的 client.lua 代码有一些 BUG，在 nvim0.8 版本中，会报一个 unpack 的错误，原因是因为获取到的数据是字符串，unpack 的参数需要是 table，目前的解决办法是直接修改其源码，希望官方可以尽快修复。
 
-- [ ] TODO: 需要把文档都查阅一下，尽量都使用默认的配置，如果可行的化，UI 可能需要自定义，其他默认能用就用，快捷键也是一样
 - [ ] TODO: 窗口选择，参考一下[gitlab.com/yorickpeterse/nvim-window](https://gitlab.com/yorickpeterse/nvim-window) ，看看是如何实现的
 
 ### Windows
