@@ -12,16 +12,16 @@ local _M = base.new({
         'nvim-lua/plenary.nvim',
         config = function()
             require('plugins.libs.func_plenary'):config()
-        end,
-    },
+        end
+    }
 })
 
 _M.setup = function(self)
     local default_opts = {
         plugin = "mylog",
-        use_console = 'async', -- values: 'sync','async',false
+        use_console = 'async' -- values: 'sync','async',false
     }
-    _G.log = self.plugin.new(default_opts)
+    vim.mylog = self.plugin.new(default_opts)
 end
 
 return _M

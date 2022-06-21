@@ -28,13 +28,13 @@ local _M = {
     desc = 'default',
     group = 'default',
     auto_config = true, -- 是否自动加载配置
-    packer = {},
+    packer = {}
     -- ext_name = "",   -- 有些插件加载的package名称和其插件名称是不同的，此时可以使用这个进行扩展
 }
 
 _M.new = function(def)
     local p = setmetatable(def, {
-        __index = _M,
+        __index = _M
     })
     plugin_loader.add(p)
     return p
@@ -82,11 +82,7 @@ _M.config = function(self)
     local group = string.format('%5s', (self.group or ''))
     local name = string.format('%-20s', self.name)
     local desc = self.desc or ''
-    log.warn('load [' .. group .. '] ' .. name .. ' ' .. desc)
-    if not is_loaded then
-        return
-    end
-
+    vim.mylog.warn('load [' .. group .. '] ' .. name .. ' ' .. desc)
     self:setup()
 end
 

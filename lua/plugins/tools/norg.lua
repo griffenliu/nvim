@@ -8,15 +8,15 @@ local _M = base.new({
     name = 'neorg',
     group = 'TOOL',
     desc = 'Norg笔记',
-    github = '',
+    github = 'https://github.com/nvim-neorg/neorg',
     packer = {
         'nvim-neorg/neorg',
         requires = 'nvim-lua/plenary.nvim',
-        ft = 'norg',
+        -- ft = 'norg',
         config = function()
             require('plugins.tools.norg'):config()
-        end,
-    },
+        end
+    }
 })
 
 _M.setup = function(self)
@@ -25,12 +25,12 @@ _M.setup = function(self)
             ['core.defaults'] = {},
             ['core.norg.dirman'] = {
                 config = {
-                    workspaces = vim.g.options.workspace,
-                },
+                    workspaces = vim.g.options.workspace
+                }
             },
-            ['core.norg.concealer'] = {},
+            ['core.norg.concealer'] = {}
             -- ['core.norg.completion'] = { config = { engine = 'cmp' } },
-        },
+        }
     })
 end
 
